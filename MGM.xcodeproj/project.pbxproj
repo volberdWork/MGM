@@ -15,6 +15,10 @@
 		BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD949E2C296ED69E008B1C14 /* Assets.xcassets */; };
 		BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD949E2E296ED69E008B1C14 /* LaunchScreen.storyboard */; };
 		BD949E38296EE507008B1C14 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BD949E37296EE507008B1C14 /* Podfile */; };
+		BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E3A296EF558008B1C14 /* PresentViewController.swift */; };
+		BD949E40296F06B1008B1C14 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E3D296F06B1008B1C14 /* UIView+.swift */; };
+		BD949E41296F06B1008B1C14 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E3E296F06B1008B1C14 /* UIScrollView+.swift */; };
+		BD949E42296F06B1008B1C14 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E3F296F06B1008B1C14 /* UILabel+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		BD949E2F296ED69E008B1C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD949E31296ED69E008B1C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD949E37296EE507008B1C14 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		BD949E3A296EF558008B1C14 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
+		BD949E3D296F06B1008B1C14 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		BD949E3E296F06B1008B1C14 /* UIScrollView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		BD949E3F296F06B1008B1C14 /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 		BD949E22296ED69B008B1C14 /* MGM */ = {
 			isa = PBXGroup;
 			children = (
+				BD949E3C296F069E008B1C14 /* Helpers */,
 				BD949E39296EE559008B1C14 /* VievControllers */,
 				BD949E23296ED69B008B1C14 /* AppDelegate.swift */,
 				BD949E25296ED69B008B1C14 /* SceneDelegate.swift */,
@@ -89,8 +98,19 @@
 			isa = PBXGroup;
 			children = (
 				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
+				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
 			);
 			path = VievControllers;
+			sourceTree = "<group>";
+		};
+		BD949E3C296F069E008B1C14 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BD949E3F296F06B1008B1C14 /* UILabel+.swift */,
+				BD949E3E296F06B1008B1C14 /* UIScrollView+.swift */,
+				BD949E3D296F06B1008B1C14 /* UIView+.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F0AFF63887B3BE576F99F2AC /* Pods */ = {
@@ -220,7 +240,11 @@
 			files = (
 				BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,
+				BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */,
+				BD949E41296F06B1008B1C14 /* UIScrollView+.swift in Sources */,
+				BD949E42296F06B1008B1C14 /* UILabel+.swift in Sources */,
 				BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */,
+				BD949E40296F06B1008B1C14 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
