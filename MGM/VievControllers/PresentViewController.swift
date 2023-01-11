@@ -4,19 +4,43 @@ class PresentViewController: UIViewController{
     
     lazy var firstView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        let image = UIImage(named: "presentFirstImage")
+        let imageView = UIImageView(image: image)
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
+        }
         return view
     }()
     
     lazy var secondView: UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
+        let image = UIImage(named: "presentSecondImage")
+        let imageView = UIImageView(image: image)
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
+        }
         return view
     }()
     
     lazy var thirdView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemYellow
+        let image = UIImage(named: "presentThirdImage")
+        let imageView = UIImageView(image: image)
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
+        }
         
         return view
     }()
