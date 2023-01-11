@@ -15,6 +15,7 @@ class PreloadreController: UIViewController {
     }
     
    private func configureView(){
+       
         view.backgroundColor = UIColor(displayP3Red: 41/255, green: 42/255, blue: 46/255, alpha: 1)
         let logo = UIImageView(image: logoImage)
         view.addSubview(logo)
