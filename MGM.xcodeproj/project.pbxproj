@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B21664A0CE38A11E3903788 /* Pods_MGM.framework */; };
 		BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E23296ED69B008B1C14 /* AppDelegate.swift */; };
 		BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E25296ED69B008B1C14 /* SceneDelegate.swift */; };
-		BD949E28296ED69B008B1C14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E27296ED69B008B1C14 /* ViewController.swift */; };
+		BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E27296ED69B008B1C14 /* PreloaderController.swift */; };
 		BD949E2B296ED69B008B1C14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD949E29296ED69B008B1C14 /* Main.storyboard */; };
 		BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD949E2C296ED69E008B1C14 /* Assets.xcassets */; };
 		BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD949E2E296ED69E008B1C14 /* LaunchScreen.storyboard */; };
+		BD949E38296EE507008B1C14 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BD949E37296EE507008B1C14 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		087EFD219A3D77B9B7956740 /* Pods-MGM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGM.release.xcconfig"; path = "Target Support Files/Pods-MGM/Pods-MGM.release.xcconfig"; sourceTree = "<group>"; };
+		7B21664A0CE38A11E3903788 /* Pods_MGM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8129B6208931FC146AC835E /* Pods-MGM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGM.debug.xcconfig"; path = "Target Support Files/Pods-MGM/Pods-MGM.debug.xcconfig"; sourceTree = "<group>"; };
 		BD949E20296ED69B008B1C14 /* MGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD949E23296ED69B008B1C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD949E25296ED69B008B1C14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BD949E27296ED69B008B1C14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD949E27296ED69B008B1C14 /* PreloaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloaderController.swift; sourceTree = "<group>"; };
 		BD949E2A296ED69B008B1C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD949E2C296ED69E008B1C14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD949E2F296ED69E008B1C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD949E31296ED69E008B1C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD949E37296EE507008B1C14 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		596BF7793E26EC2BE3737B59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B21664A0CE38A11E3903788 /* Pods_MGM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD949E17296ED69B008B1C14 = {
 			isa = PBXGroup;
 			children = (
 				BD949E22296ED69B008B1C14 /* MGM */,
 				BD949E21296ED69B008B1C14 /* Products */,
+				F0AFF63887B3BE576F99F2AC /* Pods */,
+				596BF7793E26EC2BE3737B59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +73,33 @@
 		BD949E22296ED69B008B1C14 /* MGM */ = {
 			isa = PBXGroup;
 			children = (
+				BD949E39296EE559008B1C14 /* VievControllers */,
 				BD949E23296ED69B008B1C14 /* AppDelegate.swift */,
 				BD949E25296ED69B008B1C14 /* SceneDelegate.swift */,
-				BD949E27296ED69B008B1C14 /* ViewController.swift */,
 				BD949E29296ED69B008B1C14 /* Main.storyboard */,
 				BD949E2C296ED69E008B1C14 /* Assets.xcassets */,
 				BD949E2E296ED69E008B1C14 /* LaunchScreen.storyboard */,
+				BD949E37296EE507008B1C14 /* Podfile */,
 				BD949E31296ED69E008B1C14 /* Info.plist */,
 			);
 			path = MGM;
+			sourceTree = "<group>";
+		};
+		BD949E39296EE559008B1C14 /* VievControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
+			);
+			path = VievControllers;
+			sourceTree = "<group>";
+		};
+		F0AFF63887B3BE576F99F2AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8129B6208931FC146AC835E /* Pods-MGM.debug.xcconfig */,
+				087EFD219A3D77B9B7956740 /* Pods-MGM.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD949E34296ED69E008B1C14 /* Build configuration list for PBXNativeTarget "MGM" */;
 			buildPhases = (
+				80701464C70583CB6D2802FA /* [CP] Check Pods Manifest.lock */,
 				BD949E1C296ED69B008B1C14 /* Sources */,
 				BD949E1D296ED69B008B1C14 /* Frameworks */,
 				BD949E1E296ED69B008B1C14 /* Resources */,
+				9A530F9063ADDEDD49F24471 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,18 +164,61 @@
 			files = (
 				BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */,
 				BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */,
+				BD949E38296EE507008B1C14 /* Podfile in Resources */,
 				BD949E2B296ED69B008B1C14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		80701464C70583CB6D2802FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MGM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A530F9063ADDEDD49F24471 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MGM/Pods-MGM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MGM/Pods-MGM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MGM/Pods-MGM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD949E1C296ED69B008B1C14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD949E28296ED69B008B1C14 /* ViewController.swift in Sources */,
+				BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,
 				BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +362,7 @@
 		};
 		BD949E35296ED69E008B1C14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8129B6208931FC146AC835E /* Pods-MGM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +391,7 @@
 		};
 		BD949E36296ED69E008B1C14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 087EFD219A3D77B9B7956740 /* Pods-MGM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
