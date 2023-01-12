@@ -22,6 +22,7 @@
 		BD949E4B296F5F39008B1C14 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E4A296F5F39008B1C14 /* UILabel+.swift */; };
 		BD949E4E297011E7008B1C14 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E4D297011E7008B1C14 /* Roboto.ttf */; };
 		BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */; };
+		BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E592970453E008B1C14 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		BD949E4A296F5F39008B1C14 /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+.swift"; path = "../../../../../Downloads/PagingViewsTutorial-main/PagingViewsTutorial/Helpers/UILabel+.swift"; sourceTree = "<group>"; };
 		BD949E4D297011E7008B1C14 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat ExtraBold.ttf"; sourceTree = "<group>"; };
+		BD949E592970453E008B1C14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
 				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
+				BD949E592970453E008B1C14 /* HomeViewController.swift */,
 			);
 			path = VievControllers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				BD949E4B296F5F39008B1C14 /* UILabel+.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,
 				BD949E44296F0E6A008B1C14 /* UIScrollView+.swift in Sources */,
+				BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */,
 				BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */,
 				BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */,
 				BD949E49296F5BF0008B1C14 /* Extensions.swift in Sources */,

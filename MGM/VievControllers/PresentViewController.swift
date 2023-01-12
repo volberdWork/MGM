@@ -61,8 +61,8 @@ class PresentViewController: UIViewController{
         textLabel.text = """
         Be aware of all the
         details and know
-        the latest
-        news with MGM team
+        the latest news
+        with MGM team
         """
         
         textLabel.numberOfLines = 4
@@ -71,10 +71,10 @@ class PresentViewController: UIViewController{
         let strNumber: NSString = textLabel.text! as NSString
         var range = (strNumber).range(of: "MGM")
         
-        var attributedString = NSMutableAttributedString(string: textLabel.text!, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto", size: 30.0)!])
+        var attributedString = NSMutableAttributedString(string: textLabel.text!, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto", size: 28.0)!])
         // here you change the character to red color
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value:  UIColor(red: 0.831, green: 0.725, blue: 0.384, alpha: 1), range: range)
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Montserrat-ExtraBold", size: 33.0), range: range)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Montserrat-ExtraBold", size: 30.0), range: range)
         
         textLabel.attributedText = attributedString
         
@@ -96,7 +96,7 @@ class PresentViewController: UIViewController{
         let view = UIView()
         let image = UIImage(named: "presentThirdImage")
         let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalTo(0)
@@ -108,22 +108,44 @@ class PresentViewController: UIViewController{
         let textLabel = UILabel()
         var textForLabel = ""
         textLabel.text = """
-        Do you want to be at
-        the epicenter of
-        American football
-        events?
+        The best sports
+        book for true
+        connoisseurs of
+        brutal sports
         """
-        textLabel.font = UIFont(name:"Roboto", size: 24.0)
+        textLabel.font = UIFont(name:"Roboto", size: 26.0)
         textLabel.numberOfLines = 4
         textLabel.textColor = .white
         imageView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
-            make.top.equalToSuperview().inset(imageView.frame.height/4)
+            make.top.equalToSuperview().inset(imageView.frame.height/5)
             make.width.equalTo(300)
-            make.height.equalTo(130)
+            make.height.equalTo(160)
             
         }
+        
+        var buttonGetStarted = UIButton(type: .custom)
+        buttonGetStarted.backgroundColor = .none
+        let imageButton = UIImage(named: "startedButton")
+       
+       
+        buttonGetStarted.setImage(imageButton, for: .normal)
+        buttonGetStarted.clipsToBounds = true
+        buttonGetStarted.imageView?.contentMode = .scaleToFill
+//         buttonGetStarted.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
+        
+        imageView.addSubview(buttonGetStarted)
+        
+        buttonGetStarted.snp.makeConstraints { make in
+            make.width.equalTo(125)
+            make.height.equalTo(42)
+            make.centerX.equalTo(self.view.center.x)
+            make.bottom.equalToSuperview().inset(100)
+        }
+        
+        
+        
         
         return view
     }()
@@ -157,6 +179,11 @@ class PresentViewController: UIViewController{
     @objc
     func pageControlTapHandler(sender: UIPageControl) {
         scrollView.scrollTo(horizontalPage: sender.currentPage, animated: true)
+    }
+    
+    @objc
+    func loadVC(){
+        
     }
     
     override func viewDidLoad() {
