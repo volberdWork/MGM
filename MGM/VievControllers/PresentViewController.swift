@@ -4,8 +4,12 @@ class PresentViewController: UIViewController{
     
     lazy var firstView: UIView = {
         let view = UIView()
+        self.view.backgroundColor = .black
+        
         let image = UIImage(named: "presentFirstImage")
+        
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalTo(0)
@@ -13,6 +17,21 @@ class PresentViewController: UIViewController{
             make.right.equalTo(0)
             make.bottom.equalTo(0)
         }
+        
+        let textLabel = UILabel()
+        textLabel.text = "Do you want to be at the epicenter of American football events?"
+        textLabel.font = UIFont(name:"Roboto", size: 24.0)
+        textLabel.numberOfLines = 4
+        textLabel.textColor = .white
+        imageView.addSubview(textLabel)
+        textLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(27)
+            make.bottom.equalToSuperview().inset(imageView.frame.height/5)
+            make.width.equalTo(300)
+            make.height.equalTo(120)
+            
+        }
+        
         return view
     }()
     
@@ -75,9 +94,10 @@ class PresentViewController: UIViewController{
     func pageControlTapHandler(sender: UIPageControl) {
         scrollView.scrollTo(horizontalPage: sender.currentPage, animated: true)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         
         view.addSubview(scrollView)
@@ -86,8 +106,8 @@ class PresentViewController: UIViewController{
         view.addSubview(pageControl)
         pageControl.pinTo(view)
     }
-
-
+    
+    
 }
 
 extension PresentViewController: UIScrollViewDelegate {

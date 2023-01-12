@@ -8,6 +8,7 @@ class PreloadreController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
        configureView()
         
         
