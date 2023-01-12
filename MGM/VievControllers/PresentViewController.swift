@@ -2,6 +2,8 @@ import UIKit
 import SnapKit
 class PresentViewController: UIViewController{
     
+    var buttonStart = UIButton()
+    
     lazy var firstView: UIView = {
         let view = UIView()
         
@@ -34,9 +36,6 @@ class PresentViewController: UIViewController{
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
             make.bottom.equalToSuperview().inset(imageView.frame.height/4)
-            make.width.equalTo(300)
-            make.height.equalTo(130)
-            
         }
         
         return view
@@ -88,7 +87,6 @@ class PresentViewController: UIViewController{
         }
         
         
-        
         return view
     }()
     
@@ -119,33 +117,27 @@ class PresentViewController: UIViewController{
         imageView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
-            make.top.equalToSuperview().inset(imageView.frame.height/5)
-            make.width.equalTo(300)
-            make.height.equalTo(160)
-            
+            make.top.equalToSuperview().inset(70)
         }
-        
-        var buttonGetStarted = UIButton(type: .custom)
-        buttonGetStarted.backgroundColor = .none
-        let imageButton = UIImage(named: "startedButton")
-       
-       
-        buttonGetStarted.setImage(imageButton, for: .normal)
-        buttonGetStarted.clipsToBounds = true
-        buttonGetStarted.imageView?.contentMode = .scaleToFill
-//         buttonGetStarted.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
-        
-        imageView.addSubview(buttonGetStarted)
-        
-        buttonGetStarted.snp.makeConstraints { make in
-            make.width.equalTo(125)
-            make.height.equalTo(42)
-            make.centerX.equalTo(self.view.center.x)
-            make.bottom.equalToSuperview().inset(100)
+
+        let secondTextLabel = UILabel()
+        var secondTextForLabel = ""
+        secondTextLabel.text = """
+        Planned events, upcoming and
+        current matches, detailed
+        information about teams and
+        players
+        """
+        secondTextLabel.font = UIFont(name:"Roboto", size: 16.0)
+        secondTextLabel.numberOfLines = 4
+        secondTextLabel.textColor = .white
+         imageView.addSubview(secondTextLabel)
+        secondTextLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(22)
+            make.bottom.equalToSuperview().inset(self.view.frame.height/3.8)
         }
-        
-        
-        
+        print(self.view.frame.height)
+       
         
         return view
     }()
@@ -176,6 +168,8 @@ class PresentViewController: UIViewController{
         return pageControl
     }()
     
+  
+    
     @objc
     func pageControlTapHandler(sender: UIPageControl) {
         scrollView.scrollTo(horizontalPage: sender.currentPage, animated: true)
@@ -183,7 +177,12 @@ class PresentViewController: UIViewController{
     
     @objc
     func loadVC(){
-        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = main.instantiateViewController(withIdentifier: "navigationID") as? UINavigationController {
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+       
     }
     
     override func viewDidLoad() {
@@ -196,6 +195,30 @@ class PresentViewController: UIViewController{
         
         view.addSubview(pageControl)
         pageControl.pinTo(view)
+        
+      buttonConfigure()
+    }
+    
+    func buttonConfigure(){
+        
+        var buttonGetStarted = buttonStart
+        buttonGetStarted.backgroundColor = .none
+        let imageButton = UIImage(named: "startedButton")
+       
+       
+        buttonGetStarted.setImage(imageButton, for: .normal)
+        buttonGetStarted.clipsToBounds = true
+        buttonGetStarted.imageView?.contentMode = .scaleToFill
+        
+        
+        thirdView.addSubview(buttonGetStarted)
+        buttonStart.addTarget(self, action: #selector(loadVC), for: .touchUpInside)
+        buttonGetStarted.snp.makeConstraints { make in
+            make.width.equalTo(125)
+            make.height.equalTo(42)
+            make.centerX.equalTo(self.view.center.x)
+            make.bottom.equalToSuperview().inset(100)
+        }
     }
     
     
