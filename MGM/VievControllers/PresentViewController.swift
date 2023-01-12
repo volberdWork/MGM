@@ -4,6 +4,7 @@ class PresentViewController: UIViewController{
     
     lazy var firstView: UIView = {
         let view = UIView()
+        
         self.view.backgroundColor = .black
         
         let image = UIImage(named: "presentFirstImage")
@@ -19,16 +20,22 @@ class PresentViewController: UIViewController{
         }
         
         let textLabel = UILabel()
-        textLabel.text = "Do you want to be at the epicenter of American football events?"
+        var textForLabel = ""
+        textLabel.text = """
+        Do you want to be at
+        the epicenter of
+        American football
+        events?
+        """
         textLabel.font = UIFont(name:"Roboto", size: 24.0)
         textLabel.numberOfLines = 4
         textLabel.textColor = .white
         imageView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
-            make.bottom.equalToSuperview().inset(imageView.frame.height/5)
+            make.bottom.equalToSuperview().inset(imageView.frame.height/4)
             make.width.equalTo(300)
-            make.height.equalTo(120)
+            make.height.equalTo(130)
             
         }
         
@@ -37,8 +44,11 @@ class PresentViewController: UIViewController{
     
     lazy var secondView: UIView = {
         let view = UIView()
+        
         let image = UIImage(named: "presentSecondImage")
+        
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalTo(0)
@@ -46,6 +56,39 @@ class PresentViewController: UIViewController{
             make.right.equalTo(0)
             make.bottom.equalTo(0)
         }
+        
+        let textLabel = UILabel()
+        textLabel.text = """
+        Be aware of all the
+        details and know
+        the latest
+        news with MGM team
+        """
+        
+        textLabel.numberOfLines = 4
+        textLabel.textColor = .white
+        
+        let strNumber: NSString = textLabel.text! as NSString
+        var range = (strNumber).range(of: "MGM")
+        
+        var attributedString = NSMutableAttributedString(string: textLabel.text!, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto", size: 30.0)!])
+        // here you change the character to red color
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value:  UIColor(red: 0.831, green: 0.725, blue: 0.384, alpha: 1), range: range)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Montserrat-ExtraBold", size: 33.0), range: range)
+        
+        textLabel.attributedText = attributedString
+        
+        imageView.addSubview(textLabel)
+        textLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(27)
+            make.top.equalToSuperview().inset(imageView.frame.height/5)
+            make.left.equalTo(27)
+            make.height.equalTo(190)
+            
+        }
+        
+        
+        
         return view
     }()
     
@@ -53,12 +96,33 @@ class PresentViewController: UIViewController{
         let view = UIView()
         let image = UIImage(named: "presentThirdImage")
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.right.equalTo(0)
             make.bottom.equalTo(0)
+        }
+        
+        let textLabel = UILabel()
+        var textForLabel = ""
+        textLabel.text = """
+        Do you want to be at
+        the epicenter of
+        American football
+        events?
+        """
+        textLabel.font = UIFont(name:"Roboto", size: 24.0)
+        textLabel.numberOfLines = 4
+        textLabel.textColor = .white
+        imageView.addSubview(textLabel)
+        textLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(27)
+            make.top.equalToSuperview().inset(imageView.frame.height/4)
+            make.width.equalTo(300)
+            make.height.equalTo(130)
+            
         }
         
         return view
@@ -114,5 +178,20 @@ extension PresentViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / view.frame.width)
         pageControl.currentPage = Int(pageIndex)
+    }
+}
+
+
+
+
+
+
+extension UILabel {
+    func halfTextColorChange (fullText : String , changeText : String ) {
+        let strNumber: NSString = fullText as NSString
+        let range = (strNumber).range(of: changeText)
+        let attribute = NSMutableAttributedString.init(string: fullText)
+        var attributedString = NSAttributedString(string: fullText, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 18.0)!])
+        self.attributedText = attributedString
     }
 }

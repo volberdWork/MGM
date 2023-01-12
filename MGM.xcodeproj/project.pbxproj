@@ -21,6 +21,7 @@
 		BD949E49296F5BF0008B1C14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E48296F5BF0008B1C14 /* Extensions.swift */; };
 		BD949E4B296F5F39008B1C14 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E4A296F5F39008B1C14 /* UILabel+.swift */; };
 		BD949E4E297011E7008B1C14 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E4D297011E7008B1C14 /* Roboto.ttf */; };
+		BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,13 +36,14 @@
 		BD949E2C296ED69E008B1C14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD949E2F296ED69E008B1C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD949E31296ED69E008B1C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD949E37296EE507008B1C14 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		BD949E37296EE507008B1C14 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BD949E3A296EF558008B1C14 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		BD949E43296F0E6A008B1C14 /* UIScrollView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		BD949E45296F0E85008B1C14 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		BD949E48296F5BF0008B1C14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BD949E4A296F5F39008B1C14 /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+.swift"; path = "../../../../../Downloads/PagingViewsTutorial-main/PagingViewsTutorial/Helpers/UILabel+.swift"; sourceTree = "<group>"; };
 		BD949E4D297011E7008B1C14 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
+		BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat ExtraBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,6 @@
 		BD949E22296ED69B008B1C14 /* MGM */ = {
 			isa = PBXGroup;
 			children = (
-				BD949E4D297011E7008B1C14 /* Roboto.ttf */,
 				BD949E4C297011CA008B1C14 /* Font */,
 				BD949E3C296F069E008B1C14 /* Helpers */,
 				BD949E39296EE559008B1C14 /* VievControllers */,
@@ -131,6 +132,8 @@
 		BD949E4C297011CA008B1C14 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				BD949E4D297011E7008B1C14 /* Roboto.ttf */,
+				BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -173,6 +176,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					monsterat,
+				);
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
@@ -208,6 +214,7 @@
 				BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */,
 				BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */,
 				BD949E38296EE507008B1C14 /* Podfile in Resources */,
+				BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */,
 				BD949E2B296ED69B008B1C14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
