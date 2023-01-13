@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B21664A0CE38A11E3903788 /* Pods_MGM.framework */; };
+		BD06842929719A0100886D8F /* cellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842829719A0100886D8F /* cellModel.swift */; };
 		BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E23296ED69B008B1C14 /* AppDelegate.swift */; };
 		BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E25296ED69B008B1C14 /* SceneDelegate.swift */; };
 		BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E27296ED69B008B1C14 /* PreloaderController.swift */; };
@@ -23,12 +24,14 @@
 		BD949E4E297011E7008B1C14 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E4D297011E7008B1C14 /* Roboto.ttf */; };
 		BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */; };
 		BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E592970453E008B1C14 /* HomeViewController.swift */; };
+		BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E5B29716590008B1C14 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		087EFD219A3D77B9B7956740 /* Pods-MGM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGM.release.xcconfig"; path = "Target Support Files/Pods-MGM/Pods-MGM.release.xcconfig"; sourceTree = "<group>"; };
 		7B21664A0CE38A11E3903788 /* Pods_MGM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8129B6208931FC146AC835E /* Pods-MGM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGM.debug.xcconfig"; path = "Target Support Files/Pods-MGM/Pods-MGM.debug.xcconfig"; sourceTree = "<group>"; };
+		BD06842829719A0100886D8F /* cellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellModel.swift; sourceTree = "<group>"; };
 		BD949E20296ED69B008B1C14 /* MGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD949E23296ED69B008B1C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD949E25296ED69B008B1C14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		BD949E4D297011E7008B1C14 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat ExtraBold.ttf"; sourceTree = "<group>"; };
 		BD949E592970453E008B1C14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BD949E5B29716590008B1C14 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,14 @@
 				7B21664A0CE38A11E3903788 /* Pods_MGM.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD068427297199E800886D8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD06842829719A0100886D8F /* cellModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BD949E17296ED69B008B1C14 = {
@@ -89,6 +101,7 @@
 		BD949E22296ED69B008B1C14 /* MGM */ = {
 			isa = PBXGroup;
 			children = (
+				BD068427297199E800886D8F /* Models */,
 				BD949E4C297011CA008B1C14 /* Font */,
 				BD949E3C296F069E008B1C14 /* Helpers */,
 				BD949E39296EE559008B1C14 /* VievControllers */,
@@ -109,6 +122,7 @@
 				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
 				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
 				BD949E592970453E008B1C14 /* HomeViewController.swift */,
+				BD949E5B29716590008B1C14 /* SettingsViewController.swift */,
 			);
 			path = VievControllers;
 			sourceTree = "<group>";
@@ -274,10 +288,12 @@
 				BD949E46296F0E85008B1C14 /* UIView+.swift in Sources */,
 				BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */,
 				BD949E4B296F5F39008B1C14 /* UILabel+.swift in Sources */,
+				BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,
 				BD949E44296F0E6A008B1C14 /* UIScrollView+.swift in Sources */,
 				BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */,
 				BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */,
+				BD06842929719A0100886D8F /* cellModel.swift in Sources */,
 				BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */,
 				BD949E49296F5BF0008B1C14 /* Extensions.swift in Sources */,
 			);

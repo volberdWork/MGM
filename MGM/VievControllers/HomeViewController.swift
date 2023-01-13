@@ -1,30 +1,151 @@
-//
-//  HomeViewController.swift
-//  MGM
-//
-//  Created by newAccount on 12.01.2023.
-//
-
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
+    var eventsData: [Configure] = []
+    
+    @IBOutlet var settingButton: UIButton!
+    @IBOutlet var firstCollectionView: UICollectionView!
+    @IBOutlet var secondCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .yellow
+        
+        configureView()
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
+        eventsData.append(Configure(day: "Events"))
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private func configureView(){
+        self.view.backgroundColor = .black
+        firstCollectionView.backgroundColor = self.view.backgroundColor
+        firstCollectionView.delegate = self
+        firstCollectionView.dataSource = self
+        secondCollectionView.delegate = self
+        secondCollectionView.dataSource = self
+        settingButton.imageView?.contentMode = .scaleAspectFill
+        
     }
-    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
 
+
+
+extension HomeViewController:  UICollectionViewDelegate{
+    
+}
+
+
+
+extension HomeViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView{
+        case secondCollectionView : return eventsData.count
+        case firstCollectionView : return filterData.count
+        
+        default:
+            return 0
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        switch collectionView{
+            
+        case secondCollectionView :
+            let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
+            filterCell.setupView(model: eventsData[indexPath.row])
+            filterCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
+           
+            return filterCell
+            
+        case firstCollectionView :
+            let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
+            filterCell.filterLabel.text = filterData[indexPath.row]
+            
+            return filterCell
+            
+            
+        default:
+            return UICollectionViewCell()
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+class FilterCell: UICollectionViewCell {
+    
+    
+    @IBOutlet var viewForLabel: UIView!
+    @IBOutlet weak var filterLabel: UILabel!
+    
+    override func awakeFromNib() {
+        
+        configure()
+        
+        
+    }
+    
+    private func configure(){
+        filterLabel.textColor = .black
+        viewForLabel.layer.cornerRadius = viewForLabel.frame.height / 2
+        
+    }
+    
+}
+
+
+class InfoEventsCell: UICollectionViewCell{
+    
+    @IBOutlet var viewContent: UIView!
+    
+    @IBOutlet var dateLabel: UILabel!
+   
+    override func awakeFromNib() {
+        
+     
+    }
+    
+    public func setupView(model: Configure){
+        self.dateLabel.text = model.day
+    }
+    
 }
