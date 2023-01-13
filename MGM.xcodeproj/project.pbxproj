@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B21664A0CE38A11E3903788 /* Pods_MGM.framework */; };
 		BD06842929719A0100886D8F /* cellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842829719A0100886D8F /* cellModel.swift */; };
+		BD06842B2971EC8B00886D8F /* TeamStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */; };
 		BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E23296ED69B008B1C14 /* AppDelegate.swift */; };
 		BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E25296ED69B008B1C14 /* SceneDelegate.swift */; };
 		BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E27296ED69B008B1C14 /* PreloaderController.swift */; };
@@ -32,6 +33,7 @@
 		7B21664A0CE38A11E3903788 /* Pods_MGM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8129B6208931FC146AC835E /* Pods-MGM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGM.debug.xcconfig"; path = "Target Support Files/Pods-MGM/Pods-MGM.debug.xcconfig"; sourceTree = "<group>"; };
 		BD06842829719A0100886D8F /* cellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellModel.swift; sourceTree = "<group>"; };
+		BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatisticViewController.swift; sourceTree = "<group>"; };
 		BD949E20296ED69B008B1C14 /* MGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD949E23296ED69B008B1C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD949E25296ED69B008B1C14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
 				BD949E592970453E008B1C14 /* HomeViewController.swift */,
 				BD949E5B29716590008B1C14 /* SettingsViewController.swift */,
+				BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */,
 			);
 			path = VievControllers;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				BD949E46296F0E85008B1C14 /* UIView+.swift in Sources */,
 				BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */,
+				BD06842B2971EC8B00886D8F /* TeamStatisticViewController.swift in Sources */,
 				BD949E4B296F5F39008B1C14 /* UILabel+.swift in Sources */,
 				BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,

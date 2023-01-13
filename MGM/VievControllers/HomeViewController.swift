@@ -61,7 +61,26 @@ class HomeViewController: UIViewController {
 
 
 extension HomeViewController:  UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        switch collectionView {
+            
+        case secondCollectionView:
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = main.instantiateViewController(withIdentifier: "TeamStatisticViewController") as? TeamStatisticViewController {
+                navigationController?.pushViewController(vc, animated: true)
+               
+            }
+            
+        case firstCollectionView : print("Selected")
+            
+            
+            
+        default:
+            return
+        }
+    }
 }
 
 
