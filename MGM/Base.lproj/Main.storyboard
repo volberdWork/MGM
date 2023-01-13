@@ -462,6 +462,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOC-bt-rRM"/>
+                    <connections>
+                        <outlet property="remindersButton" destination="wG6-Wo-a22" id="rIo-IU-0py"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grp-qT-M1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
