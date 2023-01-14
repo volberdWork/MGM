@@ -10,6 +10,9 @@
 		45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B21664A0CE38A11E3903788 /* Pods_MGM.framework */; };
 		BD06842929719A0100886D8F /* cellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842829719A0100886D8F /* cellModel.swift */; };
 		BD06842B2971EC8B00886D8F /* TeamStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */; };
+		BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842D297201F100886D8F /* InfoEventsCell.swift */; };
+		BD0684302972022900886D8F /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842F2972022900886D8F /* FilterCell.swift */; };
+		BD0684322972D19D00886D8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0684312972D19D00886D8F /* Constants.swift */; };
 		BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E23296ED69B008B1C14 /* AppDelegate.swift */; };
 		BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E25296ED69B008B1C14 /* SceneDelegate.swift */; };
 		BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E27296ED69B008B1C14 /* PreloaderController.swift */; };
@@ -34,6 +37,9 @@
 		A8129B6208931FC146AC835E /* Pods-MGM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGM.debug.xcconfig"; path = "Target Support Files/Pods-MGM/Pods-MGM.debug.xcconfig"; sourceTree = "<group>"; };
 		BD06842829719A0100886D8F /* cellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellModel.swift; sourceTree = "<group>"; };
 		BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatisticViewController.swift; sourceTree = "<group>"; };
+		BD06842D297201F100886D8F /* InfoEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEventsCell.swift; sourceTree = "<group>"; };
+		BD06842F2972022900886D8F /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		BD0684312972D19D00886D8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD949E20296ED69B008B1C14 /* MGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD949E23296ED69B008B1C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD949E25296ED69B008B1C14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BD06842C297201D100886D8F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD06842D297201F100886D8F /* InfoEventsCell.swift */,
+				BD06842F2972022900886D8F /* FilterCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BD949E17296ED69B008B1C14 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				BD068427297199E800886D8F /* Models */,
-				BD949E4C297011CA008B1C14 /* Font */,
+				BD949E4C297011CA008B1C14 /* Fonts */,
 				BD949E3C296F069E008B1C14 /* Helpers */,
 				BD949E39296EE559008B1C14 /* VievControllers */,
 				BD949E23296ED69B008B1C14 /* AppDelegate.swift */,
@@ -121,6 +136,7 @@
 		BD949E39296EE559008B1C14 /* VievControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD06842C297201D100886D8F /* Cells */,
 				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
 				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
 				BD949E592970453E008B1C14 /* HomeViewController.swift */,
@@ -137,6 +153,7 @@
 				BD949E43296F0E6A008B1C14 /* UIScrollView+.swift */,
 				BD949E4A296F5F39008B1C14 /* UILabel+.swift */,
 				BD949E45296F0E85008B1C14 /* UIView+.swift */,
+				BD0684312972D19D00886D8F /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -149,13 +166,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BD949E4C297011CA008B1C14 /* Font */ = {
+		BD949E4C297011CA008B1C14 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				BD949E4D297011E7008B1C14 /* Roboto.ttf */,
 				BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */,
 			);
-			path = Font;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		F0AFF63887B3BE576F99F2AC /* Pods */ = {
@@ -293,9 +310,12 @@
 				BD06842B2971EC8B00886D8F /* TeamStatisticViewController.swift in Sources */,
 				BD949E4B296F5F39008B1C14 /* UILabel+.swift in Sources */,
 				BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */,
+				BD0684322972D19D00886D8F /* Constants.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,
 				BD949E44296F0E6A008B1C14 /* UIScrollView+.swift in Sources */,
+				BD0684302972022900886D8F /* FilterCell.swift in Sources */,
 				BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */,
+				BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */,
 				BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */,
 				BD06842929719A0100886D8F /* cellModel.swift in Sources */,
 				BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */,

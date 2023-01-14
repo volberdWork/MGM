@@ -28,15 +28,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     private func configureView(){
         self.view.backgroundColor = .black
         firstCollectionView.backgroundColor = self.view.backgroundColor
@@ -47,13 +39,6 @@ class HomeViewController: UIViewController {
         settingButton.imageView?.contentMode = .scaleAspectFill
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     
 }
@@ -122,49 +107,10 @@ extension HomeViewController: UICollectionViewDataSource{
     }
     
     
-    
-    
-    
-    
-    
 }
 
 
-class FilterCell: UICollectionViewCell {
-    
-    
-    @IBOutlet var viewForLabel: UIView!
-    @IBOutlet weak var filterLabel: UILabel!
-    
-    override func awakeFromNib() {
-        
-        configure()
-        
-        
-    }
-    
-    private func configure(){
-        filterLabel.textColor = .black
-        viewForLabel.layer.cornerRadius = viewForLabel.frame.height / 2
-        
-    }
-    
-}
 
 
-class InfoEventsCell: UICollectionViewCell{
-    
-    @IBOutlet var viewContent: UIView!
-    
-    @IBOutlet var dateLabel: UILabel!
-   
-    override func awakeFromNib() {
-        
-     
-    }
-    
-    public func setupView(model: Configure){
-        self.dateLabel.text = model.day
-    }
-    
-}
+
+
