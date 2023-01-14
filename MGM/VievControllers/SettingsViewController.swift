@@ -1,10 +1,15 @@
 import UIKit
 import SnapKit
+import AudioToolbox
 class SettingsViewController: UIViewController {
 
     @IBOutlet var centralView: UIView!
     
     @IBOutlet var notificationsView: UIView!
+    
+    @IBOutlet var vibrationSwitch: UISwitch!
+    @IBOutlet var notificationSwitch: UISwitch!
+    var userSettingsVibration = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()

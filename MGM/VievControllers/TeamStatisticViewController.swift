@@ -2,15 +2,19 @@ import UIKit
 
 class TeamStatisticViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
+    
+    @IBOutlet var label: UILabel!
+    var data: [Scores] = []
 
     @IBOutlet var collectionView: UICollectionView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.backgroundColor = view.backgroundColor
-    
+        label.text = data[0].home?.total ?? "No data"
     }
     
 

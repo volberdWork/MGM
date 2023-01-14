@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     
     
     func getGameBase(){
-        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)"
+        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)&timezone=America/New_York"
         
         AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
             let decoder = JSONDecoder()
@@ -70,6 +70,8 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "TeamStatisticViewController") as? TeamStatisticViewController {
                 navigationController?.pushViewController(vc, animated: true)
+                vc.data.append(eventsData[indexPath.row].scores!)
+                
                
             }
             
@@ -129,3 +131,12 @@ extension HomeViewController: UICollectionViewDataSource{
 
 
 
+extension HomeViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == secondCollectionView{
+            return  CGSize(width: self.view.frame.width, height: self.view.frame.height / 6.5)
+        }
+        return CGSize()
+    }
+
+}
