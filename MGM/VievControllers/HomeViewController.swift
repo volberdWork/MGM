@@ -1,9 +1,12 @@
 import UIKit
+import Alamofire
 
 class HomeViewController: UIViewController {
     
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
-    var eventsData: [Configure] = []
+    var eventsData: [Response] = []
+    let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
+    var date = "2023-01-15"
     
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -12,19 +15,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureView()
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
-        eventsData.append(Configure(day: "Events"))
+      configureView()
+        getGameBase()
         
     }
     
@@ -37,9 +29,32 @@ class HomeViewController: UIViewController {
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
         settingButton.imageView?.contentMode = .scaleAspectFill
+        getGameBase()
         
     }
     
+    
+    
+    
+    func getGameBase(){
+        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)"
+        
+        AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
+            let decoder = JSONDecoder()
+            guard let respponseData = responseJSON.data else {return}
+            
+            do {
+                let data = try decoder.decode(GameBase.self, from: respponseData)
+                print(data.response ?? 0)
+                print(data)
+                self.eventsData = data.response!
+                self.secondCollectionView.reloadData()
+                
+            } catch {
+                print("Щось пішло не так")
+            }
+        }
+    }
     
 }
 
@@ -87,11 +102,11 @@ extension HomeViewController: UICollectionViewDataSource{
         switch collectionView{
             
         case secondCollectionView :
-            let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
-            filterCell.setupView(model: eventsData[indexPath.row])
-            filterCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
+            let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
+            infoCell.setupView(model: eventsData[indexPath.row])
+            infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
            
-            return filterCell
+            return infoCell
             
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
