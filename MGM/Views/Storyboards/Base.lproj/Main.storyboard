@@ -415,7 +415,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YnJ-bG-ABj"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
                             <constraint firstItem="ALr-AS-XIL" firstAttribute="trailing" secondItem="YnJ-bG-ABj" secondAttribute="trailing" id="122-KA-CQ4"/>
                             <constraint firstItem="vJs-Xu-4QM" firstAttribute="leading" secondItem="YnJ-bG-ABj" secondAttribute="leading" constant="16" id="4SD-sd-U7U"/>
@@ -635,10 +635,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="TOC-bt-rRM"/>
                     <connections>
+                        <outlet property="button" destination="XH7-Qn-f1h" id="Gdf-fN-guy"/>
                         <outlet property="centralView" destination="R4w-Zi-wIE" id="Die-zx-zwm"/>
                         <outlet property="notificationSwitch" destination="HHY-Oc-QeL" id="PH0-if-k1Z"/>
                         <outlet property="notificationsView" destination="EX3-fP-INn" id="u7F-YX-I66"/>
-                        <outlet property="vibrationSwitch" destination="A61-XA-0H4" id="hAD-WX-qvF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grp-qT-M1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -657,11 +657,11 @@
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

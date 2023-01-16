@@ -6,7 +6,7 @@ class HomeViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
     var eventsData: [Response] = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
-    var date = "2023-01-15"
+    var date = "2023-01-16"
     
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     
    
     private func configureView(){
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = UIColor(red: 10/255, green: 5/255, blue: 5/255, alpha: 1)
         firstCollectionView.backgroundColor = self.view.backgroundColor
         firstCollectionView.delegate = self
         firstCollectionView.dataSource = self

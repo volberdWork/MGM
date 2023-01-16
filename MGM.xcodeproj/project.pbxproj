@@ -124,29 +124,27 @@
 				BD068427297199E800886D8F /* Models */,
 				BD949E4C297011CA008B1C14 /* Fonts */,
 				BD949E3C296F069E008B1C14 /* Helpers */,
-				BD949E39296EE559008B1C14 /* VievControllers */,
+				BDA9CA842974A51600376320 /* Views */,
+				BD949E39296EE559008B1C14 /* Controllers */,
 				BD949E23296ED69B008B1C14 /* AppDelegate.swift */,
 				BD949E25296ED69B008B1C14 /* SceneDelegate.swift */,
-				BD949E29296ED69B008B1C14 /* Main.storyboard */,
 				BD949E2C296ED69E008B1C14 /* Assets.xcassets */,
-				BD949E2E296ED69E008B1C14 /* LaunchScreen.storyboard */,
 				BD949E37296EE507008B1C14 /* Podfile */,
 				BD949E31296ED69E008B1C14 /* Info.plist */,
 			);
 			path = MGM;
 			sourceTree = "<group>";
 		};
-		BD949E39296EE559008B1C14 /* VievControllers */ = {
+		BD949E39296EE559008B1C14 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BD06842C297201D100886D8F /* Cells */,
 				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
 				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
 				BD949E592970453E008B1C14 /* HomeViewController.swift */,
 				BD949E5B29716590008B1C14 /* SettingsViewController.swift */,
 				BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */,
 			);
-			path = VievControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BD949E3C296F069E008B1C14 /* Helpers */ = {
@@ -176,6 +174,24 @@
 				BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BDA9CA832974A4E500376320 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BD949E29296ED69B008B1C14 /* Main.storyboard */,
+				BD949E2E296ED69E008B1C14 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BDA9CA842974A51600376320 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDA9CA832974A4E500376320 /* Storyboards */,
+				BD06842C297201D100886D8F /* Cells */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F0AFF63887B3BE576F99F2AC /* Pods */ = {

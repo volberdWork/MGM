@@ -7,10 +7,10 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet var notificationsView: UIView!
     
-    @IBOutlet var vibrationSwitch: UISwitch!
     @IBOutlet var notificationSwitch: UISwitch!
     var userSettingsVibration = UserDefaults.standard
     
+    @IBOutlet var button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
             make.height.equalTo(heightForButtons())
         }
         
-        
+       
         
         
         
