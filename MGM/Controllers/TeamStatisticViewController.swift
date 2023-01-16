@@ -3,8 +3,14 @@ import UIKit
 class TeamStatisticViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
     
+    @IBOutlet var awayName: UILabel!
+    @IBOutlet var homeName: UILabel!
+   
+    @IBOutlet var awayLogo: UIImageView!
+    @IBOutlet var homeLogo: UIImageView!
     @IBOutlet var label: UILabel!
     var data: [Scores] = []
+    var teamData:[Teams] = []
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -12,12 +18,21 @@ class TeamStatisticViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
 
-        collectionView.backgroundColor = view.backgroundColor
-        label.text = data[0].home?.total ?? "No data"
+       
     }
     
+    func configureView(){
+        self.collectionView.backgroundColor = view.backgroundColor
+        self.label.text = data[0].home?.total ?? "No data"
+        self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away?.logo ?? "noData"))
+        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? "noData"))
+        self.homeName?.text = teamData[0].home?.name
+        self.awayName?.text = teamData[0].away?.name
 
+    }
+    
 }
 
 
@@ -38,9 +53,6 @@ extension TeamStatisticViewController: UICollectionViewDataSource{
           
         
     }
-    
-    
-    
     
     
     

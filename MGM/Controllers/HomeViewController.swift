@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -71,8 +72,8 @@ extension HomeViewController:  UICollectionViewDelegate{
             if let vc = main.instantiateViewController(withIdentifier: "TeamStatisticViewController") as? TeamStatisticViewController {
                 navigationController?.pushViewController(vc, animated: true)
                 vc.data.append(eventsData[indexPath.row].scores!)
-                
-               
+                vc.teamData.append(eventsData[indexPath.row].teams!)
+
             }
             
         case firstCollectionView : print("Selected")
