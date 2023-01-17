@@ -1,91 +1,100 @@
-// This file was generated from JSON Schema using codebeautify, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let welcome1 = try Welcome1(json)
-
 import Foundation
 
-// MARK: - Welcome1
-struct GameBase: Decodable {
-    let get: String?
-    let parameters: Parameters?
+// MARK: - GameBase
+struct GameBase: Codable {
+    let gameBaseGet: String
+    let parameters: Parameters
     let errors: [String?]
-    let results: Int?
-    let response: [Response]?
+    let results: Int
+    let response: [Response]
+
+    enum CodingKeys: String, CodingKey {
+        case gameBaseGet = "get"
+        case parameters, errors, results, response
+    }
 }
 
 // MARK: - Parameters
-struct Parameters: Decodable {
-    let date: String?
+struct Parameters: Codable {
+    let date: String
 }
 
 // MARK: - Response
-struct Response: Decodable {
-    let game: Game?
-    let league: League?
-    let teams: Teams?
-    let scores: Scores?
+struct Response: Codable {
+    let game: Game
+    let league: League
+    let teams: Teams
+    let scores: Scores
 }
 
 // MARK: - Game
-struct Game: Decodable {
-    let id: Int?
-    let stage, week: String?
-    let date: DateClass?
-    let venue: Venue?
-    let status: Status?
+struct Game: Codable {
+    let id: Int
+    let stage, week: String
+    let date: DateClass
+    let venue: Venue
+    let status: Status
 }
 
 // MARK: - DateClass
-struct DateClass: Decodable {
-    let timezone, date, time: String?
-    let timestamp: Int?
+struct DateClass: Codable {
+    let timezone, date, time: String
+    let timestamp: Int
 }
 
 // MARK: - Status
-struct Status: Decodable {
-    let short, long: String?
+struct Status: Codable {
+    let short, long: String
     let timer: String?
 }
 
 // MARK: - Venue
-struct Venue: Decodable {
-    let name, city: String?
+struct Venue: Codable {
+    let name, city: String
 }
 
 // MARK: - League
-struct League: Decodable {
-    let id: Int?
-    let name, season: String?
-    let logo: String?
-    let country: Country?
+struct League: Codable {
+    let id: Int
+    let name, season: String
+    let logo: String
+    let country: Country
 }
 
 // MARK: - Country
-struct Country: Decodable {
-    let name, code: String?
-    let flag: String?
+struct Country: Codable {
+    let name, code: String
+    let flag: String
 }
 
 // MARK: - Scores
-struct Scores: Decodable {
-    let home, away: ScoresAway?
+struct Scores: Codable {
+    let home, away: ScoresAway
 }
 
 // MARK: - ScoresAway
-struct ScoresAway: Decodable {
-    let quarter1, quarter2, quarter3, quarter4: String?
-    let overtime, total: String?
+struct ScoresAway: Codable {
+    let quarter1, quarter2, quarter3, quarter4: Int
+    let overtime: String?
+    let total: Int
+
+    enum CodingKeys: String, CodingKey {
+        case quarter1 = "quarter_1"
+        case quarter2 = "quarter_2"
+        case quarter3 = "quarter_3"
+        case quarter4 = "quarter_4"
+        case overtime, total
+    }
 }
 
 // MARK: - Teams
-struct Teams: Decodable {
-    let home, away: TeamsAway?
+struct Teams: Codable {
+    let home, away: TeamsAway
 }
 
 // MARK: - TeamsAway
-struct TeamsAway: Decodable {
-    let id: Int?
-    let name: String?
-    let logo: String?
+struct TeamsAway: Codable {
+    let id: Int
+    let name: String
+    let logo: String
 }

@@ -7,7 +7,7 @@ class HomeViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
     var eventsData: [Response] = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
-    var date = "2023-01-16"
+    var date = "2023-01-17"
     
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -17,12 +17,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       configureView()
-        getGameBase()
+      
         
     }
     
    
     private func configureView(){
+      
         self.view.backgroundColor = UIColor(red: 10/255, green: 5/255, blue: 5/255, alpha: 1)
         firstCollectionView.backgroundColor = self.view.backgroundColor
         firstCollectionView.delegate = self
@@ -30,15 +31,15 @@ class HomeViewController: UIViewController {
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
         settingButton.imageView?.contentMode = .scaleAspectFill
-        getGameBase()
+       loadFixtersBase()
         
     }
     
     
     
     
-    func getGameBase(){
-        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)&timezone=America/New_York"
+    func loadFixtersBase(){
+        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=2023-01-17"
         
         AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
             let decoder = JSONDecoder()
@@ -46,9 +47,8 @@ class HomeViewController: UIViewController {
             
             do {
                 let data = try decoder.decode(GameBase.self, from: respponseData)
-                print(data.response ?? 0)
-                print(data)
-                self.eventsData = data.response!
+                print(data.response)
+                self.eventsData = data.response
                 self.secondCollectionView.reloadData()
                 
             } catch {
@@ -56,7 +56,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
 }
 
 
@@ -71,8 +70,8 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "TeamStatisticViewController") as? TeamStatisticViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                vc.data.append(eventsData[indexPath.row].scores!)
-                vc.teamData.append(eventsData[indexPath.row].teams!)
+                vc.data.append(eventsData[indexPath.row].scores)
+                vc.teamData.append(eventsData[indexPath.row].teams)
 
             }
             
@@ -99,6 +98,7 @@ extension HomeViewController: UICollectionViewDataSource{
         }
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -128,14 +128,10 @@ extension HomeViewController: UICollectionViewDataSource{
 }
 
 
-
-
-
-
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == secondCollectionView{
-            return  CGSize(width: self.view.frame.width, height: self.view.frame.height / 6.5)
+            return  CGSize(width: self.view.frame.width, height: 106)
         }
         return CGSize()
     }

@@ -18,12 +18,12 @@ class InfoEventsCell: UICollectionViewCell{
     }
     
     public func setupView(model: Response){
-        self.homeLogo.kf.setImage(with: URL(string: model.teams?.home?.logo ?? "noData"))
+        self.homeLogo.kf.setImage(with: URL(string: model.teams.home.logo))
         homeLogo.contentMode = .scaleAspectFill
         awayLogo.contentMode = .scaleAspectFill
-        self.awayLogo.kf.setImage(with: URL(string: model.teams?.away?.logo ?? "noData"))
-        self.homeName.text = model.teams?.home?.name ?? "No data"
-        self.awayName.text = model.teams?.away?.name ?? "No data"
+        self.awayLogo.kf.setImage(with: URL(string: model.teams.away.logo))
+        self.homeName.text = model.teams.home.name
+        self.awayName.text = model.teams.away.name
         
     }
     
