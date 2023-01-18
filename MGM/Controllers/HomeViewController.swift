@@ -7,7 +7,7 @@ class HomeViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
     var eventsData: [Response] = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
-    var date = "2023-01-17"
+    var date = "2023-01-19"
     
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -32,14 +32,13 @@ class HomeViewController: UIViewController {
         secondCollectionView.dataSource = self
         settingButton.imageView?.contentMode = .scaleAspectFill
        loadFixtersBase()
+        let logo = UIImage(named: "MGMLogo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
         
     }
-    
-    
-    
-    
     func loadFixtersBase(){
-        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=2023-01-17"
+        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)"
         
         AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
             let decoder = JSONDecoder()
@@ -50,6 +49,7 @@ class HomeViewController: UIViewController {
                 print(data.response)
                 self.eventsData = data.response
                 self.secondCollectionView.reloadData()
+                self.firstCollectionView.reloadData()
                 
             } catch {
                 print("Щось пішло не так")
@@ -57,8 +57,6 @@ class HomeViewController: UIViewController {
         }
     }
 }
-
-
 
 extension HomeViewController:  UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -133,7 +131,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         if collectionView == secondCollectionView{
             return  CGSize(width: self.view.frame.width, height: 106)
         }
-        return CGSize()
+        return  CGSize(width: self.view.frame.width, height: 36)
     }
 
 }
