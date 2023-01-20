@@ -7,7 +7,8 @@ class HomeViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
     var eventsData: [Response] = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
-    var date = "2023-01-19"
+    var date = "2022-01-18"
+
     
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -17,7 +18,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       configureView()
-      
+      print(date)
         
     }
     
@@ -46,8 +47,11 @@ class HomeViewController: UIViewController {
             
             do {
                 let data = try decoder.decode(GameBase.self, from: respponseData)
-                print(data.response)
-                self.eventsData = data.response
+                if data.response == nil {
+                    self.showAlertAction(title: "Sorry", message: "No DATA")
+                }else{
+                    self.eventsData = data.response ?? []
+                }
                 self.secondCollectionView.reloadData()
                 self.firstCollectionView.reloadData()
                 
@@ -56,6 +60,15 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func showAlertAction(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
 
 extension HomeViewController:  UICollectionViewDelegate{
@@ -68,12 +81,12 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "TeamStatisticViewController") as? TeamStatisticViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                vc.data.append(eventsData[indexPath.row].scores)
-                vc.teamData.append(eventsData[indexPath.row].teams)
+                vc.data.append(eventsData[indexPath.row].scores!)
+                vc.teamData.append(eventsData[indexPath.row].teams!)
 
             }
             
-        case firstCollectionView : print("Selected")
+        case firstCollectionView : print("Selected \(filterData[indexPath.row])")
             
             
             

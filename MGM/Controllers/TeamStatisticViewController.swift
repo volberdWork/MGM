@@ -25,11 +25,11 @@ class TeamStatisticViewController: UIViewController {
     
     func configureView(){
         self.collectionView.backgroundColor = view.backgroundColor
-        self.label.text = "\(data[0].home.total)"
-        self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away.logo ))
-        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home.logo))
-        self.homeName?.text = teamData[0].home.name
-        self.awayName?.text = teamData[0].away.name
+        self.label.text = "\(data[0].home?.total ?? 0)"
+        self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away?.logo ?? ""))
+        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? ""))
+        self.homeName?.text = teamData[0].home?.name ?? ""
+        self.awayName?.text = teamData[0].away?.name ?? ""
 
     }
     

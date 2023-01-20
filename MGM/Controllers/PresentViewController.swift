@@ -23,12 +23,7 @@ class PresentViewController: UIViewController{
         
         let textLabel = UILabel()
         var textForLabel = ""
-        textLabel.text = """
-        Do you want to be at
-        the epicenter of
-        American football
-        events?
-        """
+        textLabel.text = Constants.Strings.presentVCtext1
         textLabel.font = UIFont(name:"Roboto", size: 24.0)
         textLabel.numberOfLines = 4
         textLabel.textColor = .white
@@ -36,6 +31,8 @@ class PresentViewController: UIViewController{
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
             make.bottom.equalToSuperview().inset(imageView.frame.height/4)
+            make.width.equalToSuperview().multipliedBy(0.6)
+            
         }
         
         return view
@@ -57,12 +54,7 @@ class PresentViewController: UIViewController{
         }
         
         let textLabel = UILabel()
-        textLabel.text = """
-        Be aware of all the
-        details and know
-        the latest news
-        with MGM team
-        """
+        textLabel.text = Constants.Strings.presentVCtext2
         
         textLabel.numberOfLines = 4
         textLabel.textColor = .white
@@ -71,7 +63,6 @@ class PresentViewController: UIViewController{
         var range = (strNumber).range(of: "MGM")
         
         var attributedString = NSMutableAttributedString(string: textLabel.text!, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto", size: 28.0)!])
-        // here you change the character to red color
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value:  UIColor(red: 0.831, green: 0.725, blue: 0.384, alpha: 1), range: range)
         attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Montserrat-ExtraBold", size: 30.0), range: range)
         
@@ -80,8 +71,9 @@ class PresentViewController: UIViewController{
         imageView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
+            make.width.equalToSuperview().multipliedBy(0.7)
+           
             make.top.equalToSuperview().inset(imageView.frame.height/5)
-            make.left.equalTo(27)
             make.height.equalTo(190)
             
         }
