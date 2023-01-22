@@ -6,11 +6,14 @@ class TeamStatisticViewController: UIViewController {
     @IBOutlet var awayName: UILabel!
     @IBOutlet var homeName: UILabel!
    
+    @IBOutlet var statusLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var awayLogo: UIImageView!
     @IBOutlet var homeLogo: UIImageView!
     @IBOutlet var label: UILabel!
     var data: [Scores] = []
     var teamData:[Teams] = []
+    var gameData:[Game] = []
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -30,6 +33,8 @@ class TeamStatisticViewController: UIViewController {
         self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? ""))
         self.homeName?.text = teamData[0].home?.name ?? ""
         self.awayName?.text = teamData[0].away?.name ?? ""
+        self.dateLabel.text = "\(self.gameData[0].date?.date ?? "") \(self.gameData[0].date?.time ?? "")"
+        self.statusLabel.text = self.gameData[0].status?.short ?? ""
 
     }
     
