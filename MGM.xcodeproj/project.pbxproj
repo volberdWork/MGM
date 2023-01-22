@@ -13,7 +13,7 @@
 		BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842D297201F100886D8F /* InfoEventsCell.swift */; };
 		BD0684302972022900886D8F /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842F2972022900886D8F /* FilterCell.swift */; };
 		BD0684322972D19D00886D8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0684312972D19D00886D8F /* Constants.swift */; };
-		BD06844B2972E19400886D8F /* API Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06843E2972E19400886D8F /* API Models.swift */; };
+		BD06844B2972E19400886D8F /* GameBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06843E2972E19400886D8F /* GameBase.swift */; };
 		BD20A08C297693F2004F47F5 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08B297693F2004F47F5 /* RemindersViewController.swift */; };
 		BD20A08F29769CFE004F47F5 /* InfoBaseRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */; };
 		BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E23296ED69B008B1C14 /* AppDelegate.swift */; };
@@ -32,6 +32,7 @@
 		BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */; };
 		BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E592970453E008B1C14 /* HomeViewController.swift */; };
 		BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E5B29716590008B1C14 /* SettingsViewController.swift */; };
+		BDB73203297DED1A005AD995 /* PlayersStatisticBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,7 @@
 		BD06842D297201F100886D8F /* InfoEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEventsCell.swift; sourceTree = "<group>"; };
 		BD06842F2972022900886D8F /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		BD0684312972D19D00886D8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BD06843E2972E19400886D8F /* API Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API Models.swift"; sourceTree = "<group>"; };
+		BD06843E2972E19400886D8F /* GameBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBase.swift; sourceTree = "<group>"; };
 		BD20A08B297693F2004F47F5 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBaseRealm.swift; sourceTree = "<group>"; };
 		BD949E20296ED69B008B1C14 /* MGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +65,7 @@
 		BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat ExtraBold.ttf"; sourceTree = "<group>"; };
 		BD949E592970453E008B1C14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BD949E5B29716590008B1C14 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStatisticBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,8 @@
 			children = (
 				BD20A08D29769CDB004F47F5 /* Relm Model */,
 				BD06842829719A0100886D8F /* cellModel.swift */,
-				BD06843E2972E19400886D8F /* API Models.swift */,
+				BD06843E2972E19400886D8F /* GameBase.swift */,
+				BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,13 +351,14 @@
 				BD20A08C297693F2004F47F5 /* RemindersViewController.swift in Sources */,
 				BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */,
 				BD949E44296F0E6A008B1C14 /* UIScrollView+.swift in Sources */,
+				BDB73203297DED1A005AD995 /* PlayersStatisticBase.swift in Sources */,
 				BD0684302972022900886D8F /* FilterCell.swift in Sources */,
 				BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */,
 				BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */,
 				BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */,
 				BD06842929719A0100886D8F /* cellModel.swift in Sources */,
 				BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */,
-				BD06844B2972E19400886D8F /* API Models.swift in Sources */,
+				BD06844B2972E19400886D8F /* GameBase.swift in Sources */,
 				BD949E49296F5BF0008B1C14 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
