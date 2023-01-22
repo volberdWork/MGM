@@ -35,6 +35,15 @@ class TeamStatisticViewController: UIViewController {
         self.awayName?.text = teamData[0].away?.name ?? ""
         self.dateLabel.text = "\(self.gameData[0].date?.date ?? "") \(self.gameData[0].date?.time ?? "")"
         self.statusLabel.text = self.gameData[0].status?.short ?? ""
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     }
     
