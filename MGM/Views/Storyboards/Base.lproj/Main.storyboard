@@ -273,7 +273,6 @@
         <!--Home View Controller-->
         <scene sceneID="uuu-qn-0Wc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ky1-xN-Ilv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zbz-DO-iSN" customClass="HomeViewController" customModule="MGM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ek6-KE-Acc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -521,6 +520,7 @@
                         <outlet property="settingButton" destination="vJs-Xu-4QM" id="jbe-pN-Hw6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ky1-xN-Ilv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="80" y="72.511848341232223"/>
         </scene>
