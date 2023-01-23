@@ -14,9 +14,12 @@ class FilterCell: UICollectionViewCell {
     }
     
     private func configure(){
-        filterLabel.textColor = .black
+        filterLabel.textColor = .white
         viewForLabel.layer.cornerRadius = viewForLabel.frame.height / 2
-        
+        self.viewForLabel.backgroundColor =  .black
+    
+        self.viewForLabel.layer.borderWidth = 1
+        self.viewForLabel.layer.borderColor = CGColor(red: 0.867, green: 0.875, blue: 0.894, alpha: 1)
     }
     
 }

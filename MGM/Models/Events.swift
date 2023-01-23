@@ -2,10 +2,10 @@ import Foundation
 
 struct EventsBase : Codable {
     let get : String?
-    let parameters : Parameters?
+    let parameters : EventsParameters?
     let errors : [String]?
     let results : Int?
-    let response : [Response]?
+    let response : [EventsResponse]?
 }
 
 struct EventsParameters : Codable {

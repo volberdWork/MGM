@@ -80,12 +80,12 @@ extension HomeViewController:  UICollectionViewDelegate{
             
         case secondCollectionView:
             let main = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = main.instantiateViewController(withIdentifier: "TeamStatisticViewController") as? TeamStatisticViewController {
+            if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
                 vc.data.append(eventsData[indexPath.row].scores!)
                 vc.teamData.append(eventsData[indexPath.row].teams!)
                 vc.gameData.append(eventsData[indexPath.row].game!)
-            
+//                vc.teamId = "\(eventsData[indexPath.row].game?.id ?? 0)"
 
             }
             
@@ -129,7 +129,6 @@ extension HomeViewController: UICollectionViewDataSource{
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
-            
             return filterCell
             
             
@@ -146,7 +145,7 @@ extension HomeViewController: UICollectionViewDataSource{
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == secondCollectionView{
-            return  CGSize(width: self.view.frame.width-20, height: 106)
+            return  CGSize(width: 33, height: 110)
         }
         return  CGSize(width: self.view.frame.width, height: 36)
     }

@@ -22,6 +22,7 @@ class InfoEventsCell: UICollectionViewCell{
         self.homeName.text = model.teams?.home?.name ?? "No data"
         self.awayName.text = model.teams?.away?.name ?? "No data"
         self.viewContent.backgroundColor = UIColor(red: 0.867, green: 0.875, blue: 0.894, alpha: 1)
+        
         self.timeLabel.text = "• Today • \(model.game?.date?.time ?? "") AM"
         self.dateLabel.text = model.game?.date?.date ?? ""
     }
