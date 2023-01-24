@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B21664A0CE38A11E3903788 /* Pods_MGM.framework */; };
 		BD06842929719A0100886D8F /* cellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842829719A0100886D8F /* cellModel.swift */; };
-		BD06842B2971EC8B00886D8F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842A2971EC8B00886D8F /* DetailViewController.swift */; };
+		BD06842B2971EC8B00886D8F /* TeamStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */; };
 		BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842D297201F100886D8F /* InfoEventsCell.swift */; };
 		BD0684302972022900886D8F /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842F2972022900886D8F /* FilterCell.swift */; };
 		BD0684322972D19D00886D8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0684312972D19D00886D8F /* Constants.swift */; };

@@ -129,6 +129,7 @@ extension HomeViewController: UICollectionViewDataSource{
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
+            
             return filterCell
             
             
