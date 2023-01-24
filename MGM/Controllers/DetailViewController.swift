@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     var gameData:[Game] = []
     
     
-    let fisrtFilterData = ["All", "Q1", "Q2", "Q3", "Q4", "OT", "HT", "FT", "AOT", "CANC", "PST"]
+   
     
     let testData = [
         
@@ -50,8 +50,20 @@ class DetailViewController: UIViewController {
         eventsCollectionView.dataSource = self
         eventsCollectionView.backgroundColor = .clear
         
-        
+        configureView()
     
+    }
+    
+    func configureView(){
+//        self.collectionView.backgroundColor = view.backgroundColor
+//        self.label.text = "\(data[0].home?.total ?? 0)"
+        self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away?.logo ?? ""))
+        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? ""))
+        self.homeName?.text = teamData[0].home?.name ?? ""
+        self.awayName?.text = teamData[0].away?.name ?? ""
+        self.dateLabel.text = "\(self.gameData[0].date?.date ?? "") \(self.gameData[0].date?.time ?? "")"
+        self.statusLabel.text = self.gameData[0].status?.short ?? ""
+        
     }
     
     
@@ -72,7 +84,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == filterCollectionView {
-            return fisrtFilterData.count
+            return filterData.count
         } else {
             return testData[section].count
         }
@@ -86,7 +98,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             
-            filterCell.filterLabel.text = fisrtFilterData[indexPath.row]
+            filterCell.filterLabel.text = filterData[indexPath.row]
             return filterCell
             
             
