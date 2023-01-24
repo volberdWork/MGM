@@ -1,6 +1,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
     let filterData = ["Game", "Events", "Team Statistics", "Players Statistics"]
     
     @IBOutlet var awayName: UILabel!
@@ -33,7 +34,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var eventsCollectionView: UICollectionView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -55,8 +55,7 @@ class DetailViewController: UIViewController {
     }
     
     func configureView(){
-//        self.collectionView.backgroundColor = view.backgroundColor
-//        self.label.text = "\(data[0].home?.total ?? 0)"
+        
         self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away?.logo ?? ""))
         self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? ""))
         self.homeName?.text = teamData[0].home?.name ?? ""
