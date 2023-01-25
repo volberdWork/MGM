@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		45D78B866E29B13957EF4020 /* Pods_MGM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B21664A0CE38A11E3903788 /* Pods_MGM.framework */; };
 		BD06842929719A0100886D8F /* cellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842829719A0100886D8F /* cellModel.swift */; };
-		BD06842B2971EC8B00886D8F /* TeamStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842A2971EC8B00886D8F /* TeamStatisticViewController.swift */; };
+		BD06842B2971EC8B00886D8F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842A2971EC8B00886D8F /* DetailViewController.swift */; };
 		BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842D297201F100886D8F /* InfoEventsCell.swift */; };
 		BD0684302972022900886D8F /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842F2972022900886D8F /* FilterCell.swift */; };
 		BD0684322972D19D00886D8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0684312972D19D00886D8F /* Constants.swift */; };
@@ -38,6 +38,9 @@
 		BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E592970453E008B1C14 /* HomeViewController.swift */; };
 		BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E5B29716590008B1C14 /* SettingsViewController.swift */; };
 		BDB73203297DED1A005AD995 /* PlayersStatisticBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */; };
+		BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE80FD529812BAA0029333F /* UniversalViewController.swift */; };
+		BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE80FD72981336E0029333F /* ButtonTableViewCell.swift */; };
+		BDE80FDA2981336E0029333F /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDE80FD82981336E0029333F /* ButtonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		BD949E592970453E008B1C14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BD949E5B29716590008B1C14 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStatisticBase.swift; sourceTree = "<group>"; };
+		BDE80FD529812BAA0029333F /* UniversalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalViewController.swift; sourceTree = "<group>"; };
+		BDE80FD72981336E0029333F /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		BDE80FD82981336E0029333F /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +120,10 @@
 		BD06842C297201D100886D8F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BDE80FDB298133740029333F /* ButtonCell */,
+				BDE80FD4298129D20029333F /* PlayerTableCell */,
 				BD06842D297201F100886D8F /* InfoEventsCell.swift */,
 				BD06842F2972022900886D8F /* FilterCell.swift */,
-				BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */,
-				BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -169,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				BD949E27296ED69B008B1C14 /* PreloaderController.swift */,
+				BDE80FD529812BAA0029333F /* UniversalViewController.swift */,
 				BD8EA3E9297EA91500421145 /* PlayersViewController.swift */,
 				BD20A08B297693F2004F47F5 /* RemindersViewController.swift */,
 				BD949E3A296EF558008B1C14 /* PresentViewController.swift */,
@@ -224,6 +231,24 @@
 				BD06842C297201D100886D8F /* Cells */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BDE80FD4298129D20029333F /* PlayerTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */,
+				BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */,
+			);
+			path = PlayerTableCell;
+			sourceTree = "<group>";
+		};
+		BDE80FDB298133740029333F /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				BDE80FD72981336E0029333F /* ButtonTableViewCell.swift */,
+				BDE80FD82981336E0029333F /* ButtonTableViewCell.xib */,
+			);
+			path = ButtonCell;
 			sourceTree = "<group>";
 		};
 		F0AFF63887B3BE576F99F2AC /* Pods */ = {
@@ -298,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE80FDA2981336E0029333F /* ButtonTableViewCell.xib in Resources */,
 				BD949E4E297011E7008B1C14 /* Roboto.ttf in Resources */,
 				BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */,
 				BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */,
@@ -357,6 +383,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */,
+				BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */,
 				BD949E46296F0E85008B1C14 /* UIView+.swift in Sources */,
 				BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */,
 				BD06842B2971EC8B00886D8F /* DetailViewController.swift in Sources */,

@@ -709,6 +709,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="Q68-TI-sRt" kind="push" id="ah9-aY-zcW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNk-xO-eIW">
                                         <rect key="frame" x="0.0" y="232" width="358" height="36"/>
@@ -791,6 +794,7 @@
                         <outlet property="notificationSwitch" destination="HHY-Oc-QeL" id="PH0-if-k1Z"/>
                         <outlet property="notificationsView" destination="EX3-fP-INn" id="u7F-YX-I66"/>
                         <outlet property="onOffSwitch" destination="2FW-te-z8q" id="fRZ-0T-Jee"/>
+                        <outlet property="vibrationView" destination="hDX-IB-mIt" id="kGU-9v-yiO"/>
                         <outletCollection property="setButtons" destination="XH7-Qn-f1h" collectionClass="NSMutableArray" id="dUX-Ud-n7S"/>
                         <outletCollection property="setButtons" destination="NQq-R6-qGr" collectionClass="NSMutableArray" id="ZwP-GK-77B"/>
                         <outletCollection property="setButtons" destination="HOf-km-cGd" collectionClass="NSMutableArray" id="ekA-Eg-vl9"/>
@@ -1111,20 +1115,47 @@
             </objects>
             <point key="canvasLocation" x="2441.5384615384614" y="209.71563981042652"/>
         </scene>
-        <!--View Controller-->
+        <!--Universal View Controller-->
         <scene sceneID="pUm-uX-IMM">
             <objects>
-                <viewController id="Q68-TI-sRt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UniversalViewController" id="Q68-TI-sRt" customClass="UniversalViewController" customModule="MGM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Omk-b2-R5Q">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="bAK-c7-Mb1">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fZv-Mf-4Mj">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Q68-TI-sRt" id="Sib-rm-dQE"/>
+                                    <outlet property="delegate" destination="Q68-TI-sRt" id="rvg-bM-8a3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Dm7-ds-gLg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bAK-c7-Mb1" firstAttribute="leading" secondItem="Dm7-ds-gLg" secondAttribute="leading" id="BcL-h4-QMe"/>
+                            <constraint firstItem="Dm7-ds-gLg" firstAttribute="trailing" secondItem="bAK-c7-Mb1" secondAttribute="trailing" id="Ep1-Oa-iJk"/>
+                            <constraint firstAttribute="trailing" secondItem="fZv-Mf-4Mj" secondAttribute="trailing" id="FHz-9b-sNh"/>
+                            <constraint firstAttribute="bottom" secondItem="bAK-c7-Mb1" secondAttribute="bottom" id="WlJ-Hv-WLp"/>
+                            <constraint firstItem="fZv-Mf-4Mj" firstAttribute="bottom" secondItem="Dm7-ds-gLg" secondAttribute="bottom" id="k4l-hO-gXL"/>
+                            <constraint firstItem="fZv-Mf-4Mj" firstAttribute="leading" secondItem="Dm7-ds-gLg" secondAttribute="leading" id="nJq-90-XUq"/>
+                            <constraint firstItem="fZv-Mf-4Mj" firstAttribute="top" secondItem="Dm7-ds-gLg" secondAttribute="top" id="nN7-FJ-VVn"/>
+                            <constraint firstItem="bAK-c7-Mb1" firstAttribute="top" secondItem="Omk-b2-R5Q" secondAttribute="top" id="yoB-H5-8H7"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8pC-EO-Pro"/>
+                    <connections>
+                        <outlet property="tableView" destination="fZv-Mf-4Mj" id="WXs-St-gY9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K9Y-BI-sMs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3243" y="196"/>
+            <point key="canvasLocation" x="873.84615384615381" y="895.73459715639808"/>
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var notificationsView: UIView!
     @IBOutlet var notificationSwitch: UISwitch!
     
+    @IBOutlet var vibrationView: UIView!
     var userSettingsVibration = UserDefaults.standard
     let onOffKey = "onOffKey"
     
@@ -32,10 +33,16 @@ class SettingsViewController: UIViewController {
             make.height.equalTo(heightForButtons())
         }
         self.title = "Settings"
+        notificationsView.layer.borderWidth = 0.2
+        notificationsView.layer.borderColor = CGColor(red: 0.867, green: 0.857, blue: 0.894, alpha: 1)
+        vibrationView.layer.borderWidth = 0.2
+        vibrationView.layer.borderColor = CGColor(red: 0.867, green: 0.857, blue: 0.894, alpha: 1)
         
         for i in setButtons{
             i.contentHorizontalAlignment = .left
             i.titleLabel?.font = UIFont(name: "System", size: 20)
+            i.layer.borderWidth = 0.2
+            i.layer.borderColor = CGColor(red: 0.867, green: 0.857, blue: 0.894, alpha: 1)
         }
         
         

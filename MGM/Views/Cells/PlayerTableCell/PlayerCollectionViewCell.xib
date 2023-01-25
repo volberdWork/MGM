@@ -84,7 +84,6 @@
             <connections>
                 <outlet property="playerImage" destination="gO2-DW-UbO" id="aHf-uc-UlZ"/>
                 <outlet property="playerLabel" destination="4tf-cH-oND" id="lnh-dl-sxh"/>
-                <outlet property="playerNameLabel" destination="k2y-lR-Tod" id="FOr-Tb-lpw"/>
             </connections>
             <point key="canvasLocation" x="-28.46153846153846" y="3.5545023696682461"/>
         </collectionViewCell>
