@@ -12,14 +12,13 @@ class DetailViewController: UIViewController {
     @IBOutlet var awayLogo: UIImageView!
     @IBOutlet var homeLogo: UIImageView!
     
+    @IBOutlet var saveButton: UIButton!
     
     var data: [Scores] = []
     var teamData:[Teams] = []
     var gameData:[Game] = []
     
-    
-    
-    
+ 
     let testData = [
         
         ["FirstDown", "Total", "Passing", "Rushing", "From Penalties"],
@@ -36,6 +35,9 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+           
+        
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         filterCollectionView.backgroundColor = .clear
@@ -45,6 +47,7 @@ class DetailViewController: UIViewController {
         eventsCollectionView.backgroundColor = .clear
         
         configureView()
+        
         
     }
     
@@ -58,6 +61,12 @@ class DetailViewController: UIViewController {
         self.statusLabel.text = self.gameData[0].status?.short ?? ""
     }
     
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        print("It work`s")
+        saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+        
+    }
     
 }
 

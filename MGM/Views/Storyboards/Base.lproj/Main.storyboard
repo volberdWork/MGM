@@ -129,7 +129,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIX-TW-tBs">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIX-TW-tBs">
                                         <rect key="frame" x="340" y="145" width="42" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="6DX-nG-LMm"/>
@@ -139,6 +139,19 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6l-Fa-pcS">
+                                        <rect key="frame" x="332" y="34" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="MvM-oA-LIz"/>
+                                            <constraint firstAttribute="height" constant="50" id="boh-nH-VhI"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.82352941180000006" green="0.74117647060000003" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="lKc-dh-eiY" eventType="touchUpInside" id="nQX-gl-UNV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="F1X-iL-OOH" firstAttribute="leading" secondItem="Bpv-tP-X4H" secondAttribute="trailing" constant="8" symbolic="YES" id="0gu-sL-Ebk"/>
@@ -147,6 +160,7 @@
                                     <constraint firstAttribute="trailing" secondItem="cRb-Uw-Vdd" secondAttribute="trailing" id="8z2-4O-R87"/>
                                     <constraint firstAttribute="bottom" secondItem="nXO-xq-ymO" secondAttribute="bottom" constant="23" id="Bap-RS-H6S"/>
                                     <constraint firstItem="cRb-Uw-Vdd" firstAttribute="leading" secondItem="ip9-A9-M5x" secondAttribute="leading" id="HgI-Yg-dXI"/>
+                                    <constraint firstAttribute="trailing" secondItem="R6l-Fa-pcS" secondAttribute="trailing" constant="8" id="QKO-hU-L2H"/>
                                     <constraint firstItem="nXO-xq-ymO" firstAttribute="top" secondItem="Bpv-tP-X4H" secondAttribute="bottom" constant="8" id="QyC-kK-Onl"/>
                                     <constraint firstItem="Bpv-tP-X4H" firstAttribute="leading" secondItem="ip9-A9-M5x" secondAttribute="leading" constant="23" id="a5z-ll-4PM"/>
                                     <constraint firstItem="YNA-p5-w1i" firstAttribute="leading" secondItem="vUR-z5-aDR" secondAttribute="trailing" constant="12" id="baJ-xu-xfC"/>
@@ -158,6 +172,7 @@
                                     <constraint firstItem="nXO-xq-ymO" firstAttribute="leading" secondItem="ip9-A9-M5x" secondAttribute="leading" constant="23" id="ncL-lR-QNt"/>
                                     <constraint firstItem="vUR-z5-aDR" firstAttribute="leading" secondItem="nXO-xq-ymO" secondAttribute="trailing" constant="8" symbolic="YES" id="rEe-wf-qWe"/>
                                     <constraint firstAttribute="bottom" secondItem="mIX-TW-tBs" secondAttribute="bottom" constant="25" id="uLj-tW-F3c"/>
+                                    <constraint firstItem="YNA-p5-w1i" firstAttribute="top" secondItem="R6l-Fa-pcS" secondAttribute="bottom" constant="8" id="uQR-oB-trz"/>
                                     <constraint firstItem="vUR-z5-aDR" firstAttribute="top" secondItem="F1X-iL-OOH" secondAttribute="bottom" constant="10" id="xVM-NG-C88"/>
                                 </constraints>
                             </view>
@@ -315,6 +330,7 @@
                         <outlet property="filterCollectionView" destination="gb5-Tm-ehP" id="RRY-hc-LfS"/>
                         <outlet property="homeLogo" destination="9yQ-Mm-1A7" id="4zf-D5-443"/>
                         <outlet property="homeName" destination="F1X-iL-OOH" id="5a8-fQ-IxT"/>
+                        <outlet property="saveButton" destination="R6l-Fa-pcS" id="iWE-EL-P4I"/>
                         <outlet property="statusLabel" destination="mIX-TW-tBs" id="4YN-rc-fgU"/>
                     </connections>
                 </viewController>
@@ -1164,6 +1180,7 @@
         <image name="backGroundImage" width="262" height="568"/>
         <image name="deteilImage" width="262" height="142"/>
         <image name="settingIcon" width="19.333333969116211" height="20"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

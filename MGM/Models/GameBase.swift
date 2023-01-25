@@ -69,22 +69,15 @@ struct Country: Codable {
 
 // MARK: - Scores
 struct Scores: Codable {
-    let home, away: ScoresAway?
+    let home, away: ScoresBase?
 }
 
 // MARK: - ScoresAway
-struct ScoresAway: Codable {
+struct ScoresBase: Codable {
     let quarter1, quarter2, quarter3, quarter4: Int?
     let overtime: String?
     let total: Int?
 
-    enum CodingKeys: String, CodingKey {
-        case quarter1 = "quarter_1"
-        case quarter2 = "quarter_2"
-        case quarter3 = "quarter_3"
-        case quarter4 = "quarter_4"
-        case overtime, total
-    }
 }
 
 // MARK: - Teams

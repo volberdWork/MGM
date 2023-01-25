@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = imageView
         secondCollectionView.backgroundColor = self.view.backgroundColor
         
+        
     }
     func loadFixtersBase(){
         let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)"
@@ -85,7 +86,9 @@ extension HomeViewController:  UICollectionViewDelegate{
                 vc.data.append(eventsData[indexPath.row].scores!)
                 vc.teamData.append(eventsData[indexPath.row].teams!)
                 vc.gameData.append(eventsData[indexPath.row].game!)
-                //                vc.teamId = "\(eventsData[indexPath.row].game?.id ?? 0)"
+               
+                
+                
                 
             }
             
