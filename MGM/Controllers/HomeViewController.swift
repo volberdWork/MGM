@@ -8,7 +8,7 @@ class HomeViewController: UIViewController {
     var eventsData: [Response] = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     var date = "2023-01-22"
-
+    
     
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -17,14 +17,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      configureView()
-      print(date)
+        configureView()
+        print(date)
         
     }
     
-   
+    
     private func configureView(){
-      
+        
         self.view.backgroundColor = UIColor(red: 10/255, green: 5/255, blue: 5/255, alpha: 1)
         firstCollectionView.backgroundColor = self.view.backgroundColor
         firstCollectionView.delegate = self
@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
         settingButton.imageView?.contentMode = .scaleAspectFill
-       loadFixtersBase()
+        loadFixtersBase()
         let logo = UIImage(named: "MGMLogo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
 }
 
 extension HomeViewController:  UICollectionViewDelegate{
@@ -85,8 +85,8 @@ extension HomeViewController:  UICollectionViewDelegate{
                 vc.data.append(eventsData[indexPath.row].scores!)
                 vc.teamData.append(eventsData[indexPath.row].teams!)
                 vc.gameData.append(eventsData[indexPath.row].game!)
-//                vc.teamId = "\(eventsData[indexPath.row].game?.id ?? 0)"
-
+                //                vc.teamId = "\(eventsData[indexPath.row].game?.id ?? 0)"
+                
             }
             
         case firstCollectionView : print("Selected \(filterData[indexPath.row])")
@@ -106,7 +106,7 @@ extension HomeViewController: UICollectionViewDataSource{
         switch collectionView{
         case secondCollectionView : return eventsData.count
         case firstCollectionView : return filterData.count
-        
+            
         default:
             return 0
         }
@@ -123,7 +123,7 @@ extension HomeViewController: UICollectionViewDataSource{
             infoCell.setupView(model: eventsData[indexPath.row])
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             
-           
+            
             return infoCell
             
         case firstCollectionView :
@@ -150,5 +150,5 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         }
         return  CGSize(width: self.view.frame.width, height: 36)
     }
-
+    
 }

@@ -36,17 +36,17 @@ class PlayersViewController: UIViewController{
                 let data = try decoder.decode(PlayersStatisticBase.self, from: respponseData)
                 
                 print(data)
-                 self.playersdata = data.response ?? []
+                self.playersdata = data.response ?? []
                 
-//                self.secondCollectionView.reloadData()
-//                self.firstCollectionView.reloadData()
+                //                self.secondCollectionView.reloadData()
+                //                self.firstCollectionView.reloadData()
                 
             } catch {
                 print("Щось пішло не так")
             }
         }
     }
-
+    
 }
 
 
@@ -62,7 +62,7 @@ extension PlayersViewController: UICollectionViewDataSource{
         switch collectionView{
         case secondCollectionView : return 20
         case firstCollectionView : return filterData.count
-        
+            
         default:
             return 0
         }
@@ -76,16 +76,16 @@ extension PlayersViewController: UICollectionViewDataSource{
             
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCellId", for: indexPath) as! PlayerCollectionViewCell
-//            infoCell.setupView(model: eventsData[indexPath.row])
+            //            infoCell.setupView(model: eventsData[indexPath.row])
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             
-           
+            
             return infoCell
             
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
-//            filterCell.filterLabel.text = filterData[indexPath.row]
-  
+            //            filterCell.filterLabel.text = filterData[indexPath.row]
+            
             return filterCell
             
             

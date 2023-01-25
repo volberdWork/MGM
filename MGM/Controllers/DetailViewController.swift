@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     var gameData:[Game] = []
     
     
-   
+    
     
     let testData = [
         
@@ -36,33 +36,26 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
-        //
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         filterCollectionView.backgroundColor = .clear
         
-        
-        //
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
         eventsCollectionView.backgroundColor = .clear
         
         configureView()
-    
+        
     }
     
+    
     func configureView(){
-        
         self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away?.logo ?? ""))
         self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? ""))
         self.homeName?.text = teamData[0].home?.name ?? ""
         self.awayName?.text = teamData[0].away?.name ?? ""
         self.dateLabel.text = "\(self.gameData[0].date?.date ?? "") \(self.gameData[0].date?.time ?? "")"
         self.statusLabel.text = self.gameData[0].status?.short ?? ""
-        
     }
     
     
@@ -88,21 +81,11 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return testData[section].count
         }
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
         if collectionView == filterCollectionView {
-           
-            
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
-            
             filterCell.filterLabel.text = filterData[indexPath.row]
             return filterCell
-            
-            
-            
-            
         } else {
             let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
             
@@ -115,13 +98,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 print("There is that index")
                 eventsCell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
                 eventsCell.layer.cornerRadius = 10.0
-                
             }
-            
             return eventsCell
-            
-            
-            
         }
         
     }
@@ -144,7 +122,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-
+        
         if collectionView == eventsCollectionView { return CGSize(width: collectionView.frame.width, height: 35)} else { return CGSize(width: self.view.frame.width, height: 36)}
         
     }
@@ -152,18 +130,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == eventsCollectionView { return UIEdgeInsets(top: 0.0, left: 0.0, bottom: 15, right: 0.0) } else { return UIEdgeInsets() }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == eventsCollectionView { return 0.0} else{ return CGFloat() }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-
-    
-    
-    
 }
 
 

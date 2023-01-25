@@ -72,7 +72,7 @@ class PresentViewController: UIViewController{
         textLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(27)
             make.width.equalToSuperview().multipliedBy(0.7)
-           
+            
             make.top.equalToSuperview().inset(imageView.frame.height/5)
             make.height.equalTo(190)
             
@@ -111,7 +111,7 @@ class PresentViewController: UIViewController{
             make.left.equalToSuperview().inset(27)
             make.top.equalToSuperview().inset(70)
         }
-
+        
         let secondTextLabel = UILabel()
         var secondTextForLabel = ""
         secondTextLabel.text = """
@@ -123,13 +123,13 @@ class PresentViewController: UIViewController{
         secondTextLabel.font = UIFont(name:"Roboto", size: 16.0)
         secondTextLabel.numberOfLines = 4
         secondTextLabel.textColor = .white
-         imageView.addSubview(secondTextLabel)
+        imageView.addSubview(secondTextLabel)
         secondTextLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(22)
             make.bottom.equalToSuperview().inset(self.view.frame.height/3.8)
         }
         print(self.view.frame.height)
-       
+        
         
         return view
     }()
@@ -160,7 +160,7 @@ class PresentViewController: UIViewController{
         return pageControl
     }()
     
-  
+    
     
     @objc
     func pageControlTapHandler(sender: UIPageControl) {
@@ -174,7 +174,7 @@ class PresentViewController: UIViewController{
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
-       
+        
     }
     
     override func viewDidLoad() {
@@ -188,7 +188,7 @@ class PresentViewController: UIViewController{
         view.addSubview(pageControl)
         pageControl.pinTo(view)
         
-      buttonConfigure()
+        buttonConfigure()
     }
     
     func buttonConfigure(){
@@ -196,8 +196,8 @@ class PresentViewController: UIViewController{
         var buttonGetStarted = buttonStart
         buttonGetStarted.backgroundColor = .none
         let imageButton = UIImage(named: "startedButton")
-       
-       
+        
+        
         buttonGetStarted.setImage(imageButton, for: .normal)
         buttonGetStarted.clipsToBounds = true
         buttonGetStarted.imageView?.contentMode = .scaleToFill

@@ -1,29 +1,20 @@
 import UIKit
 import RealmSwift
 
-class RemindersViewController: UIViewController{
-    
-    
-    @IBOutlet var collectionView: UICollectionView!
+class RemindersViewController: UIViewController{ @IBOutlet var collectionView: UICollectionView!
     let realm = try? Realm()
     var realmArray: [InfoBaseRealm] = []
     var awaylogoLink = ""
     var homeLogoLink = ""
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
-        
-      
     }
     
     func setupView(){
         self.collectionView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
     }
-   
-
 }
 
 

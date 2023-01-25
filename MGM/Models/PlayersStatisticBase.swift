@@ -5,7 +5,7 @@ struct PlayersStatisticBase : Codable {
     let errors : [String]?
     let results : Int?
     let response : [PSResponse]?
-
+    
 }
 
 struct PSGroups : Codable {

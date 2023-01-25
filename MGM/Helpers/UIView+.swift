@@ -1,10 +1,3 @@
-//
-//  UIView+.swift
-//  PagingDemo
-//
-//  Created by Alex Nagy on 29/09/2020.
-//
-
 import UIKit
 
 public extension UIView {

@@ -1,32 +1,21 @@
 import UIKit
 
 class UniversalViewController: UIViewController {
-
     @IBOutlet var tableView: UITableView!
     
     var array:[ButtonSet] = [ButtonSet(title: "Teams", imageName: "ssss"),
                              ButtonSet(title: "Players", imageName: "Events"),
                              ButtonSet(title: "Events", imageName: "ssss")]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let nib = UINib(nibName: "ButtonTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "ButtonTableViewCell")
         configure()
-        
-        
     }
     func configure(){
         tableView.backgroundColor = .clear
-      
     }
-
-
 }
-
-
-
 
 extension UniversalViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

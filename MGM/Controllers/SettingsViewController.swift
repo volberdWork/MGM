@@ -82,26 +82,26 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func share(sender:UIView){
-            UIGraphicsBeginImageContext(view.frame.size)
-            view.layer.render(in: UIGraphicsGetCurrentContext()!)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-
-            let textToShare = "Check out my app"
-
-            if let myWebsite = URL(string: "http://itunes.apple.com/app/idXXXXXXXXX") {//Enter link to your app here
-                let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
-                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-
-                //Excluded Activities
-                activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
-                //
-
-                activityVC.popoverPresentationController?.sourceView = sender
-                self.present(activityVC, animated: true, completion: nil)
-            }    }
-
-
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let textToShare = "Check out my app"
+        
+        if let myWebsite = URL(string: "http://itunes.apple.com/app/idXXXXXXXXX") {//Enter link to your app here
+            let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            //
+            
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+        }    }
+    
+    
 }
 
 
@@ -128,17 +128,17 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
             
             let composeController = MFMailComposeViewController()
             composeController.mailComposeDelegate = self
-
+            
             // Configure the fields of the interface.
             composeController.setToRecipients(["stakeYourSkillsFeedback@gmail.com"])
             composeController.setSubject("Message Subject")
             composeController.setMessageBody("Message content", isHTML: false)
-
+            
             self.present(composeController, animated: true, completion: nil)
             
         }
         
-
+        
         
         
         
