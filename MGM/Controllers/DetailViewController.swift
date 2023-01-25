@@ -61,11 +61,28 @@ class DetailViewController: UIViewController {
         self.statusLabel.text = self.gameData[0].status?.short ?? ""
     }
     
+    func loadAllert(){
+        let alert = UIAlertController(title: "Save Event", message: "For save tap ok", preferredStyle: .alert)
+            
+             let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+                 self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+             })
+             alert.addAction(ok)
+        
+             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { action in
+                 
+             })
+             alert.addAction(cancel)
+             DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true)
+        })
+    }
+    
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         print("It work`s")
-        saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
-        
+       
+        loadAllert()
     }
     
 }
