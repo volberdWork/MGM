@@ -181,7 +181,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCellID" id="LhK-NO-WOT" customClass="EventsCell" customModule="TestCollection" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCellID" id="LhK-NO-WOT" customClass="EventsCell" customModule="MGM" customModuleProvider="target">
                                         <rect key="frame" x="-12" y="50" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="L1r-Lp-7ok">
@@ -208,7 +208,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="headerViewID" id="9Yr-V6-isT" customClass="CustomHeaderView" customModule="TestCollection" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="headerViewID" id="9Yr-V6-isT" customClass="CustomHeaderView" customModule="MGM" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -1110,6 +1110,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpp-Tx-RUi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2441.5384615384614" y="209.71563981042652"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pUm-uX-IMM">
+            <objects>
+                <viewController id="Q68-TI-sRt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Omk-b2-R5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Dm7-ds-gLg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9Y-BI-sMs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3243" y="196"/>
         </scene>
     </scenes>
     <resources>

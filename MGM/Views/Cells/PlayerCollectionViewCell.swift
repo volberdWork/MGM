@@ -9,6 +9,9 @@ import UIKit
 
 class PlayerCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet var playerNameLabel: UILabel!
+    @IBOutlet var playerLabel: UILabel!
+    @IBOutlet var playerImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
      
