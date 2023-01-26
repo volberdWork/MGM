@@ -11,9 +11,9 @@ class DetailViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var awayLogo: UIImageView!
     @IBOutlet var homeLogo: UIImageView!
+ 
     
     @IBOutlet var saveButton: UIButton!
-    
     var data: [Scores] = []
     var teamData:[Teams] = []
     var gameData:[Game] = []
@@ -63,14 +63,14 @@ class DetailViewController: UIViewController {
     
     func loadAllert(){
         let alert = UIAlertController(title: "Save Event", message: "For save tap ok", preferredStyle: .alert)
-            
+
              let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
                  self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
              })
              alert.addAction(ok)
-        
+
              let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { action in
-                 
+
              })
              alert.addAction(cancel)
              DispatchQueue.main.async(execute: {
@@ -79,10 +79,10 @@ class DetailViewController: UIViewController {
     }
     
     
+   
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        print("It work`s")
-       
         loadAllert()
+        print("OKKK")
     }
     
 }

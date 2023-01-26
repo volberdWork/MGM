@@ -10,7 +10,6 @@ class HomeViewController: UIViewController {
     var date = "2023-01-22"
     
     
-    @IBOutlet var settingButton: UIButton!
     @IBOutlet var firstCollectionView: UICollectionView!
     @IBOutlet var secondCollectionView: UICollectionView!
     
@@ -19,19 +18,19 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         print(date)
-        
     }
     
     
     private func configureView(){
         
-        self.view.backgroundColor = UIColor(red: 10/255, green: 5/255, blue: 5/255, alpha: 1)
-        firstCollectionView.backgroundColor = self.view.backgroundColor
+        self.view.backgroundColor = Constants.Colors.black
+        firstCollectionView.backgroundColor = Constants.Colors.black
         firstCollectionView.delegate = self
         firstCollectionView.dataSource = self
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
-        settingButton.imageView?.contentMode = .scaleAspectFill
+        
+        
         loadFixtersBase()
         let logo = UIImage(named: "MGMLogo")
         let imageView = UIImageView(image:logo)
@@ -75,10 +74,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:  UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
         switch collectionView {
-            
         case secondCollectionView:
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
@@ -86,23 +82,13 @@ extension HomeViewController:  UICollectionViewDelegate{
                 vc.data.append(eventsData[indexPath.row].scores!)
                 vc.teamData.append(eventsData[indexPath.row].teams!)
                 vc.gameData.append(eventsData[indexPath.row].game!)
-               
-                
-                
-                
             }
             
-        case firstCollectionView : print("Selected \(filterData[indexPath.row])")
-            
-            
-            
-        default:
+        case firstCollectionView : print("Selected \(filterData[indexPath.row])")   default:
             return
         }
     }
 }
-
-
 
 extension HomeViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -116,33 +102,21 @@ extension HomeViewController: UICollectionViewDataSource{
         
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch collectionView{
-            
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
             infoCell.setupView(model: eventsData[indexPath.row])
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
-            
-            
             return infoCell
-            
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
-            
             return filterCell
-            
-            
         default:
             return UICollectionViewCell()
         }
-        
     }
-    
-    
 }
 
 

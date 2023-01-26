@@ -6,6 +6,7 @@ enum Constants {
     
     enum Colors {
         static let colorSome = UIColor(displayP3Red: 41/255, green: 42/255, blue: 46/255, alpha: 1)
+        static let black = UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1)
     }
     
     enum Strings {

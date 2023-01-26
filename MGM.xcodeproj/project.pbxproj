@@ -154,6 +154,7 @@
 		BD949E22296ED69B008B1C14 /* MGM */ = {
 			isa = PBXGroup;
 			children = (
+				BDB581842981D06000FA1D7B /* Network */,
 				BD068427297199E800886D8F /* Models */,
 				BD949E4C297011CA008B1C14 /* Fonts */,
 				BD949E3C296F069E008B1C14 /* Helpers */,
@@ -228,6 +229,13 @@
 				BD06842C297201D100886D8F /* Cells */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BDB581842981D06000FA1D7B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BDE80FD4298129D20029333F /* PlayerTableCell */ = {
