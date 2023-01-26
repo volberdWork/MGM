@@ -12,7 +12,6 @@
         <!--Present View Controller-->
         <scene sceneID="tHT-tJ-edv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2vM-Qb-8P9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PresentViewController" id="uob-vv-PeV" customClass="PresentViewController" customModule="MGM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FTz-TB-26l">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -22,6 +21,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bcE-hn-uxe"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2vM-Qb-8P9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1517" y="-944"/>
         </scene>
