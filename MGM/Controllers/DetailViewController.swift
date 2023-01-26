@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
     
@@ -11,14 +12,14 @@ class DetailViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var awayLogo: UIImageView!
     @IBOutlet var homeLogo: UIImageView!
- 
+    let realm = try? Realm()
     
     @IBOutlet var saveButton: UIButton!
     var data: [Scores] = []
     var teamData:[Teams] = []
     var gameData:[Game] = []
     
- 
+    
     let testData = [
         
         ["FirstDown", "Total", "Passing", "Rushing", "From Penalties"],
@@ -36,7 +37,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-           
+        
         
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
@@ -63,31 +64,51 @@ class DetailViewController: UIViewController {
     
     func loadAllert(){
         let alert = UIAlertController(title: "Save Event", message: "For save tap ok", preferredStyle: .alert)
-
-             let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
-                 self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
-                 UIDevice.onOffVibration()
-             })
-             alert.addAction(ok)
-
-             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { action in
-
-             })
-             alert.addAction(cancel)
-             DispatchQueue.main.async(execute: {
-                 UIDevice.onOffVibration()
-                self.present(alert, animated: true)
-                
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+            UIDevice.onOffVibration()
+            self.saveToRealm()
+            print("Save and updaterealm")
+        })
+        alert.addAction(ok)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { action in
+            
+        })
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            UIDevice.onOffVibration()
+            self.present(alert, animated: true)
+            
         })
     }
     
     
-   
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
+        
         loadAllert()
         print("OKKK")
     }
     
+    
+    func saveToRealm(){
+        let infoBaseRealm = InfoBaseRealm()
+        infoBaseRealm.gameId = self.gameData[0].id
+        infoBaseRealm.homeLogoLink = self.teamData[0].home?.logo ?? ""
+        infoBaseRealm.awayLogoLink = self.teamData[0].away?.logo ?? ""
+        infoBaseRealm.homaName = self.teamData[0].home?.name ?? ""
+        infoBaseRealm.awayName = self.teamData[0].away?.name ?? ""
+        infoBaseRealm.date = self.gameData[0].date?.time ?? ""
+        infoBaseRealm.yearText = self.gameData[0].date?.date ?? ""
+        infoBaseRealm.homeId = self.teamData[0].home?.id ?? 0
+        infoBaseRealm.awayId = self.teamData[0].away?.id ?? 0
+        try? self.realm?.write{
+            self.realm?.add(infoBaseRealm, update: .all)
+        }
+        
+    }
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -126,7 +147,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if collectionView == filterCollectionView {
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
-           
+            
             return filterCell
         } else {
             let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
