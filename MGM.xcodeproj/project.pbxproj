@@ -39,6 +39,7 @@
 		BDB5818C2982814E00FA1D7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDB5818B2982814E00FA1D7B /* SnapKit */; };
 		BDB5818F298281C200FA1D7B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BDB5818E298281C200FA1D7B /* Kingfisher */; };
 		BDB58192298282A200FA1D7B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDB58191298282A200FA1D7B /* RealmSwift */; };
+		BDB581942982970B00FA1D7B /* RemindersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB581932982970B00FA1D7B /* RemindersCollectionViewCell.swift */; };
 		BDB73203297DED1A005AD995 /* PlayersStatisticBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */; };
 		BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE80FD529812BAA0029333F /* UniversalViewController.swift */; };
 		BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE80FD72981336E0029333F /* ButtonTableViewCell.swift */; };
@@ -76,6 +77,7 @@
 		BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat ExtraBold.ttf"; sourceTree = "<group>"; };
 		BD949E592970453E008B1C14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BD949E5B29716590008B1C14 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BDB581932982970B00FA1D7B /* RemindersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersStatisticBase.swift; sourceTree = "<group>"; };
 		BDE80FD529812BAA0029333F /* UniversalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalViewController.swift; sourceTree = "<group>"; };
 		BDE80FD72981336E0029333F /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				BDE80FD4298129D20029333F /* PlayerTableCell */,
 				BD06842D297201F100886D8F /* InfoEventsCell.swift */,
 				BD06842F2972022900886D8F /* FilterCell.swift */,
+				BDB581932982970B00FA1D7B /* RemindersCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */,
+				BDB581942982970B00FA1D7B /* RemindersCollectionViewCell.swift in Sources */,
 				BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */,
 				BD949E46296F0E85008B1C14 /* UIView+.swift in Sources */,
 				BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */,
