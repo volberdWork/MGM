@@ -35,6 +35,10 @@
 		BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD949E57297033D8008B1C14 /* Montserrat ExtraBold.ttf */; };
 		BD949E5A2970453E008B1C14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E592970453E008B1C14 /* HomeViewController.swift */; };
 		BD949E5C29716590008B1C14 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E5B29716590008B1C14 /* SettingsViewController.swift */; };
+		BDB581892982810800FA1D7B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BDB581882982810800FA1D7B /* Alamofire */; };
+		BDB5818C2982814E00FA1D7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDB5818B2982814E00FA1D7B /* SnapKit */; };
+		BDB5818F298281C200FA1D7B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BDB5818E298281C200FA1D7B /* Kingfisher */; };
+		BDB58192298282A200FA1D7B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDB58191298282A200FA1D7B /* RealmSwift */; };
 		BDB73203297DED1A005AD995 /* PlayersStatisticBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB73202297DED1A005AD995 /* PlayersStatisticBase.swift */; };
 		BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE80FD529812BAA0029333F /* UniversalViewController.swift */; };
 		BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE80FD72981336E0029333F /* ButtonTableViewCell.swift */; };
@@ -83,6 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB58192298282A200FA1D7B /* RealmSwift in Frameworks */,
+				BDB5818F298281C200FA1D7B /* Kingfisher in Frameworks */,
+				BDB581892982810800FA1D7B /* Alamofire in Frameworks */,
+				BDB5818C2982814E00FA1D7B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +133,6 @@
 			children = (
 				BD949E22296ED69B008B1C14 /* MGM */,
 				BD949E21296ED69B008B1C14 /* Products */,
-				F0AFF63887B3BE576F99F2AC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,13 +249,6 @@
 			path = ButtonCell;
 			sourceTree = "<group>";
 		};
-		F0AFF63887B3BE576F99F2AC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +265,12 @@
 			dependencies = (
 			);
 			name = MGM;
+			packageProductDependencies = (
+				BDB581882982810800FA1D7B /* Alamofire */,
+				BDB5818B2982814E00FA1D7B /* SnapKit */,
+				BDB5818E298281C200FA1D7B /* Kingfisher */,
+				BDB58191298282A200FA1D7B /* RealmSwift */,
+			);
 			productName = MGM;
 			productReference = BD949E20296ED69B008B1C14 /* MGM.app */;
 			productType = "com.apple.product-type.application";
@@ -296,6 +302,12 @@
 				Base,
 			);
 			mainGroup = BD949E17296ED69B008B1C14;
+			packageReferences = (
+				BDB581872982810800FA1D7B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BDB5818A2982814E00FA1D7B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BDB5818D298281C200FA1D7B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BDB58190298282A200FA1D7B /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = BD949E21296ED69B008B1C14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -569,6 +581,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BDB581872982810800FA1D7B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		BDB5818A2982814E00FA1D7B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		BDB5818D298281C200FA1D7B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		BDB58190298282A200FA1D7B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDB581882982810800FA1D7B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDB581872982810800FA1D7B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		BDB5818B2982814E00FA1D7B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDB5818A2982814E00FA1D7B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		BDB5818E298281C200FA1D7B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDB5818D298281C200FA1D7B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		BDB58191298282A200FA1D7B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDB58190298282A200FA1D7B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD949E18296ED69B008B1C14 /* Project object */;
 }
