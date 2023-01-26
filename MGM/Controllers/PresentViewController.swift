@@ -169,6 +169,7 @@ class PresentViewController: UIViewController{
     
     @objc
     func loadVC(){
+        UIDevice.onOffVibration()
         let main = UIStoryboard(name: "Main", bundle: nil)
         if let vc = main.instantiateViewController(withIdentifier: "navigationID") as? UINavigationController {
             vc.modalPresentationStyle = .fullScreen

@@ -1,5 +1,4 @@
-
-
+import AudioToolbox
 import Foundation
 import UIKit
 extension UIFont {
@@ -14,5 +13,27 @@ extension UIFont {
             font = systemFont
         }
         return font
+    }
+}
+
+
+
+
+
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+}
+
+
+extension UIDevice{
+    static func onOffVibration(){
+        if SettingsViewController().userSettingsVibration.bool(forKey: "onOffKey"){
+            UIDevice.vibrate()
+            print("vibrate on")
+        } else{
+            return
+        }
     }
 }

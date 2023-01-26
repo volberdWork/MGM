@@ -62,6 +62,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func shareAppPressed(_ sender: UIButton) {
         share(sender: UIView())
+        UIDevice.onOffVibration()
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
@@ -75,6 +76,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func writeToUsPressed(_ sender: UIButton) {
         openMessageWindow()
+        UIDevice.onOffVibration()
     }
     
     func heightForButtons()->CGFloat{
@@ -100,7 +102,13 @@ class SettingsViewController: UIViewController {
             activityVC.popoverPresentationController?.sourceView = sender
             self.present(activityVC, animated: true, completion: nil)
         }    }
+    @IBAction func favouritesButtonPressed(_ sender: UIButton) {
+        UIDevice.onOffVibration()
+    }
     
+    @IBAction func remindersButtonPressed(_ sender: UIButton) {
+        UIDevice.onOffVibration()
+    }
     
 }
 

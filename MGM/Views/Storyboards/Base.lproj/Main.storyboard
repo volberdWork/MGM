@@ -578,6 +578,7 @@
                     <navigationItem key="navigationItem" id="6hx-45-9tr">
                         <barButtonItem key="leftBarButtonItem" image="settingIcon" id="cgJ-3o-yxf">
                             <connections>
+                                <action selector="settingsButton:" destination="zbz-DO-iSN" id="igw-BO-3uh"/>
                                 <segue destination="WQ6-Cn-MQa" kind="push" id="FPi-kX-UCs"/>
                             </connections>
                         </barButtonItem>
@@ -706,6 +707,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="remindersButtonPressed:" destination="WQ6-Cn-MQa" eventType="touchUpInside" id="V5Q-da-Bc2"/>
                                             <segue destination="3Av-Im-25I" kind="push" id="ROc-t5-fnC"/>
                                         </connections>
                                     </button>
@@ -725,6 +727,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="favouritesButtonPressed:" destination="WQ6-Cn-MQa" eventType="touchUpInside" id="lP2-tZ-a5L"/>
                                             <segue destination="Q68-TI-sRt" kind="push" id="ah9-aY-zcW"/>
                                         </connections>
                                     </button>

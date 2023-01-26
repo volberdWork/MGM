@@ -65,11 +65,14 @@ class HomeViewController: UIViewController {
     func showAlertAction(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
-            
+            UIDevice.onOffVibration()
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func settingsButton(_ sender: UIBarButtonItem) {
+        UIDevice.onOffVibration()
+    }
 }
 
 extension HomeViewController:  UICollectionViewDelegate{
@@ -82,9 +85,14 @@ extension HomeViewController:  UICollectionViewDelegate{
                 vc.data.append(eventsData[indexPath.row].scores!)
                 vc.teamData.append(eventsData[indexPath.row].teams!)
                 vc.gameData.append(eventsData[indexPath.row].game!)
+                UIDevice.onOffVibration()
             }
             
-        case firstCollectionView : print("Selected \(filterData[indexPath.row])")   default:
+        case firstCollectionView :
+            print("Selected \(filterData[indexPath.row])")
+            UIDevice.onOffVibration()
+        
+        default:
             return
         }
     }

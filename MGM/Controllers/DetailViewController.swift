@@ -66,6 +66,7 @@ class DetailViewController: UIViewController {
 
              let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
                  self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+                 UIDevice.onOffVibration()
              })
              alert.addAction(ok)
 
@@ -74,7 +75,9 @@ class DetailViewController: UIViewController {
              })
              alert.addAction(cancel)
              DispatchQueue.main.async(execute: {
+                 UIDevice.onOffVibration()
                 self.present(alert, animated: true)
+                
         })
     }
     
@@ -88,6 +91,18 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch collectionView{
+        case filterCollectionView : UIDevice.onOffVibration()
+        default:
+            return
+        }
+        
+        
+    }
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -111,6 +126,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if collectionView == filterCollectionView {
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
+           
             return filterCell
         } else {
             let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
