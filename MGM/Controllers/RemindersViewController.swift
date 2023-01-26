@@ -38,13 +38,13 @@ extension RemindersViewController:UICollectionViewDelegate{
 
 extension RemindersViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return realmArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RemindersCollectionViewCell", for: indexPath) as! RemindersCollectionViewCell
-        infoCell.layer.borderWidth = 0.4
+        infoCell.layer.borderWidth = 1
         infoCell.layer.borderColor = CGColor(red: 243/255, green: 244/255, blue: 245/255, alpha: 0.5)
         return infoCell
         

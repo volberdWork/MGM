@@ -85,13 +85,14 @@ extension HomeViewController:  UICollectionViewDelegate{
                 vc.data.append(eventsData[indexPath.row].scores!)
                 vc.teamData.append(eventsData[indexPath.row].teams!)
                 vc.gameData.append(eventsData[indexPath.row].game!)
+                vc.eventsData.append(eventsData[indexPath.row])
                 UIDevice.onOffVibration()
             }
             
         case firstCollectionView :
             print("Selected \(filterData[indexPath.row])")
             UIDevice.onOffVibration()
-        
+            
         default:
             return
         }
@@ -130,10 +131,8 @@ extension HomeViewController: UICollectionViewDataSource{
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == secondCollectionView{
-            return  CGSize(width: 33, height: 110)
-        }
-        return  CGSize(width: self.view.frame.width, height: 36)
+        
+        return  CGSize(width: 33, height: 110)
+        
     }
-    
 }

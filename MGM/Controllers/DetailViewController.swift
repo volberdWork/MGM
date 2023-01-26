@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     var data: [Scores] = []
     var teamData:[Teams] = []
     var gameData:[Game] = []
+    var eventsData: [Response] = []
     
     
     let testData = [
@@ -87,23 +88,35 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
+        let infoBaseRealm = InfoBaseRealm()
+        infoBaseRealm.gameId = self.eventsData[0].game?.id ?? 0
+        infoBaseRealm.homeLogoLink = self.teamData[0].home?.logo ?? "ddd"
+        infoBaseRealm.awayLogoLink = self.teamData[0].away?.logo ?? "ddd"
+        infoBaseRealm.homaName = self.teamData[0].home?.name ?? "dd"
+        infoBaseRealm.awayName = self.teamData[0].away?.name ?? "dd"
+        infoBaseRealm.date = self.gameData[0].date?.time ?? "dd"
+        infoBaseRealm.yearText = self.gameData[0].date?.date ?? "dd"
+        try? self.realm?.write{
+            self.realm?.add(infoBaseRealm, update: .all)
+        }
         
-        loadAllert()
-        print("OKKK")
+        
+        
+//        saveToRealm()
+//        loadAllert()
+//        print("OKKK")
     }
     
     
     func saveToRealm(){
         let infoBaseRealm = InfoBaseRealm()
-        infoBaseRealm.gameId = self.gameData[0].id
-        infoBaseRealm.homeLogoLink = self.teamData[0].home?.logo ?? ""
-        infoBaseRealm.awayLogoLink = self.teamData[0].away?.logo ?? ""
-        infoBaseRealm.homaName = self.teamData[0].home?.name ?? ""
-        infoBaseRealm.awayName = self.teamData[0].away?.name ?? ""
-        infoBaseRealm.date = self.gameData[0].date?.time ?? ""
-        infoBaseRealm.yearText = self.gameData[0].date?.date ?? ""
-        infoBaseRealm.homeId = self.teamData[0].home?.id ?? 0
-        infoBaseRealm.awayId = self.teamData[0].away?.id ?? 0
+        infoBaseRealm.gameId = self.eventsData[0].game?.id ?? 0
+        infoBaseRealm.homeLogoLink = self.teamData[0].home?.logo ?? "ddd"
+        infoBaseRealm.awayLogoLink = self.teamData[0].away?.logo ?? "ddd"
+        infoBaseRealm.homaName = self.teamData[0].home?.name ?? "dd"
+        infoBaseRealm.awayName = self.teamData[0].away?.name ?? "dd"
+        infoBaseRealm.date = self.gameData[0].date?.time ?? "dd"
+        infoBaseRealm.yearText = self.gameData[0].date?.date ?? "dd"
         try? self.realm?.write{
             self.realm?.add(infoBaseRealm, update: .all)
         }
