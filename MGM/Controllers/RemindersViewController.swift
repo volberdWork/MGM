@@ -20,14 +20,27 @@ class RemindersViewController: UIViewController{
         for match in infoMatchesResult{
             self.realmArray.append(match)
         }
-        self.collectionView.reloadData()
-        
+        if realmArray.count > 0{
+            self.collectionView.reloadData()
+        } else{
+            showAlertAction(title: "Sorry", message: "No data")
+        }
+      
     }
     
     func setupView(){
         self.collectionView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
        
     }
+    
+    
+     func showAlertAction(title: String, message: String){
+         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+             self.navigationController?.popViewController(animated: true)
+         }))
+         self.present(alert, animated: true, completion: nil)
+     }
 }
 
 

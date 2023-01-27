@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     private func configureView(){
         
         self.view.backgroundColor = Constants.Colors.black
-        firstCollectionView.backgroundColor = Constants.Colors.black
+        firstCollectionView.backgroundColor = self.view.backgroundColor
         firstCollectionView.delegate = self
         firstCollectionView.dataSource = self
         secondCollectionView.delegate = self
@@ -86,13 +86,13 @@ extension HomeViewController:  UICollectionViewDelegate{
         case firstCollectionView :
             if self.lastIndexActive != indexPath{
                 let cell = firstCollectionView.cellForItem(at: indexPath) as! FilterCell
-                cell.viewForLabel.backgroundColor = .white
+                cell.viewForLabel.backgroundColor = UIColor(red: 0.867, green: 0.875, blue: 0.894, alpha: 1)
                 cell.filterLabel.textColor = .black
                 cell.viewForLabel.layer.masksToBounds = true
                 
                 let cell2 = firstCollectionView.cellForItem(at: self.lastIndexActive) as? FilterCell
                 cell2?.viewForLabel.backgroundColor = .black
-                cell2?.filterLabel.textColor = .white
+                cell2?.filterLabel.textColor = UIColor(red: 0.867, green: 0.875, blue: 0.894, alpha: 1)
                 cell2?.viewForLabel.layer.masksToBounds = true
                 
                 self.lastIndexActive = indexPath
@@ -144,7 +144,7 @@ extension HomeViewController: UICollectionViewDataSource{
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return  CGSize(width: 33, height: 110)
+        return  CGSize(width: 30, height: 110)
         
     }
 }
