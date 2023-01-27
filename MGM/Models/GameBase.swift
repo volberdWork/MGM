@@ -1,93 +1,88 @@
 import Foundation
 
 // MARK: - GameBase
-struct GameBase: Codable {
-    let gameBaseGet: String?
-    let parameters: Parameters?
-    let errors: [String?]
-    let results: Int?
-    let response: [Response]?
+import Foundation
 
-    enum CodingKeys: String, CodingKey {
-        case gameBaseGet = "get"
-        case parameters, errors, results, response
-    }
+// MARK: - Welcome6
+struct GameBase: Codable {
+    let welcome6Get: String
+    let parameters: Parameters
+    let errors : [String]?
+    let results: Int
+    let response: [Response]
 }
 
 // MARK: - Parameters
 struct Parameters: Codable {
-    let date: String?
+    let date: String
 }
 
 // MARK: - Response
 struct Response: Codable {
-    let game: Game?
-    let league: League?
-    let teams: Teams?
-    let scores: Scores?
-}
-
-// MARK: - Game
-struct Game: Codable {
-    let id: Int?
-    let stage, week: String?
-    let date: DateClass?
-    let venue: Venue?
-    let status: Status?
-}
-
-// MARK: - DateClass
-struct DateClass: Codable {
-    let timezone, date, time: String?
-    let timestamp: Int?
-}
-
-// MARK: - Status
-struct Status: Codable {
-    let short, long: String?
-    let timer: String?
-}
-
-// MARK: - Venue
-struct Venue: Codable {
-    let name, city: String?
-}
-
-// MARK: - League
-struct League: Codable {
-    let id: Int?
-    let name, season: String?
-    let logo: String?
-    let country: Country?
+    let id : Int?
+        let date : String?
+        let time : String?
+        let timestamp : Int?
+        let timezone : String?
+        let stage : String?
+        let week : String?
+        let status : Status?
+        let league : League
+        let country : Country
+        let teams : Teams
+        let scores : Scores
 }
 
 // MARK: - Country
 struct Country: Codable {
-    let name, code: String?
+    let id: Int
+    let name: String
+    let code: String?
     let flag: String?
 }
 
+// MARK: - League
+struct League: Codable {
+    let id: Int
+    let name: String
+    let type: String?
+    let season: String?
+    let logo: String
+}
+
+
 // MARK: - Scores
 struct Scores: Codable {
-    let home, away: ScoresBase?
+    let home, away: ScoresAway
 }
 
 // MARK: - ScoresAway
-struct ScoresBase: Codable {
+struct ScoresAway: Codable {
     let quarter1, quarter2, quarter3, quarter4: Int?
-    let overtime: String?
-    let total: Int?
-
+    let overTime, total: Int?
 }
+
+// MARK: - Status
+struct Status: Codable {
+    let long: String?
+    let short: String?
+    let timer: String?
+}
+
+
+
+
 
 // MARK: - Teams
 struct Teams: Codable {
-    let home, away: TeamsAway?
+    let home, away: TeamsAway
 }
 
 // MARK: - TeamsAway
 struct TeamsAway: Codable {
-    let id: Int?
-    let name: String?
-    let logo: String?
+    let id: Int
+    let name: String
+    let logo: String
 }
+
+

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dWX-sB-nZA">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -288,7 +289,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.86666666670000003" green="0.87450980389999999" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="a2K-fg-sII" secondAttribute="bottom" constant="6" id="6dW-6M-4iA"/>
                                                         <constraint firstItem="a2K-fg-sII" firstAttribute="top" secondItem="OAh-cI-pdV" secondAttribute="top" constant="6" id="MnW-Ch-fOa"/>
@@ -387,7 +388,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.87450980392156863" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="3hu-F7-IT5" secondAttribute="bottom" constant="6" id="SNE-ha-cfH"/>
                                                         <constraint firstItem="3hu-F7-IT5" firstAttribute="leading" secondItem="8dy-RK-Sp2" secondAttribute="leading" constant="12" id="aje-ON-gPI"/>

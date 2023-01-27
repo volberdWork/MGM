@@ -7,8 +7,8 @@ class HomeViewController: UIViewController {
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
     var eventsData: [Response] = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
-    var date = "2023-01-22"
-    
+    var date = "2023-01-26"
+    var lastIndexActive: IndexPath = [1,0]
     
     @IBOutlet var firstCollectionView: UICollectionView!
     @IBOutlet var secondCollectionView: UICollectionView!
@@ -40,19 +40,16 @@ class HomeViewController: UIViewController {
         
     }
     func loadFixtersBase(){
-        let urlFixtures = "https://v1.american-football.api-sports.io/games?date=\(date)"
+        let urlFixtures = "https://v1.basketball.api-sports.io/games?date=\(date)"
         
         AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
             let decoder = JSONDecoder()
             guard let respponseData = responseJSON.data else {return}
-            
+           
             do {
                 let data = try decoder.decode(GameBase.self, from: respponseData)
-                if data.response == nil {
-                    self.showAlertAction(title: "Sorry", message: "No DATA")
-                }else{
-                    self.eventsData = data.response ?? []
-                }
+                print(data)
+                self.eventsData = data.response
                 self.secondCollectionView.reloadData()
                 self.firstCollectionView.reloadData()
                 
@@ -82,21 +79,35 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                vc.data.append(eventsData[indexPath.row].scores!)
-                vc.teamData.append(eventsData[indexPath.row].teams!)
-                vc.gameData.append(eventsData[indexPath.row].game!)
                 vc.eventsData.append(eventsData[indexPath.row])
                 UIDevice.onOffVibration()
             }
             
         case firstCollectionView :
+            if self.lastIndexActive != indexPath{
+                let cell = firstCollectionView.cellForItem(at: indexPath) as! FilterCell
+                cell.viewForLabel.backgroundColor = .white
+                cell.filterLabel.textColor = .black
+                cell.viewForLabel.layer.masksToBounds = true
+                
+                let cell2 = firstCollectionView.cellForItem(at: self.lastIndexActive) as? FilterCell
+                cell2?.viewForLabel.backgroundColor = .black
+                cell2?.filterLabel.textColor = .white
+                cell2?.viewForLabel.layer.masksToBounds = true
+                
+                self.lastIndexActive = indexPath
+            }
             print("Selected \(filterData[indexPath.row])")
             UIDevice.onOffVibration()
+            
+          
             
         default:
             return
         }
     }
+   
+    
 }
 
 extension HomeViewController: UICollectionViewDataSource{
@@ -121,6 +132,7 @@ extension HomeViewController: UICollectionViewDataSource{
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
+           
             return filterCell
         default:
             return UICollectionViewCell()
