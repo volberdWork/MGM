@@ -12,29 +12,23 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct GameBase : Codable {
-	let get : String?
-	let parameters : Parameters?
-	let errors : [String]?
-	let results : Int?
-	let response : [Response]?
+struct Status : Codable {
+	let long : String?
+	let short : String?
+	let timer : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case get = "get"
-		case parameters = "parameters"
-		case errors = "errors"
-		case results = "results"
-		case response = "response"
+		case long = "long"
+		case short = "short"
+		case timer = "timer"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		get = try values.decodeIfPresent(String.self, forKey: .get)
-		parameters = try values.decodeIfPresent(Parameters.self, forKey: .parameters)
-		errors = try values.decodeIfPresent([String].self, forKey: .errors)
-		results = try values.decodeIfPresent(Int.self, forKey: .results)
-		response = try values.decodeIfPresent([Response].self, forKey: .response)
+		long = try values.decodeIfPresent(String.self, forKey: .long)
+		short = try values.decodeIfPresent(String.self, forKey: .short)
+		timer = try values.decodeIfPresent(String.self, forKey: .timer)
 	}
 
 }

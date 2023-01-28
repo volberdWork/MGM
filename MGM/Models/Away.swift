@@ -12,29 +12,32 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct GameBase : Codable {
-	let get : String?
-	let parameters : Parameters?
-	let errors : [String]?
-	let results : Int?
-	let response : [Response]?
+struct Away : Codable {
+	let quarter_1 : Int?
+	let quarter_2 : Int?
+	let quarter_3 : Int?
+	let quarter_4 : Int?
+	let over_time : String?
+	let total : Int?
 
 	enum CodingKeys: String, CodingKey {
 
-		case get = "get"
-		case parameters = "parameters"
-		case errors = "errors"
-		case results = "results"
-		case response = "response"
+		case quarter_1 = "quarter_1"
+		case quarter_2 = "quarter_2"
+		case quarter_3 = "quarter_3"
+		case quarter_4 = "quarter_4"
+		case over_time = "over_time"
+		case total = "total"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		get = try values.decodeIfPresent(String.self, forKey: .get)
-		parameters = try values.decodeIfPresent(Parameters.self, forKey: .parameters)
-		errors = try values.decodeIfPresent([String].self, forKey: .errors)
-		results = try values.decodeIfPresent(Int.self, forKey: .results)
-		response = try values.decodeIfPresent([Response].self, forKey: .response)
+		quarter_1 = try values.decodeIfPresent(Int.self, forKey: .quarter_1)
+		quarter_2 = try values.decodeIfPresent(Int.self, forKey: .quarter_2)
+		quarter_3 = try values.decodeIfPresent(Int.self, forKey: .quarter_3)
+		quarter_4 = try values.decodeIfPresent(Int.self, forKey: .quarter_4)
+		over_time = try values.decodeIfPresent(String.self, forKey: .over_time)
+		total = try values.decodeIfPresent(Int.self, forKey: .total)
 	}
 
 }

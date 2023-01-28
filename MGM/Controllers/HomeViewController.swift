@@ -5,7 +5,7 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
-    var eventsData: [Response] = []
+    var eventsData: [Response]? = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     var date = "2023-01-26"
     var lastIndexActive: IndexPath = [1,0]
@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
             do {
                 let data = try decoder.decode(GameBase.self, from: respponseData)
                 print(data)
+                print("Data is \(String(describing: data.response))")
                 self.eventsData = data.response
                 self.secondCollectionView.reloadData()
                 self.firstCollectionView.reloadData()
@@ -79,7 +80,7 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                vc.eventsData.append(eventsData[indexPath.row])
+//                vc.eventsData.append(eventsData?[indexPath.row] ?? <#default value#>)
                 UIDevice.onOffVibration()
             }
             
@@ -113,7 +114,7 @@ extension HomeViewController:  UICollectionViewDelegate{
 extension HomeViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
-        case secondCollectionView : return eventsData.count
+        case secondCollectionView : return eventsData!.count
         case firstCollectionView : return filterData.count
             
         default:
@@ -126,7 +127,7 @@ extension HomeViewController: UICollectionViewDataSource{
         switch collectionView{
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
-            infoCell.setupView(model: eventsData[indexPath.row])
+            infoCell.setupView(model: eventsData![indexPath.row])
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             return infoCell
         case firstCollectionView :

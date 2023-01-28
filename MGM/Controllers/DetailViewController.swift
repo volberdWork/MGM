@@ -56,10 +56,10 @@ class DetailViewController: UIViewController {
     
     
     func configureView(){
-        self.awayLogo?.kf.setImage(with: URL(string: eventsData[0].teams.home.logo))
-        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home.logo))
-        self.homeName?.text = teamData[0].home.name
-        self.awayName?.text = teamData[0].away.name
+//        self.awayLogo?.kf.setImage(with: URL(string: eventsData[0].teams?.home?.logo ?? ""))
+//        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home.logo))
+//        self.homeName?.text = teamData[0].home.name
+//        self.awayName?.text = teamData[0].away.name
 //        self.dateLabel.text = "\(self.gameData[0].date.date) \(self.gameData[0].date.time)"
 //        self.statusLabel.text = self.gameData[0].status.short
     }
@@ -90,12 +90,12 @@ class DetailViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         let infoBaseRealm = InfoBaseRealm()
-        infoBaseRealm.gameId = self.eventsData[0].id ?? 0
-        infoBaseRealm.homeLogoLink = self.teamData[0].home.logo
-        infoBaseRealm.awayLogoLink = self.teamData[0].away.logo
-        infoBaseRealm.homaName = self.teamData[0].home.name
-        infoBaseRealm.awayName = self.teamData[0].away.name
-//        infoBaseRealm.date = self.gameData[0].date.time
+//        infoBaseRealm.gameId = self.eventsData[0].id ?? 0
+//        infoBaseRealm.homeLogoLink = self.teamData[0].home.logo
+//        infoBaseRealm.awayLogoLink = self.teamData[0].away.logo
+//        infoBaseRealm.homaName = self.teamData[0].home.name
+//        infoBaseRealm.awayName = self.teamData[0].away.name
+////        infoBaseRealm.date = self.gameData[0].date.time
 //        infoBaseRealm.yearText = self.eventsData[0]
         try? self.realm?.write{
             self.realm?.add(infoBaseRealm, update: .all)
@@ -111,11 +111,11 @@ class DetailViewController: UIViewController {
     
     func saveToRealm(){
         let infoBaseRealm = InfoBaseRealm()
-        infoBaseRealm.gameId = self.eventsData[0].id ?? 0
-        infoBaseRealm.homeLogoLink = self.teamData[0].home.logo
-        infoBaseRealm.awayLogoLink = self.teamData[0].away.logo
-        infoBaseRealm.homaName = self.teamData[0].home.name
-        infoBaseRealm.awayName = self.teamData[0].away.name
+//        infoBaseRealm.gameId = self.eventsData[0].id ?? 0
+//        infoBaseRealm.homeLogoLink = self.teamData[0].home.logo
+//        infoBaseRealm.awayLogoLink = self.teamData[0].away.logo
+//        infoBaseRealm.homaName = self.teamData[0].home.name
+//        infoBaseRealm.awayName = self.teamData[0].away.name
 //        infoBaseRealm.date = self.gameData[0].date.time
 //        infoBaseRealm.yearText = self.gameData[0].date.date
         try? self.realm?.write{
