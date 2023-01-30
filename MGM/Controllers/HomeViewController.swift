@@ -5,7 +5,7 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
-    var eventsData: [Response]? = []
+//    var eventsData: [Response]? = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     var date = "2023-01-26"
     var lastIndexActive: IndexPath = [1,0]
@@ -13,12 +13,24 @@ class HomeViewController: UIViewController {
     @IBOutlet var firstCollectionView: UICollectionView!
     @IBOutlet var secondCollectionView: UICollectionView!
     
+    private var leages: [String] = []
+    private var leagesIcon: [UIImage] = []
+    private var isFirstTimeCell = true
+    private var leageData: [All] = []
+    private var all: [All] = []
+    private var leagesId: [Int] = []
+    private var leageId = 0
+    private var toggleColorCell = false
+    private var colorHeaderView: [UIColor] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        print(date)
-        loadGameBase()
+        
+        //додаємо на перше місце загальний масив (де будуть усі дані)
+        leages.insert("All", at: 0)
+
     }
     
     
@@ -27,35 +39,101 @@ class HomeViewController: UIViewController {
     
     
     private func configureView(){
-        //        secondCollectionView.register(UINib(nibName: "InfoEventsCell", bundle: .main), forCellWithReuseIdentifier: "CellId")
         self.view.backgroundColor = Constants.Colors.black
-        firstCollectionView.backgroundColor = self.view.backgroundColor
+        firstCollectionView.backgroundColor = Constants.Colors.black
         firstCollectionView.delegate = self
         firstCollectionView.dataSource = self
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
         
-        
-        //        loadFixtersBase()
+    
         let logo = UIImage(named: "MGMLogo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         secondCollectionView.backgroundColor = self.view.backgroundColor
         
-        
+        fetchData()
+        fetchImage()
+      
     }
-    func loadGameBase(){
-            let urlFixtures = "https://v1.basketball.api-sports.io/games?date=2023-07-30"
-            AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
-                let decoder = JSONDecoder()
-                guard let respponseData = responseJSON.data else {return}
-                do {
-                    let data = try decoder.decode(GameBase.self, from: respponseData)
-                } catch {
-                    print("Щось пішло не так")
-                }
-            }
+  
+    // заванатення івентів
+    private var allData: [Response] = []
+     func fetchData() {
+         guard let data = LiveDataBuffer.upcomingData else { return }
+         leages = data.response.compactMap{ $0.league?.name }
+         leagesId = data.response.compactMap{$0.league?.id}
+         let group = DispatchGroup()
+         leagesId.forEach { id in
+             group.enter()
+             NetworkManager.shared.fetchData(endpoint: .getFixturesByLeague(id: String(id), from: Date.getToday, to: Date.getNextWeek)) { isLoaded in
+                 if isLoaded {
+                     guard let data = LiveDataBuffer.upcomingData else { return group.leave() }
+                     self.allData.append(contentsOf: data.response)
+                     group.leave()
+                 }
+             }
+         }
+         group.notify(queue: .main) {
+             self.allData.sort(by: {$0.fixture?.date ?? Date() < $1.fixture?.date ?? Date()})
+             var dates = self.allData.compactMap({$0.fixture?.date})
+             let _dates = dates.unique
+             _dates.forEach { date in
+                 var _response: [Response] = []
+                 self.allData.forEach { response in
+                     if response.fixture?.date == date {
+                         _response.append(response)
+                     }
+                 }
+                 self.all.append(All(date: date, responce: _response))
+             }
+             self.leageData = self.all
+             self.secondCollectionView.reloadData()
+         }
+     }
+     
+    // завантаження зображень
+     func fetchImage() {
+         guard let data = LiveDataBuffer.upcomingData else { return }
+         let group = DispatchGroup()
+         data.response.forEach ({ response in
+             group.enter()
+             guard (response.league != nil) else { return }
+             NetworkManager.shared.getImage(urlString: response.league!.logo!) { result in
+                 switch result {
+                 case .success(let image):
+                     self.leagesIcon.append(image)
+                     group.leave()
+                 case .failure(let failure):
+                     self.leagesIcon.append(UIImage(named: "camera.fill")!)
+                     group.leave()
+                 }
+             }
+         })
+         group.notify(queue: .main) {
+             self.firstCollectionView.reloadData()
+         }
+     }
+    
+    private func setupCollectionView(indexPath: IndexPath) {
+        leageData.removeAll()
+        if indexPath.row == 0 {
+            leageData = all
+            leageId = 0
+            secondCollectionView.reloadData()
+        } else {
+            leageId = leagesId[indexPath.row - 1]
+           all.forEach({ all in
+                let _all = all.responce.filter({$0.league?.id == leageId})
+               if !_all.isEmpty {
+                   leageData.append(All(date: all.date, responce: _all ))
+               }
+            })
+            
+            print("Data:", all)
+            secondCollectionView.reloadData()
         }
+    }
     
     
     func showAlertAction(title: String, message: String){
@@ -69,54 +147,60 @@ class HomeViewController: UIViewController {
     @IBAction func settingsButton(_ sender: UIBarButtonItem) {
         UIDevice.onOffVibration()
     }
+
+    
+    
+    
+    
 }
 
 extension HomeViewController:  UICollectionViewDelegate{
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case secondCollectionView:
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                //                vc.eventsData.append(eventsData?[indexPath.row] ?? <#default value#>)
+//                vc.data.append(eventsData[indexPath.row].scores!)
+//                vc.teamData.append(eventsData[indexPath.row].teams!)
+//                vc.gameData.append(eventsData[indexPath.row].game!)
                 UIDevice.onOffVibration()
             }
-            
+
         case firstCollectionView :
-            if self.lastIndexActive != indexPath{
-                let cell = firstCollectionView.cellForItem(at: indexPath) as! FilterCell
-                cell.viewForLabel.backgroundColor = UIColor(red: 0.867, green: 0.875, blue: 0.894, alpha: 1)
-                cell.filterLabel.textColor = .black
-                cell.viewForLabel.layer.masksToBounds = true
-                
-                let cell2 = firstCollectionView.cellForItem(at: self.lastIndexActive) as? FilterCell
-                cell2?.viewForLabel.backgroundColor = .black
-                cell2?.filterLabel.textColor = UIColor(red: 0.867, green: 0.875, blue: 0.894, alpha: 1)
-                cell2?.viewForLabel.layer.masksToBounds = true
-                
-                self.lastIndexActive = indexPath
-            }
-            print("Selected \(filterData[indexPath.row])")
+            //завантаження нових данних
+            setupCollectionView(indexPath: indexPath)
+            
             UIDevice.onOffVibration()
-            
-            
-            
+
         default:
             return
         }
     }
-    
-    
 }
 
-extension HomeViewController: UICollectionViewDataSource{
+extension HomeViewController: UICollectionViewDataSource {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
-        case secondCollectionView : return 23
-        case firstCollectionView : return filterData.count
-            
+    
+            case firstCollectionView : return leages.count
+            case secondCollectionView : return leageData[section].responce.count
+    
         default:
             return 0
+        }
+        
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == secondCollectionView {
+            return leageData.count
+        } else {
+            return 1
         }
         
     }
@@ -125,20 +209,37 @@ extension HomeViewController: UICollectionViewDataSource{
         switch collectionView{
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
-            //            infoCell.setupView(model: eventsData![indexPath.row])
+            
+            
+            if leageId == 0 {
+                leageData = all
+            }
+             let dataCell = leageData[indexPath.section].responce[indexPath.row]
+            infoCell.homeName.text = dataCell.teams?.home?.name
+            infoCell.awayName.text = dataCell.teams?.away?.name
+            let urlIconTeamFirst = URL(string: (dataCell.teams?.home?.logo ?? ""))
+            let urlIconTeamSecond = URL(string: (dataCell.teams?.away?.logo ?? ""))
+            infoCell.homeLogo.kf.setImage(with: urlIconTeamFirst)
+            infoCell.awayLogo.kf.setImage(with: urlIconTeamSecond)
+            infoCell.dateLabel.text = String.getStatus(response: dataCell)
+
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             return infoCell
+            
+            
         case firstCollectionView :
+            
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
-            filterCell.filterLabel.text = filterData[indexPath.row]
+            filterCell.filterLabel.text = leages[indexPath.row]
             
             return filterCell
+            
+            
         default:
             return UICollectionViewCell()
         }
     }
 }
-
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -151,3 +252,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         
     }
 }
+
+
+//MARK: All Struct
+struct All {
+    let date: Date
+    let responce: [Response]
+}
+

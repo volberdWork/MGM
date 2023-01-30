@@ -524,9 +524,8 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Indigo" translatesAutoresizingMaskIntoConstraints="NO" id="Hhj-Tf-vYu">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hhj-Tf-vYu">
                                                             <rect key="frame" x="358" y="40.666666666666664" width="25" height="24.999999999999993"/>
-                                                            <color key="backgroundColor" red="0.82352941180000006" green="0.74117647060000003" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="dnQ-LI-Nit"/>
                                                                 <constraint firstAttribute="height" constant="25" id="qDT-YD-j0e"/>
@@ -563,6 +562,12 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="389" height="106"/>
                                         <connections>
+                                            <outlet property="awayLogo" destination="TSE-iX-V2e" id="lW9-xu-kCo"/>
+                                            <outlet property="awayName" destination="5N1-G9-Uqr" id="198-z1-Zqb"/>
+                                            <outlet property="dateLabel" destination="hny-Dz-heR" id="1LK-8W-qUV"/>
+                                            <outlet property="homeLogo" destination="l3X-U2-4y4" id="5xX-GH-mkr"/>
+                                            <outlet property="homeName" destination="r6Y-yk-fIb" id="DlF-2Q-vAZ"/>
+                                            <outlet property="timeLabel" destination="ixq-lX-xql" id="yit-Qe-n62"/>
                                             <outlet property="viewContent" destination="Neh-15-fo1" id="9r3-2k-qm6"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1131,9 +1136,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Indigo" width="56" height="167"/>
         <image name="activeBellImage" width="19.333333969116211" height="19.333333969116211"/>
         <image name="appclip_ex.gif" width="1311" height="727"/>
+        <image name="arrowIcon" width="6" height="11.333333015441895"/>
         <image name="backGroundImage" width="262" height="568"/>
         <image name="deteilImage" width="262" height="142"/>
         <image name="kingfisher-7.jpg" width="40.816326141357422" height="40.816326141357422"/>

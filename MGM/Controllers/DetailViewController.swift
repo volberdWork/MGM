@@ -15,10 +15,10 @@ class DetailViewController: UIViewController {
     let realm = try? Realm()
     
     @IBOutlet var saveButton: UIButton!
-    var data: [Scores] = []
-    var teamData:[Teams] = []
+//    var data: [Scores] = []
+//    var teamData:[Teams] = []
     //    var gameData:[Game] = []
-    var eventsData: [Response] = []
+//    var eventsData: [Response] = []
     var lastIndexActive: IndexPath = [1,0]
     
     

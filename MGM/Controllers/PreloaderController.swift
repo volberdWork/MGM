@@ -10,8 +10,17 @@ class PreloadreController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            self?.loadVC()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+//            self?.loadVC()
+//        }
+        
+        NetworkManager.shared.fetchData(endpoint: .listLeages) {isDownload in
+            if isDownload {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+                    print("FINISH DATA LOADING")
+                    self.loadVC()
+                }
+            }
         }
     }
     func loadVC(){
