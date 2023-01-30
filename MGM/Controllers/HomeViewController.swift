@@ -5,7 +5,7 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
-//    var eventsData: [Response]? = []
+    //    var eventsData: [Response]? = []
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     var date = "2023-01-26"
     var lastIndexActive: IndexPath = [1,0]
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         
         //додаємо на перше місце загальний масив (де будуть усі дані)
         leages.insert("All", at: 0)
-
+        
     }
     
     
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
         
-    
+        
         let logo = UIImage(named: "MGMLogo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
@@ -54,66 +54,66 @@ class HomeViewController: UIViewController {
         
         fetchData()
         fetchImage()
-      
+        
     }
-  
+    
     // заванатення івентів
     private var allData: [Response] = []
-     func fetchData() {
-         guard let data = LiveDataBuffer.upcomingData else { return }
-         leages = data.response.compactMap{ $0.league?.name }
-         leagesId = data.response.compactMap{$0.league?.id}
-         let group = DispatchGroup()
-         leagesId.forEach { id in
-             group.enter()
-             NetworkManager.shared.fetchData(endpoint: .getFixturesByLeague(id: String(id), from: Date.getToday, to: Date.getNextWeek)) { isLoaded in
-                 if isLoaded {
-                     guard let data = LiveDataBuffer.upcomingData else { return group.leave() }
-                     self.allData.append(contentsOf: data.response)
-                     group.leave()
-                 }
-             }
-         }
-         group.notify(queue: .main) {
-             self.allData.sort(by: {$0.fixture?.date ?? Date() < $1.fixture?.date ?? Date()})
-             var dates = self.allData.compactMap({$0.fixture?.date})
-             let _dates = dates.unique
-             _dates.forEach { date in
-                 var _response: [Response] = []
-                 self.allData.forEach { response in
-                     if response.fixture?.date == date {
-                         _response.append(response)
-                     }
-                 }
-                 self.all.append(All(date: date, responce: _response))
-             }
-             self.leageData = self.all
-             self.secondCollectionView.reloadData()
-         }
-     }
-     
+    func fetchData() {
+        guard let data = LiveDataBuffer.upcomingData else { return }
+        leages = data.response.compactMap{ $0.league?.name }
+        leagesId = data.response.compactMap{$0.league?.id}
+        let group = DispatchGroup()
+        leagesId.forEach { id in
+            group.enter()
+            NetworkManager.shared.fetchData(endpoint: .getFixturesByLeague(id: String(id), from: Date.getToday, to: Date.getNextWeek)) { isLoaded in
+                if isLoaded {
+                    guard let data = LiveDataBuffer.upcomingData else { return group.leave() }
+                    self.allData.append(contentsOf: data.response)
+                    group.leave()
+                }
+            }
+        }
+        group.notify(queue: .main) {
+            self.allData.sort(by: {$0.fixture?.date ?? Date() < $1.fixture?.date ?? Date()})
+            var dates = self.allData.compactMap({$0.fixture?.date})
+            let _dates = dates.unique
+            _dates.forEach { date in
+                var _response: [Response] = []
+                self.allData.forEach { response in
+                    if response.fixture?.date == date {
+                        _response.append(response)
+                    }
+                }
+                self.all.append(All(date: date, responce: _response))
+            }
+            self.leageData = self.all
+            self.secondCollectionView.reloadData()
+        }
+    }
+    
     // завантаження зображень
-     func fetchImage() {
-         guard let data = LiveDataBuffer.upcomingData else { return }
-         let group = DispatchGroup()
-         data.response.forEach ({ response in
-             group.enter()
-             guard (response.league != nil) else { return }
-             NetworkManager.shared.getImage(urlString: response.league!.logo!) { result in
-                 switch result {
-                 case .success(let image):
-                     self.leagesIcon.append(image)
-                     group.leave()
-                 case .failure(let failure):
-                     self.leagesIcon.append(UIImage(named: "camera.fill")!)
-                     group.leave()
-                 }
-             }
-         })
-         group.notify(queue: .main) {
-             self.firstCollectionView.reloadData()
-         }
-     }
+    func fetchImage() {
+        guard let data = LiveDataBuffer.upcomingData else { return }
+        let group = DispatchGroup()
+        data.response.forEach ({ response in
+            group.enter()
+            guard (response.league != nil) else { return }
+            NetworkManager.shared.getImage(urlString: response.league!.logo!) { result in
+                switch result {
+                case .success(let image):
+                    self.leagesIcon.append(image)
+                    group.leave()
+                case .failure(let failure):
+                    self.leagesIcon.append(UIImage(named: "camera.fill")!)
+                    group.leave()
+                }
+            }
+        })
+        group.notify(queue: .main) {
+            self.firstCollectionView.reloadData()
+        }
+    }
     
     private func setupCollectionView(indexPath: IndexPath) {
         leageData.removeAll()
@@ -123,11 +123,11 @@ class HomeViewController: UIViewController {
             secondCollectionView.reloadData()
         } else {
             leageId = leagesId[indexPath.row - 1]
-           all.forEach({ all in
+            all.forEach({ all in
                 let _all = all.responce.filter({$0.league?.id == leageId})
-               if !_all.isEmpty {
-                   leageData.append(All(date: all.date, responce: _all ))
-               }
+                if !_all.isEmpty {
+                    leageData.append(All(date: all.date, responce: _all ))
+                }
             })
             
             print("Data:", all)
@@ -147,7 +147,7 @@ class HomeViewController: UIViewController {
     @IBAction func settingsButton(_ sender: UIBarButtonItem) {
         UIDevice.onOffVibration()
     }
-
+    
     
     
     
@@ -163,18 +163,18 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-//                vc.data.append(eventsData[indexPath.row].scores!)
-//                vc.teamData.append(eventsData[indexPath.row].teams!)
-//                vc.gameData.append(eventsData[indexPath.row].game!)
+                //                vc.data.append(eventsData[indexPath.row].scores!)
+                //                vc.teamData.append(eventsData[indexPath.row].teams!)
+                //                vc.gameData.append(eventsData[indexPath.row].game!)
                 UIDevice.onOffVibration()
             }
-
+            
         case firstCollectionView :
             //завантаження нових данних
             setupCollectionView(indexPath: indexPath)
             
             UIDevice.onOffVibration()
-
+            
         default:
             return
         }
@@ -186,10 +186,10 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
-    
-            case firstCollectionView : return leages.count
-            case secondCollectionView : return leageData[section].responce.count
-    
+            
+        case firstCollectionView : return leages.count
+        case secondCollectionView : return leageData[section].responce.count
+            
         default:
             return 0
         }
@@ -214,7 +214,7 @@ extension HomeViewController: UICollectionViewDataSource {
             if leageId == 0 {
                 leageData = all
             }
-             let dataCell = leageData[indexPath.section].responce[indexPath.row]
+            let dataCell = leageData[indexPath.section].responce[indexPath.row]
             infoCell.homeName.text = dataCell.teams?.home?.name
             infoCell.awayName.text = dataCell.teams?.away?.name
             let urlIconTeamFirst = URL(string: (dataCell.teams?.home?.logo ?? ""))
@@ -222,7 +222,7 @@ extension HomeViewController: UICollectionViewDataSource {
             infoCell.homeLogo.kf.setImage(with: urlIconTeamFirst)
             infoCell.awayLogo.kf.setImage(with: urlIconTeamSecond)
             infoCell.dateLabel.text = String.getStatus(response: dataCell)
-
+            
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             return infoCell
             

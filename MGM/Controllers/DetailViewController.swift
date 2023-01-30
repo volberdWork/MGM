@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class DetailViewController: UIViewController {
     
@@ -12,16 +11,21 @@ class DetailViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var awayLogo: UIImageView!
     @IBOutlet var homeLogo: UIImageView!
-    let realm = try? Realm()
+    
     
     @IBOutlet var saveButton: UIButton!
-//    var data: [Scores] = []
-//    var teamData:[Teams] = []
+    
+    //
+    //    var data: [Scores] = []
+    //    var teamData:[Teams] = []
     //    var gameData:[Game] = []
-//    var eventsData: [Response] = []
-    var lastIndexActive: IndexPath = [1,0]
-    
-    
+    //
+    ////    var gameEvents =
+    ////    var events =
+    ////    var teamStat =
+    ////    var playerStat =
+    //
+    //
     let testData = [
         
         ["FirstDown", "Total", "Passing", "Rushing", "From Penalties"],
@@ -39,13 +43,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.tappedMe))
-        let ta2 = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.tappedMe))
-     homeLogo.addGestureRecognizer(tap)
-        homeLogo.isUserInteractionEnabled = true
-        awayLogo.addGestureRecognizer(ta2)
-           awayLogo.isUserInteractionEnabled = true
-     
+        //        print("Data", data)
+        //        print("Team", teamData)
+        //        print("Game", gameData)
+        
         
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
@@ -57,24 +58,17 @@ class DetailViewController: UIViewController {
         
         configureView()
         
-    }
-    
-    @objc func tappedMe()
-    {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = main.instantiateViewController(withIdentifier: "PlayersViewController") as? PlayersViewController {
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        
     }
     
     
     func configureView(){
-        //        self.awayLogo?.kf.setImage(with: URL(string: eventsData[0].teams?.home?.logo ?? ""))
-        //        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home.logo))
-        //        self.homeName?.text = teamData[0].home.name
-        //        self.awayName?.text = teamData[0].away.name
-        //        self.dateLabel.text = "\(self.gameData[0].date.date) \(self.gameData[0].date.time)"
-        //        self.statusLabel.text = self.gameData[0].status.short
+        //        self.awayLogo?.kf.setImage(with: URL(string: teamData[0].away?.logo ?? ""))
+        //        self.homeLogo?.kf.setImage(with: URL(string: teamData[0].home?.logo ?? ""))
+        //        self.homeName?.text = teamData[0].home?.name ?? ""
+        //        self.awayName?.text = teamData[0].away?.name ?? ""
+        //        self.dateLabel.text = "\(self.gameData[0].date?.date ?? "") \(self.gameData[0].date?.time ?? "")"
+        //        self.statusLabel.text = self.gameData[0].status?.short ?? ""
     }
     
     func loadAllert(){
@@ -83,8 +77,6 @@ class DetailViewController: UIViewController {
         let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
             self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
             UIDevice.onOffVibration()
-            self.saveToRealm()
-            print("Save and updaterealm")
         })
         alert.addAction(ok)
         
@@ -102,40 +94,10 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let infoBaseRealm = InfoBaseRealm()
-        //        infoBaseRealm.gameId = self.eventsData[0].id ?? 0
-        //        infoBaseRealm.homeLogoLink = self.teamData[0].home.logo
-        //        infoBaseRealm.awayLogoLink = self.teamData[0].away.logo
-        //        infoBaseRealm.homaName = self.teamData[0].home.name
-        //        infoBaseRealm.awayName = self.teamData[0].away.name
-        ////        infoBaseRealm.date = self.gameData[0].date.time
-        //        infoBaseRealm.yearText = self.eventsData[0]
-        try? self.realm?.write{
-            self.realm?.add(infoBaseRealm, update: .all)
-        }
-        
-        
-        
-        //        saveToRealm()
-        //        loadAllert()
-        //        print("OKKK")
+        loadAllert()
+        print("OKKK")
     }
     
-    
-    func saveToRealm(){
-        let infoBaseRealm = InfoBaseRealm()
-        //        infoBaseRealm.gameId = self.eventsData[0].id ?? 0
-        //        infoBaseRealm.homeLogoLink = self.teamData[0].home.logo
-        //        infoBaseRealm.awayLogoLink = self.teamData[0].away.logo
-        //        infoBaseRealm.homaName = self.teamData[0].home.name
-        //        infoBaseRealm.awayName = self.teamData[0].away.name
-        //        infoBaseRealm.date = self.gameData[0].date.time
-        //        infoBaseRealm.yearText = self.gameData[0].date.date
-        try? self.realm?.write{
-            self.realm?.add(infoBaseRealm, update: .all)
-        }
-        
-    }
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -144,22 +106,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         switch collectionView{
-        case filterCollectionView :
-            if self.lastIndexActive != indexPath{
-                let cell = filterCollectionView.cellForItem(at: indexPath) as! FilterCell
-                cell.viewForLabel.backgroundColor = .white
-                cell.filterLabel.textColor = .black
-                cell.viewForLabel.layer.masksToBounds = true
-                
-                let cell2 = filterCollectionView.cellForItem(at: self.lastIndexActive) as? FilterCell
-                cell2?.viewForLabel.backgroundColor = .black
-                cell2?.filterLabel.textColor = .white
-                cell2?.viewForLabel.layer.masksToBounds = true
-                
-                self.lastIndexActive = indexPath
-            }
-            
-            UIDevice.onOffVibration()
+        case filterCollectionView : UIDevice.onOffVibration()
         default:
             return
         }

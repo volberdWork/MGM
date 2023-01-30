@@ -1,8 +1,3 @@
-//
-//  EndpointParameters.swift
-//  MGM
-//
-
 import Foundation
 
 enum EndpointParameters: Endpoint {
@@ -124,15 +119,15 @@ extension Date {
     
     static func formatDateForEventsFavoritesCell(date: Date) -> String {
         let dateFormatter = DateFormatter()
-       dateFormatter.timeZone = TimeZone.current
-       dateFormatter.dateFormat = "dd/MM/yyyy"
-       return dateFormatter.string(from: date)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.string(from: date)
     }
     
     static func formatTimeForEventsFavoritesCell(date: Date) -> String {
         let dateFormatter = DateFormatter()
-       dateFormatter.timeZone = TimeZone.current
-       dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "HH:mm"
         if Calendar.current.isDateInToday(date) {
             return  "today " + dateFormatter.string(from: date)
         } else if Calendar.current.isDateInTomorrow(date) {
@@ -142,18 +137,18 @@ extension Date {
         }
     }
     
-   static func formatFromServer(date: Date) -> String {
+    static func formatFromServer(date: Date) -> String {
         let dateFormatter = DateFormatter()
-       dateFormatter.timeZone = TimeZone.current
-       dateFormatter.dateFormat = "HH:mm dd/MM/yyyy"
-       return dateFormatter.string(from: date)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "HH:mm dd/MM/yyyy"
+        return dateFormatter.string(from: date)
     }
     
     static func formatDateForDetailView(date: Date) -> String {
         let dateFormatter = DateFormatter()
-       dateFormatter.timeZone = TimeZone.current
-       dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-       return dateFormatter.string(from: date)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        return dateFormatter.string(from: date)
     }
     
     static func formatPalyerBirth(str: String) -> String {

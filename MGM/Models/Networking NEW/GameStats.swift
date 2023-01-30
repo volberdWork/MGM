@@ -1,10 +1,3 @@
-//
-//  GameStatistic.swift
-//  Estrela
-//
-//  Created by MacBook on 23.01.2023.
-//
-
 import Foundation
 
 struct Fixtures: Codable {

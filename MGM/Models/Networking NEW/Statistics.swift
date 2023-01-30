@@ -1,10 +1,3 @@
-//
-//  Statistics.swift
-//  Estrela
-//
-//  Created by MacBook on 18.01.2023.
-//
-
 import Foundation
 
 struct Statistics: Codable {
@@ -19,7 +12,7 @@ struct Statistics: Codable {
     let fouls : Fouls?
     let cards : Cards?
     let penalty : Penalty?
-   //Fof Game Stat
+    //Fof Game Stat
     let type : String?
     let value : Value?
     
@@ -46,17 +39,17 @@ enum Value: Codable {
     case int(Int)
     
     init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            if let x = try? container.decode(String.self) {
-                self = .string(x)
-                return
-            }
-            if let x = try? container.decode(Int.self) {
-                self = .int(x)
-                return
-            }
-            throw DecodingError.typeMismatch(Value.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Values"))
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(String.self) {
+            self = .string(x)
+            return
         }
+        if let x = try? container.decode(Int.self) {
+            self = .int(x)
+            return
+        }
+        throw DecodingError.typeMismatch(Value.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Values"))
+    }
     
     var castValues: String {
         switch self {
@@ -115,17 +108,17 @@ enum Accuracy: Codable {
     case int(Int)
     
     init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            if let x = try? container.decode(String.self) {
-                self = .string(x)
-                return
-            }
-            if let x = try? container.decode(Int.self) {
-                self = .int(x)
-                return
-            }
-            throw DecodingError.typeMismatch(Value.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Values"))
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(String.self) {
+            self = .string(x)
+            return
         }
+        if let x = try? container.decode(Int.self) {
+            self = .int(x)
+            return
+        }
+        throw DecodingError.typeMismatch(Value.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Values"))
+    }
     
     var castValues: String {
         switch self {
@@ -149,7 +142,7 @@ struct Substitutes : Codable {
     let _in : Int?
     let out : Int?
     let bench : Int?
-  
+    
     enum CodingKeys: String, CodingKey {
         case _in = "in"
         case out = "out"

@@ -1,8 +1,3 @@
-//
-//  NetworkManager.swift
-//  MGM
-//
-
 import Foundation
 import Alamofire
 import UIKit

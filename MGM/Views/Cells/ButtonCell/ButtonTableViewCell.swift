@@ -1,7 +1,7 @@
 import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var view: UIView!
@@ -9,14 +9,14 @@ class ButtonTableViewCell: UITableViewCell {
     @IBOutlet var viewButton: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
-
+    
     func configure(media: ButtonSet){
         self.titleLabel.text = media.title
         viewButton.layer.borderWidth = 0.2

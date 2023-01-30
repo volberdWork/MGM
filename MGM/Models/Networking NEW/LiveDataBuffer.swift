@@ -1,10 +1,3 @@
-//
-//  LiveDataBuffer.swift
-//  MGM
-//
-//  Created by Anton Kolesynskyi on 30/01/2023.
-//
-
 import Foundation
 
 
@@ -21,7 +14,7 @@ struct LiveData: Codable {
     let results: Int
     let paging: Paging
     let response: [Response]
-
+    
     enum CodingKeys: String, CodingKey {
         case welcomeGet = "get"
         case parameters, errors, results, paging, response
@@ -35,7 +28,7 @@ struct LiveDataTeamStat: Codable {
     let results: Int
     let paging: Paging
     let response: Response
-
+    
     enum CodingKeys: String, CodingKey {
         case welcomeGet = "get"
         case parameters, errors, results, paging, response
@@ -159,12 +152,12 @@ struct Goals: Codable {
     let home, away: Int?
     let forGoal: TeamGoals?
     let againtsGoal: TeamGoals?
-        
-        enum CodingKeys: String, CodingKey {
-            case home, away
-            case forGoal = "for"
-            case againtsGoal = "againts"
-        }
+    
+    enum CodingKeys: String, CodingKey {
+        case home, away
+        case forGoal = "for"
+        case againtsGoal = "againts"
+    }
 }
 
 struct TeamGoals: Codable {

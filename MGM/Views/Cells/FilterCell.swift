@@ -1,7 +1,7 @@
 import UIKit
 
 class FilterCell: UICollectionViewCell {
-
+    
     @IBOutlet var viewForLabel: UIView!
     @IBOutlet weak var filterLabel: UILabel!
     override func awakeFromNib() {

@@ -25,22 +25,22 @@ class RemindersViewController: UIViewController{
         } else{
             showAlertAction(title: "Sorry", message: "No data")
         }
-      
+        
     }
     
     func setupView(){
         self.collectionView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-       
+        
     }
     
     
-     func showAlertAction(title: String, message: String){
-         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
-             self.navigationController?.popViewController(animated: true)
-         }))
-         self.present(alert, animated: true, completion: nil)
-     }
+    func showAlertAction(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 
@@ -55,13 +55,13 @@ extension RemindersViewController:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
+        
         let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RemindersCollectionViewCell", for: indexPath) as! RemindersCollectionViewCell
         infoCell.layer.borderWidth = 1
         infoCell.layer.borderColor = CGColor(red: 243/255, green: 244/255, blue: 245/255, alpha: 0.5)
         return infoCell
         
-       
+        
     }
     
 }
