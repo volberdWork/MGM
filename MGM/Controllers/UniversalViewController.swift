@@ -28,6 +28,15 @@ extension UniversalViewController: UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = .none
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = main.instantiateViewController(withIdentifier: "RemindersViewController") as? RemindersViewController {
+            navigationController?.pushViewController(vc, animated: true)
+            UIDevice.onOffVibration()
+            
+            
+        }
+    }
     
     
 }

@@ -134,7 +134,7 @@
 			children = (
 				BDE80FDB298133740029333F /* ButtonCell */,
 				BDE80FD4298129D20029333F /* PlayerTableCell */,
-				BD06842D297201F100886D8F /* InfoEventsCell.swift */,
+				BD263CCC29879BB000A10DC1 /* InfoEventsCell */,
 				BD06842F2972022900886D8F /* FilterCell.swift */,
 				BDB581932982970B00FA1D7B /* RemindersCollectionViewCell.swift */,
 			);
@@ -147,6 +147,14 @@
 				BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */,
 			);
 			path = "Relm Model";
+			sourceTree = "<group>";
+		};
+		BD263CCC29879BB000A10DC1 /* InfoEventsCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD06842D297201F100886D8F /* InfoEventsCell.swift */,
+			);
+			path = InfoEventsCell;
 			sourceTree = "<group>";
 		};
 		BD949E17296ED69B008B1C14 = {

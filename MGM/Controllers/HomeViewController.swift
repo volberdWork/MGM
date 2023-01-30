@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     
     
     private func configureView(){
-        
+//        secondCollectionView.register(UINib(nibName: "InfoEventsCell", bundle: .main), forCellWithReuseIdentifier: "CellId")
         self.view.backgroundColor = Constants.Colors.black
         firstCollectionView.backgroundColor = self.view.backgroundColor
         firstCollectionView.delegate = self
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
                 self.firstCollectionView.reloadData()
                 
             } catch {
-                print("Щось пішло не так")
+               
             }
         }
     }
@@ -114,7 +114,7 @@ extension HomeViewController:  UICollectionViewDelegate{
 extension HomeViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
-        case secondCollectionView : return eventsData!.count
+        case secondCollectionView : return 23
         case firstCollectionView : return filterData.count
             
         default:
@@ -127,7 +127,7 @@ extension HomeViewController: UICollectionViewDataSource{
         switch collectionView{
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
-            infoCell.setupView(model: eventsData![indexPath.row])
+//            infoCell.setupView(model: eventsData![indexPath.row])
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             return infoCell
         case firstCollectionView :
@@ -145,7 +145,11 @@ extension HomeViewController: UICollectionViewDataSource{
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return  CGSize(width: 30, height: 110)
-        
+        if collectionView == firstCollectionView{
+            return CGSize(width: 30, height: 110)
+        } else{
+            return CGSize(width: self.view.frame.width, height: 110)
+        }
+      
     }
 }

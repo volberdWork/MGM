@@ -15,7 +15,7 @@ class PlayersViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-//        loadFixtersBase(id: teamId)
+
     }
     
     func configure(){
@@ -25,27 +25,7 @@ class PlayersViewController: UIViewController{
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
     }
-//    func loadFixtersBase(id: String){
-//        let urlFixtures = "https://v1.american-football.api-sports.io/games/statistics/players?id=\(id)"
-//
-//        AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
-//            let decoder = JSONDecoder()
-//            guard let respponseData = responseJSON.data else {return}
-//
-//            do {
-//                let data = try decoder.decode(PlayersStatisticBase.self, from: respponseData)
-//
-//                print(data)
-//                self.playersdata = data.response ?? []
-//
-//                //                self.secondCollectionView.reloadData()
-//                //                self.firstCollectionView.reloadData()
-//
-//            } catch {
-//                print("Щось пішло не так")
-//            }
-//        }
-//    }
+
     
 }
 
