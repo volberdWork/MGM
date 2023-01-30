@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
     }
     
     
+   
+    
     private func configureView(){
 //        secondCollectionView.register(UINib(nibName: "InfoEventsCell", bundle: .main), forCellWithReuseIdentifier: "CellId")
         self.view.backgroundColor = Constants.Colors.black
