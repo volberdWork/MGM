@@ -18,13 +18,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         print(date)
+        loadGameBase()
     }
     
     
-   
+    
+    
+    
     
     private func configureView(){
-//        secondCollectionView.register(UINib(nibName: "InfoEventsCell", bundle: .main), forCellWithReuseIdentifier: "CellId")
+        //        secondCollectionView.register(UINib(nibName: "InfoEventsCell", bundle: .main), forCellWithReuseIdentifier: "CellId")
         self.view.backgroundColor = Constants.Colors.black
         firstCollectionView.backgroundColor = self.view.backgroundColor
         firstCollectionView.delegate = self
@@ -33,7 +36,7 @@ class HomeViewController: UIViewController {
         secondCollectionView.dataSource = self
         
         
-        loadFixtersBase()
+        //        loadFixtersBase()
         let logo = UIImage(named: "MGMLogo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
@@ -41,26 +44,19 @@ class HomeViewController: UIViewController {
         
         
     }
-    func loadFixtersBase(){
-        let urlFixtures = "https://v1.basketball.api-sports.io/games?date=\(date)"
-        
-        AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
-            let decoder = JSONDecoder()
-            guard let respponseData = responseJSON.data else {return}
-           
-            do {
-                let data = try decoder.decode(GameBase.self, from: respponseData)
-                print(data)
-                print("Data is \(String(describing: data.response))")
-                self.eventsData = data.response
-                self.secondCollectionView.reloadData()
-                self.firstCollectionView.reloadData()
-                
-            } catch {
-               
+    func loadGameBase(){
+            let urlFixtures = "https://v1.basketball.api-sports.io/games?date=2023-07-30"
+            AF.request(urlFixtures, headers: headers).responseJSON { responseJSON in
+                let decoder = JSONDecoder()
+                guard let respponseData = responseJSON.data else {return}
+                do {
+                    let data = try decoder.decode(GameBase.self, from: respponseData)
+                } catch {
+                    print("Щось пішло не так")
+                }
             }
         }
-    }
+    
     
     func showAlertAction(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -82,7 +78,7 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-//                vc.eventsData.append(eventsData?[indexPath.row] ?? <#default value#>)
+                //                vc.eventsData.append(eventsData?[indexPath.row] ?? <#default value#>)
                 UIDevice.onOffVibration()
             }
             
@@ -103,13 +99,13 @@ extension HomeViewController:  UICollectionViewDelegate{
             print("Selected \(filterData[indexPath.row])")
             UIDevice.onOffVibration()
             
-          
+            
             
         default:
             return
         }
     }
-   
+    
     
 }
 
@@ -129,13 +125,13 @@ extension HomeViewController: UICollectionViewDataSource{
         switch collectionView{
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
-//            infoCell.setupView(model: eventsData![indexPath.row])
+            //            infoCell.setupView(model: eventsData![indexPath.row])
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             return infoCell
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
-           
+            
             return filterCell
         default:
             return UICollectionViewCell()
@@ -152,6 +148,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         } else{
             return CGSize(width: self.view.frame.width, height: 110)
         }
-      
+        
     }
 }
