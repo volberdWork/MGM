@@ -163,9 +163,8 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                //                vc.data.append(eventsData[indexPath.row].scores!)
-                //                vc.teamData.append(eventsData[indexPath.row].teams!)
-                //                vc.gameData.append(eventsData[indexPath.row].game!)
+               
+                vc.allData = leageData
                 UIDevice.onOffVibration()
             }
             
