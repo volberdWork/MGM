@@ -89,6 +89,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
     // завантаження зображень
     func fetchImage() {
         guard let data = LiveDataBuffer.upcomingData else { return }
@@ -157,7 +158,6 @@ extension HomeViewController:  UICollectionViewDelegate{
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-                //                vc.statusLabel.text = String.getStatus(response: dataCell)
                 vc.data.append(dataCell)
                 UIDevice.onOffVibration()
             }

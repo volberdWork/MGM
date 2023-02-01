@@ -13,6 +13,7 @@
 		BD0684322972D19D00886D8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0684312972D19D00886D8F /* Constants.swift */; };
 		BD20A08C297693F2004F47F5 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08B297693F2004F47F5 /* RemindersViewController.swift */; };
 		BD20A08F29769CFE004F47F5 /* InfoBaseRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */; };
+		BD856E77298AB31900914D84 /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E76298AB31900914D84 /* DetailTeamViewController.swift */; };
 		BD8EA3EA297EA91500421145 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA3E9297EA91500421145 /* PlayersViewController.swift */; };
 		BD8EA3ED297EC44800421145 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */; };
 		BD8EA3EE297EC44800421145 /* PlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */; };
@@ -55,6 +56,7 @@
 		BD0684312972D19D00886D8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD20A08B297693F2004F47F5 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBaseRealm.swift; sourceTree = "<group>"; };
+		BD856E76298AB31900914D84 /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
 		BD8EA3E9297EA91500421145 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				BD949E592970453E008B1C14 /* HomeViewController.swift */,
 				BD949E5B29716590008B1C14 /* SettingsViewController.swift */,
 				BD06842A2971EC8B00886D8F /* DetailViewController.swift */,
+				BD856E76298AB31900914D84 /* DetailTeamViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */,
 				BDB581942982970B00FA1D7B /* RemindersCollectionViewCell.swift in Sources */,
+				BD856E77298AB31900914D84 /* DetailTeamViewController.swift in Sources */,
 				BD9B26E1298843BD006EA73F /* EndpointParameters.swift in Sources */,
 				BD9B26DC298843BD006EA73F /* Statistics.swift in Sources */,
 				BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */,

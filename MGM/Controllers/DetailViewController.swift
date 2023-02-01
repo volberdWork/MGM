@@ -47,9 +47,25 @@ class DetailViewController: UIViewController {
         
         configureView()
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        homeLogo.isUserInteractionEnabled = true
+        homeLogo.addGestureRecognizer(tapGestureRecognizer)
+        
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        awayLogo.isUserInteractionEnabled = true
+        awayLogo.addGestureRecognizer(tapGestureRecognizer1)
         
     }
     
+  
+
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = main.instantiateViewController(withIdentifier: "DetailTeamViewController") as? DetailTeamViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     func configureView(){
         dateLabel.text = changeDateFormat(dateString: (data[0].fixture?.date ?? ""), fromFormat: "yyyy-MM-dd'T'HH:mm:ssZ", toFormat: "dd MMMM HH:mm")
@@ -85,6 +101,7 @@ class DetailViewController: UIViewController {
     }
     
     func saveToRealm(){
+        
         let infoBaseRealm = InfoBaseRealm()
         infoBaseRealm.gameId = data[0].fixture?.id ?? 0
         infoBaseRealm.awayName = data[0].teams?.away?.name ?? ""
@@ -92,6 +109,7 @@ class DetailViewController: UIViewController {
         infoBaseRealm.date = data[0].fixture?.date ?? ""
         infoBaseRealm.awayLogoLink = data[0].teams?.away?.logo ?? ""
         infoBaseRealm.homeLogoLink = data[0].teams?.home?.logo ?? ""
+        
         try? self.realm?.write{
             self.realm?.add(infoBaseRealm, update: .all)
         }
