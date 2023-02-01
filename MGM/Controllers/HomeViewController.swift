@@ -4,10 +4,7 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     
-    let filterData = ["Home", "Live", "Team", "Player", "Premier League", "Some aanother", "Test League", "TET", "TRW", "WFD"]
-    //    var eventsData: [Response]? = []
-    let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
-    var date = "2023-01-26"
+    
     var lastIndexActive: IndexPath = [1,0]
     
     @IBOutlet var firstCollectionView: UICollectionView!
@@ -75,8 +72,8 @@ class HomeViewController: UIViewController {
             }
         }
         group.notify(queue: .main) {
-            self.allData.sort(by: {$0.fixture?.date ?? Date() < $1.fixture?.date ?? Date()})
-            var dates = self.allData.compactMap({$0.fixture?.date})
+            self.allData.sort(by: {$0.fixture?.date ?? "" < $1.fixture?.date ?? "Date()"})
+            let dates = self.allData.compactMap({$0.fixture?.date})
             let _dates = dates.unique
             _dates.forEach { date in
                 var _response: [Response] = []
@@ -148,10 +145,6 @@ class HomeViewController: UIViewController {
         UIDevice.onOffVibration()
     }
     
-    
-    
-    
-    
 }
 
 extension HomeViewController:  UICollectionViewDelegate{
@@ -160,11 +153,12 @@ extension HomeViewController:  UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case secondCollectionView:
+            let dataCell = leageData[indexPath.section].responce[indexPath.row]
             let main = UIStoryboard(name: "Main", bundle: nil)
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
-               
-                vc.allData = leageData
+                //                vc.statusLabel.text = String.getStatus(response: dataCell)
+                vc.data.append(dataCell)
                 UIDevice.onOffVibration()
             }
             
@@ -178,6 +172,18 @@ extension HomeViewController:  UICollectionViewDelegate{
             return
         }
     }
+}
+
+func changeDateFormat(dateString: String, fromFormat: String, toFormat: String) ->String {
+    let inputDateFormatter = DateFormatter()
+    inputDateFormatter.dateFormat = fromFormat
+    
+    let date = inputDateFormatter.date(from: dateString)
+    
+    let outputDateFormatter = DateFormatter()
+    outputDateFormatter.dateFormat = toFormat
+    outputDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    return outputDateFormatter.string(from: date!)
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -214,13 +220,14 @@ extension HomeViewController: UICollectionViewDataSource {
                 leageData = all
             }
             let dataCell = leageData[indexPath.section].responce[indexPath.row]
+            infoCell.timeLabel.text = changeDateFormat(dateString: (dataCell.fixture?.date)!, fromFormat: "yyyy-MM-dd'T'HH:mm:ssZ", toFormat: "dd MMMM HH:mm")
             infoCell.homeName.text = dataCell.teams?.home?.name
             infoCell.awayName.text = dataCell.teams?.away?.name
             let urlIconTeamFirst = URL(string: (dataCell.teams?.home?.logo ?? ""))
             let urlIconTeamSecond = URL(string: (dataCell.teams?.away?.logo ?? ""))
             infoCell.homeLogo.kf.setImage(with: urlIconTeamFirst)
             infoCell.awayLogo.kf.setImage(with: urlIconTeamSecond)
-            infoCell.dateLabel.text = String.getStatus(response: dataCell)
+            infoCell.statusLabel.text = String.getStatus(response: dataCell)
             
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             return infoCell
@@ -255,7 +262,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
 
 //MARK: All Struct
 struct All {
-    let date: Date
+    let date: String
     let responce: [Response]
 }
 

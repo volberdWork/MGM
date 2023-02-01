@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import Kingfisher
 class RemindersViewController: UIViewController{
     
     @IBOutlet var collectionView: UICollectionView!
@@ -55,10 +56,20 @@ extension RemindersViewController:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        let data = realmArray[indexPath.row]
         let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RemindersCollectionViewCell", for: indexPath) as! RemindersCollectionViewCell
         infoCell.layer.borderWidth = 1
         infoCell.layer.borderColor = CGColor(red: 243/255, green: 244/255, blue: 245/255, alpha: 0.5)
+        
+        infoCell.awayNameLabel.text = data.awayName
+        infoCell.homeNameLabel.text = data.homaName
+        infoCell.dateLabel.text = data.date
+        
+        let urlIconTeamFirst = URL(string: data.homeLogoLink)
+        let urlIconTeamSecond = URL(string: data.awayLogoLink)
+        infoCell.homeLogoImage.kf.setImage(with: urlIconTeamFirst)
+        infoCell.awayLogoImage.kf.setImage(with: urlIconTeamSecond)
+        
         return infoCell
         
         

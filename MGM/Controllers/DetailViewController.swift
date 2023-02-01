@@ -1,10 +1,9 @@
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
     
     let filterData = ["Game", "Events", "Team Statistics", "Players Statistics"]
-    
-    var filetr: [String] = []
     
     @IBOutlet var awayName: UILabel!
     @IBOutlet var homeName: UILabel!
@@ -18,12 +17,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var saveButton: UIButton!
     
-    var allData: [All] = []
-    
-    
-        var teamData:[Teams] = []
-       
-  
+    var data : [Response] = []
+    let realm = try? Realm()
     let testData = [
         
         ["FirstDown", "Total", "Passing", "Rushing", "From Penalties"],
@@ -41,8 +36,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
-        filetr.insert("Game", at: 0)
+        
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         filterCollectionView.backgroundColor = .clear
@@ -58,32 +52,52 @@ class DetailViewController: UIViewController {
     
     
     func configureView(){
-      
-                
+        dateLabel.text = changeDateFormat(dateString: (data[0].fixture?.date ?? ""), fromFormat: "yyyy-MM-dd'T'HH:mm:ssZ", toFormat: "dd MMMM HH:mm")
+        homeName.text = data[0].teams?.home?.name ?? ""
+        awayName.text = data[0].teams?.away?.name ?? ""
+        statusLabel.text = String.getStatus(response: data[0])
+        let urlIconTeamFirst = URL(string: (data[0].teams?.home?.logo ?? ""))
+        let urlIconTeamSecond = URL(string: (data[0].teams?.away?.logo ?? ""))
+        homeLogo.kf.setImage(with: urlIconTeamFirst)
+        awayLogo.kf.setImage(with: urlIconTeamSecond)
     }
     
     func loadAllert(){
         let alert = UIAlertController(title: "Save Event", message: "For save tap ok", preferredStyle: .alert)
-
-             let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
-                 self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
-                 UIDevice.onOffVibration()
-             })
-             alert.addAction(ok)
-
-             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { action in
-
-             })
-             alert.addAction(cancel)
-             DispatchQueue.main.async(execute: {
-                 UIDevice.onOffVibration()
-                self.present(alert, animated: true)
-                
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.saveToRealm()
+            self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+            
+            UIDevice.onOffVibration()
+        })
+        alert.addAction(ok)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { action in
+            
+        })
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            UIDevice.onOffVibration()
+            self.present(alert, animated: true)
+            
         })
     }
     
+    func saveToRealm(){
+        let infoBaseRealm = InfoBaseRealm()
+        infoBaseRealm.gameId = data[0].fixture?.id ?? 0
+        infoBaseRealm.awayName = data[0].teams?.away?.name ?? ""
+        infoBaseRealm.homaName = data[0].teams?.home?.name ?? ""
+        infoBaseRealm.date = data[0].fixture?.date ?? ""
+        infoBaseRealm.awayLogoLink = data[0].teams?.away?.logo ?? ""
+        infoBaseRealm.homeLogoLink = data[0].teams?.home?.logo ?? ""
+        try? self.realm?.write{
+            self.realm?.add(infoBaseRealm, update: .all)
+        }
+    }
     
-   
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         loadAllert()
         print("OKKK")
@@ -118,44 +132,33 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == filterCollectionView {
-            return filetr.count
+            return filterData.count
         } else {
             return testData[section].count
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView{
-        case eventsCollectionView :
-            let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventsCell", for: indexPath) as! InfoEventsCell
-            
-            
-//            if leageId == 0 {
-//                leageData = all
-////            }
-//            let dataCell = leageData[indexPath.section].responce[indexPath.row]
-//            infoCell.homeName.text = dataCell.teams?.home?.name
-//            infoCell.awayName.text = dataCell.teams?.away?.name
-//            let urlIconTeamFirst = URL(string: (dataCell.teams?.home?.logo ?? ""))
-//            let urlIconTeamSecond = URL(string: (dataCell.teams?.away?.logo ?? ""))
-//            infoCell.homeLogo.kf.setImage(with: urlIconTeamFirst)
-//            infoCell.awayLogo.kf.setImage(with: urlIconTeamSecond)
-//            infoCell.dateLabel.text = String.getStatus(response: dataCell)
-//
-//            infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
-            return infoCell
-            
-            
-        case filterCollectionView :
-            
+        if collectionView == filterCollectionView {
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
-//            filterCell.filterLabel.text = leages[indexPath.row]
+            filterCell.filterLabel.text = filterData[indexPath.row]
             
             return filterCell
+        } else {
+            let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
             
+            eventsCell.eventsLabel.text = testData[indexPath.section][indexPath.row] + "  \(indexPath.row)"
             
-        default:
-            return UICollectionViewCell()
+            eventsCell.backgroundColor = UIColor(red: 0.161, green: 0.165, blue: 0.18, alpha: 0.6)
+            
+            if indexPath.row == testData[indexPath.section].count - 1 {
+                
+                print("There is that index")
+                eventsCell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+                eventsCell.layer.cornerRadius = 10.0
+            }
+            return eventsCell
         }
+        
     }
     
     
@@ -198,29 +201,16 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 
 class EventsCell: UICollectionViewCell {
-    
-    
     @IBOutlet var eventsLabel: UILabel!
-    
-    
     override func awakeFromNib() {
         eventsLabel.textColor = .white
-        
-        
     }
 }
 
 
 class CustomHeaderView: UICollectionReusableView {
-    
-    
-    
     @IBOutlet var headerTitleLabel: UILabel!
-    
-    
     override func awakeFromNib() {
         headerTitleLabel.textColor = .white
     }
-    
-    
 }

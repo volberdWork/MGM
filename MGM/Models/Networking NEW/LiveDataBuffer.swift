@@ -122,7 +122,7 @@ struct Fixture: Codable {
     let id: Int?
     let referee: String?
     let timezone: String?
-    let date: Date?
+    let date: String?
     let timestamp: Int?
     let periods: Periods?
     let venue: Venue?
