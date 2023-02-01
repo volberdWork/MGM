@@ -165,6 +165,8 @@ extension HomeViewController:  UICollectionViewDelegate{
         case firstCollectionView :
             //завантаження нових данних
             setupCollectionView(indexPath: indexPath)
+           
+
             
             UIDevice.onOffVibration()
             

@@ -58,12 +58,12 @@ extension RemindersViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = realmArray[indexPath.row]
         let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RemindersCollectionViewCell", for: indexPath) as! RemindersCollectionViewCell
-        infoCell.layer.borderWidth = 1
+        infoCell.layer.borderWidth = 0.3
         infoCell.layer.borderColor = CGColor(red: 243/255, green: 244/255, blue: 245/255, alpha: 0.5)
         
         infoCell.awayNameLabel.text = data.awayName
         infoCell.homeNameLabel.text = data.homaName
-        infoCell.dateLabel.text = data.date
+        infoCell.dateLabel.text = changeDateFormat(dateString: (data.date), fromFormat: "yyyy-MM-dd'T'HH:mm:ssZ", toFormat: "dd/MM/yyyy")
         
         let urlIconTeamFirst = URL(string: data.homeLogoLink)
         let urlIconTeamSecond = URL(string: data.awayLogoLink)
