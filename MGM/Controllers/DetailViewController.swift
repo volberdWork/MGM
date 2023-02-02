@@ -1,6 +1,7 @@
 import UIKit
 import RealmSwift
 
+
 class DetailViewController: UIViewController {
     
     let filterData = ["Game", "Events", "Team Statistics", "Players Statistics"]
@@ -47,11 +48,11 @@ class DetailViewController: UIViewController {
         
         configureView()
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(homeTapped(tapGestureRecognizer:)))
         homeLogo.isUserInteractionEnabled = true
         homeLogo.addGestureRecognizer(tapGestureRecognizer)
         
-        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(awayTaped(tapGestureRecognizer:)))
         awayLogo.isUserInteractionEnabled = true
         awayLogo.addGestureRecognizer(tapGestureRecognizer1)
         
@@ -59,14 +60,24 @@ class DetailViewController: UIViewController {
     
   
 
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func homeTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let main = UIStoryboard(name: "Main", bundle: nil)
         if let vc = main.instantiateViewController(withIdentifier: "DetailTeamViewController") as? DetailTeamViewController {
             navigationController?.pushViewController(vc, animated: true)
+            vc.teamName = data[0].teams?.home?.name ?? ""
+            vc.logoLink = data[0].teams?.home?.logo ?? ""
         }
     }
-    
+    @objc func awayTaped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = main.instantiateViewController(withIdentifier: "DetailTeamViewController") as? DetailTeamViewController {
+            navigationController?.pushViewController(vc, animated: true)
+            vc.teamName = data[0].teams?.away?.name ?? ""
+            vc.logoLink = data[0].teams?.away?.logo ?? ""
+        }
+    }
     func configureView(){
         dateLabel.text = changeDateFormat(dateString: (data[0].fixture?.date ?? ""), fromFormat: "yyyy-MM-dd'T'HH:mm:ssZ", toFormat: "dd MMMM HH:mm")
         homeName.text = data[0].teams?.home?.name ?? ""

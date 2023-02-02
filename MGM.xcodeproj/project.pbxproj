@@ -15,6 +15,8 @@
 		BD20A08F29769CFE004F47F5 /* InfoBaseRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */; };
 		BD856E77298AB31900914D84 /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E76298AB31900914D84 /* DetailTeamViewController.swift */; };
 		BD856E79298B092400914D84 /* SavedTeamsAndPlayersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E78298B092400914D84 /* SavedTeamsAndPlayersVC.swift */; };
+		BD856E7B298BAC6B00914D84 /* InfoTeamRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E7A298BAC6B00914D84 /* InfoTeamRealm.swift */; };
+		BD856E7D298BAC7B00914D84 /* InfoPlayerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E7C298BAC7B00914D84 /* InfoPlayerRealm.swift */; };
 		BD8EA3EA297EA91500421145 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA3E9297EA91500421145 /* PlayersViewController.swift */; };
 		BD8EA3ED297EC44800421145 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */; };
 		BD8EA3EE297EC44800421145 /* PlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */; };
@@ -59,6 +61,8 @@
 		BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBaseRealm.swift; sourceTree = "<group>"; };
 		BD856E76298AB31900914D84 /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
 		BD856E78298B092400914D84 /* SavedTeamsAndPlayersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTeamsAndPlayersVC.swift; sourceTree = "<group>"; };
+		BD856E7A298BAC6B00914D84 /* InfoTeamRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTeamRealm.swift; sourceTree = "<group>"; };
+		BD856E7C298BAC7B00914D84 /* InfoPlayerRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlayerRealm.swift; sourceTree = "<group>"; };
 		BD8EA3E9297EA91500421145 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */,
+				BD856E7A298BAC6B00914D84 /* InfoTeamRealm.swift */,
+				BD856E7C298BAC7B00914D84 /* InfoPlayerRealm.swift */,
 			);
 			path = "Relm Model";
 			sourceTree = "<group>";
@@ -373,8 +379,10 @@
 			files = (
 				BDE80FD92981336E0029333F /* ButtonTableViewCell.swift in Sources */,
 				BDB581942982970B00FA1D7B /* RemindersCollectionViewCell.swift in Sources */,
+				BD856E7B298BAC6B00914D84 /* InfoTeamRealm.swift in Sources */,
 				BD856E77298AB31900914D84 /* DetailTeamViewController.swift in Sources */,
 				BD9B26E1298843BD006EA73F /* EndpointParameters.swift in Sources */,
+				BD856E7D298BAC7B00914D84 /* InfoPlayerRealm.swift in Sources */,
 				BD9B26DC298843BD006EA73F /* Statistics.swift in Sources */,
 				BDE80FD629812BAA0029333F /* UniversalViewController.swift in Sources */,
 				BD949E46296F0E85008B1C14 /* UIView+.swift in Sources */,
