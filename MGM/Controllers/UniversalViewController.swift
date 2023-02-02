@@ -3,9 +3,9 @@ import UIKit
 class UniversalViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    var array:[ButtonSet] = [ButtonSet(title: "Teams", imageName: "ssss"),
-                             ButtonSet(title: "Players", imageName: "Events"),
-                             ButtonSet(title: "Events", imageName: "ssss")]
+    var array:[ButtonSet] = [ButtonSet(title: "Teams", imageName: "savedStar"),
+                             ButtonSet(title: "Players", imageName: "savedStar"),
+                             ButtonSet(title: "Events", imageName: "savedStar")]
     
     
     override func viewDidLoad() {

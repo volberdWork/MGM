@@ -159,6 +159,7 @@ extension HomeViewController:  UICollectionViewDelegate{
             if let vc = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
                 navigationController?.pushViewController(vc, animated: true)
                 vc.data.append(dataCell)
+                
                 UIDevice.onOffVibration()
             }
             

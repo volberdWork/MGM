@@ -167,13 +167,13 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == filterCollectionView {
-            let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
+        
+        switch collectionView{
+        case filterCollectionView : let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
             
             return filterCell
-        } else {
-            let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
+        case eventsCollectionView :   let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
             
             eventsCell.eventsLabel.text = testData[indexPath.section][indexPath.row] + "  \(indexPath.row)"
             
@@ -186,7 +186,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 eventsCell.layer.cornerRadius = 10.0
             }
             return eventsCell
+        default:
+            return UICollectionViewCell()
         }
+        
+        
+      
+          
+        
         
     }
     

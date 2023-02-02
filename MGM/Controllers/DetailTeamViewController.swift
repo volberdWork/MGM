@@ -19,7 +19,7 @@ class DetailTeamViewController: UIViewController {
         ["Passing", "Totla", "Comp att", "Yards pre pass", "From Penalties", "Comp att", "Yards pre pass", "From Penalties"]
         
     ]
-    
+    var teamId = ""
     var teamName = ""
     var countryName = ""
     var playerName = ""
@@ -38,12 +38,17 @@ class DetailTeamViewController: UIViewController {
     
     func saveToRealm(){
         
-        let infoBaseRealm = InfoBaseRealm()
+        let infoTeam = InfoTeamRealm()
+        infoTeam.teamName = self.teamName
+        infoTeam.LogoLink = self.logoLink
+        
         
         try? self.realm?.write{
-            self.realm?.add(infoBaseRealm, update: .all)
+            self.realm?.add(infoTeam, update: .all)
         }
     }
+    
+    
     
     
     func loadAllert(){

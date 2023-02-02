@@ -13,7 +13,6 @@
         <!--Present View Controller-->
         <scene sceneID="tHT-tJ-edv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2vM-Qb-8P9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PresentViewController" id="uob-vv-PeV" customClass="PresentViewController" customModule="MGM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FTz-TB-26l">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -23,6 +22,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bcE-hn-uxe"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2vM-Qb-8P9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-909" y="406"/>
         </scene>
@@ -347,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvp-cc-zD2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291" y="-564"/>
+            <point key="canvasLocation" x="1283" y="-564"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="uuu-qn-0Wc">
@@ -427,7 +427,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EventsCell" reuseIdentifier="EventsCell" translatesAutoresizingMaskIntoConstraints="NO" id="Zfc-ky-u8T" customClass="InfoEventsCell" customModule="MGM" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" restorationIdentifier="EventsCell" reuseIdentifier="EventsCell" translatesAutoresizingMaskIntoConstraints="NO" id="Zfc-ky-u8T" customClass="InfoEventsCell" customModule="MGM" customModuleProvider="target">
                                         <rect key="frame" x="0.66666666666666663" y="0.0" width="389" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Neh-15-fo1">
@@ -644,7 +644,7 @@
                                         <rect key="frame" x="0.0" y="12" width="358" height="36"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHY-Oc-QeL">
-                                                <rect key="frame" x="293" y="2.6666666666666714" width="51" height="31"/>
+                                                <rect key="frame" x="293" y="2.6666666666666572" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.82352941180000006" green="0.74117647060000003" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </switch>
@@ -679,7 +679,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-te-z8q">
-                                                <rect key="frame" x="293" y="2.6666666666666572" width="51" height="31"/>
+                                                <rect key="frame" x="293" y="2.6666666666666856" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.82352941180000006" green="0.74117647060000003" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="switchChanged:" destination="WQ6-Cn-MQa" eventType="valueChanged" id="VRX-VQ-Vug"/>
