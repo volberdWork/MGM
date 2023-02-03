@@ -19,7 +19,6 @@
 		BD856E7D298BAC7B00914D84 /* InfoPlayerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E7C298BAC7B00914D84 /* InfoPlayerRealm.swift */; };
 		BD8EA3EA297EA91500421145 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA3E9297EA91500421145 /* PlayersViewController.swift */; };
 		BD8EA3ED297EC44800421145 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */; };
-		BD8EA3EE297EC44800421145 /* PlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */; };
 		BD949E24296ED69B008B1C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E23296ED69B008B1C14 /* AppDelegate.swift */; };
 		BD949E26296ED69B008B1C14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E25296ED69B008B1C14 /* SceneDelegate.swift */; };
 		BD949E28296ED69B008B1C14 /* PreloaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E27296ED69B008B1C14 /* PreloaderController.swift */; };
@@ -65,7 +64,6 @@
 		BD856E7C298BAC7B00914D84 /* InfoPlayerRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlayerRealm.swift; sourceTree = "<group>"; };
 		BD8EA3E9297EA91500421145 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
-		BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD949E20296ED69B008B1C14 /* MGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD949E23296ED69B008B1C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD949E25296ED69B008B1C14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				BD8EA3EB297EC44800421145 /* PlayerCollectionViewCell.swift */,
-				BD8EA3EC297EC44800421145 /* PlayerCollectionViewCell.xib */,
 			);
 			path = PlayerTableCell;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				BD949E38296EE507008B1C14 /* Podfile in Resources */,
 				BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */,
 				BD949E2B296ED69B008B1C14 /* Main.storyboard in Resources */,
-				BD8EA3EE297EC44800421145 /* PlayerCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

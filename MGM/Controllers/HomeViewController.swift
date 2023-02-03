@@ -115,6 +115,8 @@ class HomeViewController: UIViewController {
     
     private func setupCollectionView(indexPath: IndexPath) {
         leageData.removeAll()
+        
+        
         if indexPath.row == 0 {
             leageData = all
             leageId = 0
@@ -165,6 +167,8 @@ extension HomeViewController:  UICollectionViewDelegate{
             
         case firstCollectionView :
             //завантаження нових данних
+           
+            
             setupCollectionView(indexPath: indexPath)
            
 
@@ -213,6 +217,7 @@ extension HomeViewController: UICollectionViewDataSource {
         
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView{
         case secondCollectionView :
@@ -240,6 +245,8 @@ extension HomeViewController: UICollectionViewDataSource {
             
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = leages[indexPath.row]
+            
+           
             
             return filterCell
             

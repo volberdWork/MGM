@@ -3,6 +3,7 @@ import RealmSwift
 import Kingfisher
 class DetailTeamViewController: UIViewController {
     
+    @IBOutlet var secondCollectionView: UICollectionView!
     @IBOutlet var filterCollectionView: UICollectionView!
     @IBOutlet var logoTeamImage: UIImageView!
     @IBOutlet var countryTeamLabel: UILabel!
@@ -27,12 +28,15 @@ class DetailTeamViewController: UIViewController {
     
     
     let realm = try? Realm()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let urlIconTeamFirst = URL(string: logoLink)
         self.logoTeamImage.kf.setImage(with: urlIconTeamFirst)
         self.teamNameLabel.text = teamName
         self.filterCollectionView.backgroundColor = self.view.backgroundColor
+        self.secondCollectionView.backgroundColor = self .view.backgroundColor
     }
     
     
@@ -84,15 +88,32 @@ class DetailTeamViewController: UIViewController {
 
 
 extension DetailTeamViewController : UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        filterArray.count
+        
+        switch collectionView{
+        case filterCollectionView : return filterArray.count
+        case secondCollectionView : return 10
+        default:
+            return 1
+        }
+        
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
-        filterCell.filterLabel.text = filterArray[indexPath.row]
-        
-        return filterCell
+        if collectionView == filterCollectionView{
+            let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
+            filterCell.filterLabel.text = filterArray[indexPath.row]
+            
+            return filterCell
+        } else{
+            let playerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
+            
+          
+            return playerCell
+        }
+       
     }
     
     
