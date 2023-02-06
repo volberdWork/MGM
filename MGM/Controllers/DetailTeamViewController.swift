@@ -140,6 +140,13 @@ extension DetailTeamViewController : UICollectionViewDelegate{
         case filterCollectionView: UIDevice.onOffVibration()
             currentSelected = indexPath.row
             collectionView.reloadData()
+            
+            
+        case secondCollectionView :  let main = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = main.instantiateViewController(withIdentifier: "PlayerDetailViewController") as? PlayerDetailViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
         default:
             return
         }
