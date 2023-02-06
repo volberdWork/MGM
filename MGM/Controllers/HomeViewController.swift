@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     private var leages: [String] = []
     private var leagesIcon: [UIImage] = []
     private var isFirstTimeCell = true
+    var currentSelected:Int? = 0
     private var leageData: [All] = []
     private var all: [All] = []
     private var leagesId: [Int] = []
@@ -172,7 +173,8 @@ extension HomeViewController:  UICollectionViewDelegate{
             
             setupCollectionView(indexPath: indexPath)
            
-
+            currentSelected = indexPath.row
+            collectionView.reloadData()
             
             UIDevice.onOffVibration()
             
@@ -247,6 +249,10 @@ extension HomeViewController: UICollectionViewDataSource {
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = leages[indexPath.row]
             
+            filterCell.viewForLabel.backgroundColor = currentSelected == 0 ? UIColor.white : UIColor.clear
+            filterCell.filterLabel.textColor = currentSelected == 0 ? UIColor.black : UIColor.white
+            filterCell.viewForLabel.backgroundColor = currentSelected == indexPath.row ? UIColor.white : UIColor.clear
+            filterCell.filterLabel.textColor = currentSelected == indexPath.row ? UIColor.black : UIColor.white
            
             
             return filterCell

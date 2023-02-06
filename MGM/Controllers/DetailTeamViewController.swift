@@ -12,6 +12,7 @@ class DetailTeamViewController: UIViewController {
     
     var araay : [Response] = []
 //    var detaidData: [GetDetailTeam] = []
+    var currentSelected:Int? = 0
     let filterArray = ["Team", "Players"]
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     var someData = ["ee","ee","erew","w34ed","3edft"]
@@ -115,6 +116,10 @@ extension DetailTeamViewController : UICollectionViewDataSource{
         if collectionView == filterCollectionView{
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterArray[indexPath.row]
+            filterCell.viewForLabel.backgroundColor = currentSelected == 0 ? UIColor.white : UIColor.clear
+            filterCell.filterLabel.textColor = currentSelected == 0 ? UIColor.black : UIColor.white
+            filterCell.viewForLabel.backgroundColor = currentSelected == indexPath.row ? UIColor.white : UIColor.clear
+            filterCell.filterLabel.textColor = currentSelected == indexPath.row ? UIColor.black : UIColor.white
             
             return filterCell
         } else{
@@ -127,4 +132,16 @@ extension DetailTeamViewController : UICollectionViewDataSource{
     }
     
     
+}
+
+extension DetailTeamViewController : UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView{
+        case filterCollectionView: UIDevice.onOffVibration()
+            currentSelected = indexPath.row
+            collectionView.reloadData()
+        default:
+            return
+        }
+    }
 }
