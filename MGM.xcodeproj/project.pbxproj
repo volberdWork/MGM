@@ -11,6 +11,7 @@
 		BD06842E297201F100886D8F /* InfoEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842D297201F100886D8F /* InfoEventsCell.swift */; };
 		BD0684302972022900886D8F /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06842F2972022900886D8F /* FilterCell.swift */; };
 		BD0684322972D19D00886D8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0684312972D19D00886D8F /* Constants.swift */; };
+		BD20705B298D57AC006EE485 /* DetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20705A298D57AC006EE485 /* DetailModels.swift */; };
 		BD20A08C297693F2004F47F5 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08B297693F2004F47F5 /* RemindersViewController.swift */; };
 		BD20A08F29769CFE004F47F5 /* InfoBaseRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */; };
 		BD856E77298AB31900914D84 /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD856E76298AB31900914D84 /* DetailTeamViewController.swift */; };
@@ -25,7 +26,6 @@
 		BD949E2B296ED69B008B1C14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD949E29296ED69B008B1C14 /* Main.storyboard */; };
 		BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD949E2C296ED69E008B1C14 /* Assets.xcassets */; };
 		BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD949E2E296ED69E008B1C14 /* LaunchScreen.storyboard */; };
-		BD949E38296EE507008B1C14 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BD949E37296EE507008B1C14 /* Podfile */; };
 		BD949E3B296EF558008B1C14 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E3A296EF558008B1C14 /* PresentViewController.swift */; };
 		BD949E44296F0E6A008B1C14 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E43296F0E6A008B1C14 /* UIScrollView+.swift */; };
 		BD949E46296F0E85008B1C14 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD949E45296F0E85008B1C14 /* UIView+.swift */; };
@@ -56,6 +56,7 @@
 		BD06842D297201F100886D8F /* InfoEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEventsCell.swift; sourceTree = "<group>"; };
 		BD06842F2972022900886D8F /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		BD0684312972D19D00886D8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD20705A298D57AC006EE485 /* DetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModels.swift; sourceTree = "<group>"; };
 		BD20A08B297693F2004F47F5 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		BD20A08E29769CFE004F47F5 /* InfoBaseRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBaseRealm.swift; sourceTree = "<group>"; };
 		BD856E76298AB31900914D84 /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		BD949E2C296ED69E008B1C14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD949E2F296ED69E008B1C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD949E31296ED69E008B1C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD949E37296EE507008B1C14 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BD949E3A296EF558008B1C14 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		BD949E43296F0E6A008B1C14 /* UIScrollView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		BD949E45296F0E85008B1C14 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 				BD949E23296ED69B008B1C14 /* AppDelegate.swift */,
 				BD949E25296ED69B008B1C14 /* SceneDelegate.swift */,
 				BD949E2C296ED69E008B1C14 /* Assets.xcassets */,
-				BD949E37296EE507008B1C14 /* Podfile */,
 				BD949E31296ED69E008B1C14 /* Info.plist */,
 			);
 			path = MGM;
@@ -237,6 +236,7 @@
 				BD9B26D9298843BD006EA73F /* NetworkManager.swift */,
 				BD9B26DA298843BD006EA73F /* NetworkingExtensions.swift */,
 				BD9B26DB298843BD006EA73F /* EndpointParameters.swift */,
+				BD20705A298D57AC006EE485 /* DetailModels.swift */,
 			);
 			path = "Networking NEW";
 			sourceTree = "<group>";
@@ -360,7 +360,6 @@
 				BD949E4E297011E7008B1C14 /* Roboto.ttf in Resources */,
 				BD949E30296ED69E008B1C14 /* LaunchScreen.storyboard in Resources */,
 				BD949E2D296ED69E008B1C14 /* Assets.xcassets in Resources */,
-				BD949E38296EE507008B1C14 /* Podfile in Resources */,
 				BD949E58297033D8008B1C14 /* Montserrat ExtraBold.ttf in Resources */,
 				BD949E2B296ED69B008B1C14 /* Main.storyboard in Resources */,
 			);
@@ -377,6 +376,7 @@
 				BDB581942982970B00FA1D7B /* RemindersCollectionViewCell.swift in Sources */,
 				BD856E7B298BAC6B00914D84 /* InfoTeamRealm.swift in Sources */,
 				BD856E77298AB31900914D84 /* DetailTeamViewController.swift in Sources */,
+				BD20705B298D57AC006EE485 /* DetailModels.swift in Sources */,
 				BD9B26E1298843BD006EA73F /* EndpointParameters.swift in Sources */,
 				BD856E7D298BAC7B00914D84 /* InfoPlayerRealm.swift in Sources */,
 				BD9B26DC298843BD006EA73F /* Statistics.swift in Sources */,

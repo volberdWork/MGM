@@ -1,6 +1,7 @@
 import UIKit
 import RealmSwift
 import Kingfisher
+import Alamofire
 class DetailTeamViewController: UIViewController {
     
     @IBOutlet var secondCollectionView: UICollectionView!
@@ -9,8 +10,10 @@ class DetailTeamViewController: UIViewController {
     @IBOutlet var countryTeamLabel: UILabel!
     @IBOutlet var teamNameLabel: UILabel!
     
+    var araay : [Response] = []
+//    var detaidData: [GetDetailTeam] = []
     let filterArray = ["Team", "Players"]
-    
+    let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     var someData = ["ee","ee","erew","w34ed","3edft"]
     let testData = [
         
@@ -20,7 +23,7 @@ class DetailTeamViewController: UIViewController {
         ["Passing", "Totla", "Comp att", "Yards pre pass", "From Penalties", "Comp att", "Yards pre pass", "From Penalties"]
         
     ]
-    var teamId = ""
+    var teamId = 0
     var teamName = ""
     var countryName = ""
     var playerName = ""
@@ -32,13 +35,20 @@ class DetailTeamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(teamId)
+        
         let urlIconTeamFirst = URL(string: logoLink)
         self.logoTeamImage.kf.setImage(with: urlIconTeamFirst)
         self.teamNameLabel.text = teamName
         self.filterCollectionView.backgroundColor = self.view.backgroundColor
         self.secondCollectionView.backgroundColor = self .view.backgroundColor
+        self.countryTeamLabel.text = countryName
+       
     }
     
+    
+    
+  
     
     func saveToRealm(){
         

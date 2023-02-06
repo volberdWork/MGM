@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         
         fetchData()
         fetchImage()
-        
+       
     }
     
     // заванатення івентів
@@ -88,6 +88,7 @@ class HomeViewController: UIViewController {
             self.secondCollectionView.reloadData()
         }
     }
+    
     
     
     // завантаження зображень

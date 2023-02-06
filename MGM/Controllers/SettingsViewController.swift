@@ -106,6 +106,16 @@ class SettingsViewController: UIViewController {
         UIDevice.onOffVibration()
     }
     
+    @IBAction func notSwitchChanged(_ sender: UISwitch) {
+        if (notificationSwitch.isOn){
+            print("ISON")
+          
+        }else{
+           print("OFF")
+           
+        }
+        
+    }
     @IBAction func remindersButtonPressed(_ sender: UIButton) {
         UIDevice.onOffVibration()
     }

@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import Alamofire
 
 
 class DetailViewController: UIViewController {
@@ -13,7 +14,9 @@ class DetailViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var awayLogo: UIImageView!
     @IBOutlet var homeLogo: UIImageView!
-    
+    var currentSelected:Int? = 0
+    var dasd: [StatResponse] = []
+    let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     
     
     @IBOutlet var saveButton: UIButton!
@@ -56,7 +59,36 @@ class DetailViewController: UIViewController {
         awayLogo.isUserInteractionEnabled = true
         awayLogo.addGestureRecognizer(tapGestureRecognizer1)
         
+        print(data[0].team?.country ?? "NO DATA")
+        print("Finish")
+        loadLiveBase()
+        print(dasd.count)
+        for i in data{
+            print(i.teams?.home?.id ?? 0)
+        }
+        
     }
+    
+    func loadLiveBase(){
+        let url = "https://v3.football.api-sports.io/teams?id=1462"
+        
+        AF.request(url, headers: headers).responseJSON { responseJSON in
+            let decoder = JSONDecoder()
+            guard let respponseData = responseJSON.data else {return}
+            
+            do {
+                let data = try decoder.decode(TeamInfo.self, from: respponseData)
+                print(data.response?.count ?? 0)
+                print(data.response?[0].team?.country ?? "")
+                self.dasd = data.response!
+                
+                
+            } catch {
+                print("Щось пішло не так")
+            }
+        }
+    }
+  
     
   
 
@@ -67,6 +99,7 @@ class DetailViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
             vc.teamName = data[0].teams?.home?.name ?? ""
             vc.logoLink = data[0].teams?.home?.logo ?? ""
+            vc.teamId = data[0].teams?.home?.id ?? 0
         }
     }
     @objc func awayTaped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -74,8 +107,10 @@ class DetailViewController: UIViewController {
         let main = UIStoryboard(name: "Main", bundle: nil)
         if let vc = main.instantiateViewController(withIdentifier: "DetailTeamViewController") as? DetailTeamViewController {
             navigationController?.pushViewController(vc, animated: true)
-            vc.teamName = data[0].teams?.away?.name ?? ""
+            vc.teamName = data[0].teams?.away?.name ?? "No data"
             vc.logoLink = data[0].teams?.away?.logo ?? ""
+            vc.teamId = data[0].teams?.away?.id ?? 0
+            
         }
     }
     func configureView(){
@@ -87,6 +122,7 @@ class DetailViewController: UIViewController {
         let urlIconTeamSecond = URL(string: (data[0].teams?.away?.logo ?? ""))
         homeLogo.kf.setImage(with: urlIconTeamFirst)
         awayLogo.kf.setImage(with: urlIconTeamSecond)
+        
     }
     
     func loadAllert(){
@@ -139,8 +175,13 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+     
+        
         switch collectionView{
         case filterCollectionView : UIDevice.onOffVibration()
+            currentSelected = indexPath.row
+            collectionView.reloadData()
+            
         default:
             return
         }
@@ -171,6 +212,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         switch collectionView{
         case filterCollectionView : let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
             filterCell.filterLabel.text = filterData[indexPath.row]
+            filterCell.viewForLabel.backgroundColor = currentSelected == 0 ? UIColor.white : UIColor.clear
+            filterCell.filterLabel.textColor = currentSelected == 0 ? UIColor.black : UIColor.white
+            filterCell.viewForLabel.backgroundColor = currentSelected == indexPath.row ? UIColor.white : UIColor.clear
+            filterCell.filterLabel.textColor = currentSelected == indexPath.row ? UIColor.black : UIColor.white
             
             return filterCell
         case eventsCollectionView :   let eventsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellID", for: indexPath) as! EventsCell
