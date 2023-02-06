@@ -1540,6 +1540,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="F8C-Tn-Nyt" id="ybt-fK-6e1"/>
+                                    <outlet property="delegate" destination="F8C-Tn-Nyt" id="EaR-HV-Fq2"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YTe-lI-deJ"/>
@@ -1557,6 +1561,9 @@
                             <constraint firstItem="TdH-uu-nTh" firstAttribute="top" secondItem="J4o-lv-lKl" secondAttribute="bottom" constant="6" id="ZAd-cX-TxV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="DRp-Si-zhK" id="yoc-aX-Qjs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6O-ug-PpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
