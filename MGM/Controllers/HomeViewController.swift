@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController {
     private var leageId = 0
     private var toggleColorCell = false
     private var colorHeaderView: [UIColor] = []
+
     
     
     override func viewDidLoad() {
@@ -28,7 +30,7 @@ class HomeViewController: UIViewController {
         
         //додаємо на перше місце загальний масив (де будуть усі дані)
         leages.insert("All", at: 0)
-        
+      
     }
     
     
@@ -52,7 +54,7 @@ class HomeViewController: UIViewController {
         
         fetchData()
         fetchImage()
-       
+        
     }
     
     // заванатення івентів
@@ -169,10 +171,10 @@ extension HomeViewController:  UICollectionViewDelegate{
             
         case firstCollectionView :
             //завантаження нових данних
-           
+            
             
             setupCollectionView(indexPath: indexPath)
-           
+            
             currentSelected = indexPath.row
             collectionView.reloadData()
             
@@ -253,7 +255,7 @@ extension HomeViewController: UICollectionViewDataSource {
             filterCell.filterLabel.textColor = currentSelected == 0 ? UIColor.black : UIColor.white
             filterCell.viewForLabel.backgroundColor = currentSelected == indexPath.row ? UIColor.white : UIColor.clear
             filterCell.filterLabel.textColor = currentSelected == indexPath.row ? UIColor.black : UIColor.white
-           
+            
             
             return filterCell
             

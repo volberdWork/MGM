@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
     
     var data : [Response] = []
     let realm = try? Realm()
+    var realmArray: [InfoBaseRealm] = []
+    
     let testData = [
         
         ["FirstDown", "Total", "Passing", "Rushing", "From Penalties"],
@@ -59,16 +61,28 @@ class DetailViewController: UIViewController {
         awayLogo.isUserInteractionEnabled = true
         awayLogo.addGestureRecognizer(tapGestureRecognizer1)
         
-        print(data[0].team?.country ?? "NO DATA")
-        print("Finish")
         loadLiveBase()
-        print(dasd.count)
-        for i in data{
-            print(i.teams?.home?.id ?? 0)
-        }
+        realmObjectToArray()
+        checkSavedButtonState()
+      
+        
         
     }
     
+    func realmObjectToArray(){
+        guard let infoMatchesResult = realm?.objects(InfoBaseRealm.self) else {return}
+        for match in infoMatchesResult{
+            self.realmArray.append(match)
+        }
+    }
+    
+    func checkSavedButtonState(){
+        for i in realmArray{
+            if i.gameId == data[0].fixture?.id!{
+                self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+            }
+        }
+    }
     func loadLiveBase(){
         let url = "https://v3.football.api-sports.io/teams?id=1462"
         
