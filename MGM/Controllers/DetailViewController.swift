@@ -76,7 +76,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func checkSavedButtonState(){
+   private func checkSavedButtonState(){
         for i in realmArray{
             if i.gameId == data[0].fixture?.id!{
                 self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
@@ -161,7 +161,7 @@ class DetailViewController: UIViewController {
         })
     }
     
-    func saveToRealm(){
+  private func saveToRealm(){
         
         let infoBaseRealm = InfoBaseRealm()
         infoBaseRealm.gameId = data[0].fixture?.id ?? 0

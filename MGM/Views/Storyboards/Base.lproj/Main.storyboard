@@ -1281,6 +1281,7 @@
                         <outlet property="countryTeamLabel" destination="4kg-Pf-PIF" id="yjr-J8-wA0"/>
                         <outlet property="filterCollectionView" destination="bMv-Py-oky" id="Zfe-aB-zRS"/>
                         <outlet property="logoTeamImage" destination="lth-Ou-0y0" id="Bdg-HO-LPL"/>
+                        <outlet property="saveButton" destination="rcg-fu-UTQ" id="RIO-8O-jpl"/>
                         <outlet property="secondCollectionView" destination="aTy-vk-fEH" id="b86-X0-8Xg"/>
                         <outlet property="teamNameLabel" destination="GgR-tK-wRR" id="Kat-Ep-1Z3"/>
                     </connections>

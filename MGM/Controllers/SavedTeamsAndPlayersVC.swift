@@ -1,8 +1,11 @@
 import UIKit
+import RealmSwift
 
 class SavedTeamsAndPlayersVC: UIViewController {
     
-    var data:[InfoBaseRealm] = []
+    var data:[InfoTeamRealm] = []
+    let realm = try? Realm()
+    var realmArray: [InfoTeamRealm] = []
 
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -18,7 +21,16 @@ class SavedTeamsAndPlayersVC: UIViewController {
         func configure(){
             tableView.backgroundColor = .clear
         }
-       
+        self.realmArray = []
+        guard let infoMatchesResult = realm?.objects(InfoTeamRealm.self) else {return}
+        for match in infoMatchesResult{
+            self.realmArray.append(match)
+        }
+        if realmArray.count > 0{
+            self.tableView.reloadData()
+        } else{
+//            showAlertAction(title: "Sorry", message: "No data")
+        }
     }
 
 
@@ -27,7 +39,7 @@ class SavedTeamsAndPlayersVC: UIViewController {
 
 extension SavedTeamsAndPlayersVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        return realmArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

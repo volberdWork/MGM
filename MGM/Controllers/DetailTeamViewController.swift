@@ -4,6 +4,7 @@ import Kingfisher
 import Alamofire
 class DetailTeamViewController: UIViewController {
     
+    @IBOutlet var saveButton: UIButton!
     @IBOutlet var secondCollectionView: UICollectionView!
     @IBOutlet var filterCollectionView: UICollectionView!
     @IBOutlet var logoTeamImage: UIImageView!
@@ -30,8 +31,8 @@ class DetailTeamViewController: UIViewController {
     var playerName = ""
     var logoLink = ""
     
-    
     let realm = try? Realm()
+    var realmArray: [InfoTeamRealm] = []
     
     
     override func viewDidLoad() {
@@ -44,24 +45,29 @@ class DetailTeamViewController: UIViewController {
         self.filterCollectionView.backgroundColor = self.view.backgroundColor
         self.secondCollectionView.backgroundColor = self .view.backgroundColor
         self.countryTeamLabel.text = countryName
-       
+        realmObjectToArray()
+        checkSavedButtonState()
     }
     
+    func realmObjectToArray(){
+        guard let infoMatchesResult = realm?.objects(InfoTeamRealm.self) else {return}
+        for match in infoMatchesResult{
+            self.realmArray.append(match)
+        }
+    }
     
+    func checkSavedButtonState(){
+        for i in realmArray{
+            if i.teamId == self.teamId{
+                self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+                print(i.teamId)
+            }
+        }
+    }
     
   
     
-    func saveToRealm(){
-        
-        let infoTeam = InfoTeamRealm()
-        infoTeam.teamName = self.teamName
-        infoTeam.LogoLink = self.logoLink
-        
-        
-        try? self.realm?.write{
-            self.realm?.add(infoTeam, update: .all)
-        }
-    }
+   
     
     
     
@@ -89,9 +95,8 @@ class DetailTeamViewController: UIViewController {
     }
     
     
-    
-    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
+        loadAllert()
     }
     
 }
@@ -129,6 +134,16 @@ extension DetailTeamViewController : UICollectionViewDataSource{
             return playerCell
         }
        
+    }
+    
+   private func saveToRealm(){
+        let infoTeamBaseRealm = InfoTeamRealm()
+        infoTeamBaseRealm.teamId = teamId
+        infoTeamBaseRealm.LogoLink = logoLink
+        infoTeamBaseRealm.teamName = teamName
+        try? self.realm?.write{
+            self.realm?.add(infoTeamBaseRealm, update: .all)
+        }
     }
     
     
