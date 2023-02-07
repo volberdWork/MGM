@@ -6,7 +6,7 @@ class SavedTeamsAndPlayersVC: UIViewController {
     var data:[InfoTeamRealm] = []
     let realm = try? Realm()
     var realmArray: [InfoTeamRealm] = []
-
+    
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +29,11 @@ class SavedTeamsAndPlayersVC: UIViewController {
         if realmArray.count > 0{
             self.tableView.reloadData()
         } else{
-//            showAlertAction(title: "Sorry", message: "No data")
+            //            showAlertAction(title: "Sorry", message: "No data")
         }
     }
-
-
+    
+    
 }
 
 

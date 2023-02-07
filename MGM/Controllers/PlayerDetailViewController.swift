@@ -1,7 +1,7 @@
 import UIKit
 
 class PlayerDetailViewController: UIViewController {
-
+    
     @IBOutlet var collectionView: UICollectionView!
     
     let filterData = ["Details", "Passing", "Rushing"]
@@ -13,7 +13,7 @@ class PlayerDetailViewController: UIViewController {
         
     }
     
-
+    
 }
 
 
@@ -41,7 +41,7 @@ extension PlayerDetailViewController: UICollectionViewDataSource{
 extension PlayerDetailViewController : UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UIDevice.onOffVibration()
-            currentSelected = indexPath.row
-            collectionView.reloadData()
+        currentSelected = indexPath.row
+        collectionView.reloadData()
     }
 }

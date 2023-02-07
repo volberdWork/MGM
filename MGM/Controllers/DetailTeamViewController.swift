@@ -12,7 +12,7 @@ class DetailTeamViewController: UIViewController {
     @IBOutlet var teamNameLabel: UILabel!
     
     var araay : [Response] = []
-//    var detaidData: [GetDetailTeam] = []
+    //    var detaidData: [GetDetailTeam] = []
     var currentSelected:Int? = 0
     let filterArray = ["Team", "Players"]
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
@@ -65,9 +65,9 @@ class DetailTeamViewController: UIViewController {
         }
     }
     
-  
     
-   
+    
+    
     
     
     
@@ -77,7 +77,7 @@ class DetailTeamViewController: UIViewController {
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
             self.saveToRealm()
-//            self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
+            //            self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
             
             UIDevice.onOffVibration()
         })
@@ -114,7 +114,7 @@ extension DetailTeamViewController : UICollectionViewDataSource{
             return 1
         }
         
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -130,13 +130,13 @@ extension DetailTeamViewController : UICollectionViewDataSource{
         } else{
             let playerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
             
-          
+            
             return playerCell
         }
-       
+        
     }
     
-   private func saveToRealm(){
+    private func saveToRealm(){
         let infoTeamBaseRealm = InfoTeamRealm()
         infoTeamBaseRealm.teamId = teamId
         infoTeamBaseRealm.LogoLink = logoLink

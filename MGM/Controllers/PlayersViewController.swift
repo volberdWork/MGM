@@ -10,7 +10,7 @@ class PlayersViewController: UIViewController{
     let headers: HTTPHeaders = ["x-apisports-key":"9a49740c5034d7ee252d1e1419a10faa"]
     let filterData = ["Team", "Players"]
     var teamId = ""
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -24,7 +24,7 @@ class PlayersViewController: UIViewController{
         secondCollectionView.delegate = self
         secondCollectionView.dataSource = self
     }
- 
+    
     
 }
 
@@ -49,7 +49,7 @@ extension PlayersViewController: UICollectionViewDataSource{
             
         case secondCollectionView :
             let infoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCellId", for: indexPath) as! PlayerCollectionViewCell
-           
+            
             infoCell.backgroundColor = UIColor(red: 221/255, green: 223/255, blue: 228/255, alpha: 1)
             
             
@@ -57,7 +57,7 @@ extension PlayersViewController: UICollectionViewDataSource{
             
         case firstCollectionView :
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCellID", for: indexPath) as! FilterCell
-           
+            
             return filterCell
         default:
             return UICollectionViewCell()

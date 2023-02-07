@@ -64,7 +64,7 @@ class DetailViewController: UIViewController {
         loadLiveBase()
         realmObjectToArray()
         checkSavedButtonState()
-      
+        
         
         
     }
@@ -76,7 +76,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-   private func checkSavedButtonState(){
+    private func checkSavedButtonState(){
         for i in realmArray{
             if i.gameId == data[0].fixture?.id!{
                 self.saveButton.setImage(UIImage(named: "savedStar"), for: .normal)
@@ -102,10 +102,10 @@ class DetailViewController: UIViewController {
             }
         }
     }
-  
     
-  
-
+    
+    
+    
     @objc func homeTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let main = UIStoryboard(name: "Main", bundle: nil)
@@ -161,7 +161,7 @@ class DetailViewController: UIViewController {
         })
     }
     
-  private func saveToRealm(){
+    private func saveToRealm(){
         
         let infoBaseRealm = InfoBaseRealm()
         infoBaseRealm.gameId = data[0].fixture?.id ?? 0
@@ -189,7 +189,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-     
+        
         
         switch collectionView{
         case filterCollectionView : UIDevice.onOffVibration()
@@ -250,8 +250,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         
         
-      
-          
+        
+        
         
         
     }

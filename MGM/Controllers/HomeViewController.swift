@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     private var leageId = 0
     private var toggleColorCell = false
     private var colorHeaderView: [UIColor] = []
-
+    
     
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         
         //додаємо на перше місце загальний масив (де будуть усі дані)
         leages.insert("All", at: 0)
-      
+        
     }
     
     
